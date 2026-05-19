@@ -5,7 +5,7 @@ export const data = {
     role: "Digital Multimedia Technology Student & Interactive Media Developer",
     description:
       "Saya adalah mahasiswa Teknik Multimedia Digital semester 6 di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam pengembangan media interaktif Roblox, UI/UX, prototipe web, dan aplikasi Android. Saya terbiasa berkontribusi dalam desain visual, implementasi teknis, riset, pengujian, dokumentasi, serta penggunaan AI tools sebagai pendukung workflow dan validasi manual.",
-    avatarUrl: "https://picsum.photos/seed/jan-albireo-portfolio/400/400"
+    avatarUrl: "/imgprofil.png"
   },
 
   about: {
@@ -68,7 +68,7 @@ export const data = {
         "Proximity Prompt",
         "MDLC"
       ],
-      imageUrl: "https://picsum.photos/seed/seamolec-virtual-room-tour/600/400",
+      imageUrl: "/imgproject1.png",
       link: "#"
     },
     {
@@ -91,7 +91,7 @@ export const data = {
         "Level Design",
         "Educational Game"
       ],
-      imageUrl: "https://picsum.photos/seed/edufun-obby-roblox/600/400",
+      imageUrl: "/imgproject2.png",
       link: "#"
     },
     {
@@ -115,7 +115,7 @@ export const data = {
         "Web Prototype",
         "UI Iteration"
       ],
-      imageUrl: "https://picsum.photos/seed/trackstudio-tracklabid/600/400",
+      imageUrl: "/imgproject3.png",
       link: "#"
     },
     {
@@ -139,7 +139,7 @@ export const data = {
         "App Navigation",
         "Academic Project"
       ],
-      imageUrl: "https://picsum.photos/seed/university-android-redesign/600/400",
+      imageUrl: "/imgproject4.png",
       link: "#"
     }
   ],
