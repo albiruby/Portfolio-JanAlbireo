@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-gray-50 dark:bg-[#080808] text-gray-900 dark:text-[#f5f5f5] selection:bg-indigo-300 dark:selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-200`} suppressHydrationWarning>
+    <html lang="id" className="scroll-smooth w-full overflow-x-hidden" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#fafafa] dark:bg-slate-950 text-gray-900 dark:text-[#f5f5f5] selection:bg-sky-100 selection:text-sky-900 dark:selection:bg-sky-900/30 dark:selection:text-sky-100 w-full overflow-x-hidden min-h-[100vh]`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

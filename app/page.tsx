@@ -1,127 +1,287 @@
-import { data } from "@/lib/portfolio-data";
-import { ArrowUpRight, Download, Mail } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { ArrowUpRight, Download, Sun, Moon, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { content } from "@/lib/i18n";
 
 export default function PortfolioPage() {
+  const [lang, setLang] = useState<"en" | "id">("en");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const initialize = () => {
+      const savedLang = localStorage.getItem("lang");
+      if (savedLang === "id") setLang("id");
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        setTheme("dark");
+        document.documentElement.classList.add("dark");
+      } else {
+        setTheme("light");
+        document.documentElement.classList.remove("dark");
+      }
+      setMounted(true);
+    };
+    initialize();
+  }, []);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  const toggleLang = (newLang: "en" | "id") => {
+    setLang(newLang);
+    localStorage.setItem("lang", newLang);
+  };
+
+  if (!mounted) {
+    // Return empty placeholder with same background to prevent hydration mismatch and layout shift
+    return <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950"></div>;
+  }
+
+  const t = content[lang];
+
   return (
-    <div className="min-h-screen bg-[#fafafa] text-gray-600 font-sans selection:bg-blue-100 selection:text-blue-900 scroll-smooth">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#fafafa] dark:bg-slate-950 text-slate-600 dark:text-slate-400 font-sans selection:bg-sky-100 selection:text-sky-900 scroll-smooth relative transition-colors duration-300">
+      {/* Subtle Noise Texture Overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.025] dark:opacity-[0.04] mix-blend-multiply dark:mix-blend-overlay z-50" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
+
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full bg-[#fafafa]/95 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <Link href="/" className="font-extrabold text-2xl tracking-tighter text-[#111] uppercase" title="Jan Albireo">
-            STUDIO
+      <header className="sticky top-0 z-50 w-full bg-[#fafafa]/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 h-20 md:h-24 flex items-center justify-between">
+          <Link href="/" className="font-bold text-2xl tracking-tighter text-slate-950 dark:text-white flex items-center shrink-0" title="Jan Albireo">
+            STUDIO<span className="text-sky-600 dark:text-sky-400 ml-0.5 text-3xl leading-none">.</span>
           </Link>
-          <nav className="hidden md:flex gap-10">
+          
+          <nav className="hidden lg:flex gap-8">
             {[
-              { id: 'home', label: 'Home' },
-              { id: 'work', label: 'Work' },
-              { id: 'about', label: 'About' },
-              { id: 'skills', label: 'Skills' },
-              { id: 'education', label: 'Education' },
-              { id: 'contact', label: 'Contact' }
+              { id: 'home', label: t.nav.home },
+              { id: 'work', label: t.nav.work },
+              { id: 'about', label: t.nav.about },
+              { id: 'skills', label: t.nav.skills },
+              { id: 'education', label: t.nav.education },
+              { id: 'contact', label: t.nav.contact }
             ].map((item) => {
               const isActive = item.id === 'home';
               const href = item.id === 'home' ? '#home' : item.id === 'work' ? '#projects' : `#${item.id}`;
               return (
-                <a key={item.id} href={href} className={`text-[13px] font-semibold tracking-wide transition-colors pb-1 border-b-2 items-center flex ${isActive ? 'text-[#111] border-[#5c7a8c]' : 'text-gray-500 hover:text-[#111] border-transparent'}`}>
+                <a key={item.id} href={href} className={`text-[13px] font-semibold tracking-wide transition-colors pb-1 border-b-2 items-center flex ${isActive ? 'text-slate-950 dark:text-white border-sky-600 dark:border-sky-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white border-transparent'}`}>
                   {item.label}
                 </a>
               );
             })}
           </nav>
-          <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center justify-center px-8 py-3 bg-[#111] text-white text-[13px] font-bold rounded-sm shadow-sm hover:shadow-md hover:bg-black transition-all">
-            Download CV
-          </a>
+
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            {/* Language Toggle */}
+            <div className="flex items-center bg-slate-200/50 dark:bg-slate-800/50 p-1 rounded-full">
+              <button 
+                onClick={() => toggleLang("en")} 
+                aria-label="Switch to English"
+                className={`text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${lang === 'en' ? 'bg-slate-950 text-white dark:bg-slate-100 dark:text-slate-950 shadow-sm' : 'text-slate-500 dark:text-slate-400'}`}
+              >
+                EN
+              </button>
+              <button 
+                onClick={() => toggleLang("id")} 
+                aria-label="Switch to Indonesia"
+                className={`text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${lang === 'id' ? 'bg-slate-950 text-white dark:bg-slate-100 dark:text-slate-950 shadow-sm' : 'text-slate-500 dark:text-slate-400'}`}
+              >
+                ID
+              </button>
+            </div>
+            
+            {/* Theme Toggle */}
+            <button 
+              onClick={toggleTheme} 
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" 
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            </button>
+
+            {/* Download CV - Desktop */}
+            <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full shadow-sm hover:bg-slate-800 dark:hover:bg-white transition-colors">
+              {t.nav.downloadCV}
+            </a>
+
+            {/* Mobile Menu Toggle */}
+            <button 
+              onClick={() => setMenuOpen(!menuOpen)} 
+              className="lg:hidden w-9 h-9 flex items-center justify-center text-slate-950 dark:text-white shrink-0"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+        
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[#fafafa] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-xl py-6 px-6 flex flex-col gap-6">
+            <nav className="flex flex-col gap-4">
+              {[
+                { id: 'home', label: t.nav.home },
+                { id: 'work', label: t.nav.work },
+                { id: 'about', label: t.nav.about },
+                { id: 'skills', label: t.nav.skills },
+                { id: 'education', label: t.nav.education },
+                { id: 'contact', label: t.nav.contact }
+              ].map((item) => {
+                const href = item.id === 'home' ? '#home' : item.id === 'work' ? '#projects' : `#${item.id}`;
+                return (
+                  <a key={item.id} href={href} onClick={() => setMenuOpen(false)} className={`text-base font-bold tracking-wide transition-colors ${item.id === 'home' ? 'text-sky-700 dark:text-sky-400' : 'text-slate-700 dark:text-slate-300'}`}>
+                    {item.label}
+                  </a>
+                );
+              })}
+            </nav>
+            <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" onClick={() => setMenuOpen(false)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[14px] font-bold rounded-full shadow-sm">
+              {t.nav.downloadCV}
+            </a>
+          </div>
+        )}
       </header>
 
       <main>
         {/* HERO SECTION */}
-        <section id="home" className="max-w-7xl mx-auto px-6 pt-24 pb-32 grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-[11px] font-bold text-gray-600 uppercase tracking-wider shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-              Open for Internship Opportunities
+        <section id="home" className="relative mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 pt-16 md:pt-20 lg:pt-24 pb-20 md:pb-24 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 sm:gap-12 lg:gap-16 items-center">
+          {/* Subtle faint dotted background for Hero */}
+          <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+          {/* Soft pale cyan radial gradient on the right */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-100/40 dark:bg-cyan-900/10 rounded-full blur-[100px] opacity-60 pointer-events-none"></div>
+
+          <div className="space-y-6 sm:space-y-8 relative z-10">
+            <div className="flex flex-col items-start gap-4">
+              <span className="text-[10px] sm:text-[11px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
+                {t.hero.intro}
+              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100/50 dark:border-sky-800/50 rounded-full text-[10px] sm:text-[11px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400"></span>
+                {t.hero.badge}
+              </div>
             </div>
             
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-[#111] leading-[1.05]">
-                Designing interactive media, web prototypes, and digital products.
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-bold tracking-tight text-slate-950 dark:text-white leading-[1.1] sm:leading-[1.05]">
+                {t.hero.headingText1}
+                <span className="relative inline-block mx-1.5">
+                  <span className="relative z-10 text-sky-800 dark:text-sky-400 focus:outline-none">{t.hero.headingHighlight}</span>
+                  <span className="absolute bottom-1 sm:bottom-1.5 left-0 w-full h-2 sm:h-3 bg-sky-100 dark:bg-sky-900/40 -z-10"></span>
+                </span>
+                {t.hero.headingText2}
               </h1>
               
-              <h2 className="text-xl md:text-2xl font-medium text-[#5c7a8c] leading-snug">
-                Jan Albireo — Digital Multimedia Technology Student & Interactive Media Developer
+              <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 leading-snug">
+                Jan Albireo — {t.hero.role1} <span className="text-slate-800 dark:text-slate-200">{t.hero.role2}</span>
               </h2>
             </div>
             
-            <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-              Saya adalah mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam Roblox interactive media, UI/UX, web prototype, Android app development, testing, dan documentation.
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl border-l-2 border-slate-200 dark:border-slate-800 pl-4">
+              {t.hero.description}
             </p>
             
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="/CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-[#f4f6f7] border border-gray-200 text-[#111] text-[13px] font-bold rounded-full hover:bg-white hover:border-gray-300 transition-colors gap-3">
-                Download Resume <Download className="w-4 h-4" />
+            <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <a href="#projects" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[12px] sm:text-[13px] font-bold rounded-full hover:bg-slate-800 dark:hover:bg-white transition-colors shadow-sm gap-2">
+                {t.hero.primaryCta} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-[#111] text-[13px] font-bold rounded-full hover:text-blue-600 transition-colors gap-2">
-                View Work <ArrowUpRight className="w-4 h-4" />
+              <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-transparent border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-[12px] sm:text-[13px] font-bold rounded-full hover:border-sky-600 hover:text-sky-700 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors gap-2">
+                {t.hero.secondaryCta} <Download className="w-4 h-4" />
               </a>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-6 pb-2">
-              {['Roblox Interactive Media', 'UI/UX', 'Web Prototype', 'Android App'].map((pill, idx) => (
-                <span key={idx} className="text-[11px] font-bold text-gray-500 uppercase tracking-widest px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm">
+            <div className="flex flex-wrap gap-2 pt-4 sm:pt-6 pb-2">
+              {t.hero.pills.map((pill, idx) => (
+                <span key={idx} className="text-[10px] sm:text-[11px] font-medium text-slate-600 dark:text-slate-300 uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 rounded-full shadow-sm">
                   {pill}
                 </span>
               ))}
             </div>
           </div>
           
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
-            <div className="absolute inset-0 rounded-[2rem] overflow-hidden bg-[#f4f6f7] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100">
-              <Image src="/imgprofil.png" alt="Jan Albireo" fill priority className="object-cover" referrerPolicy="no-referrer" />
+          <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md mx-auto z-10 flex flex-col items-center mt-4 lg:mt-0">
+            <div className="relative w-full aspect-[4/5] max-h-[420px] rounded-[1.5rem] overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none ring-1 ring-slate-200/50 dark:ring-slate-800">
+              <Image src="https://picsum.photos/seed/profil/500/625" alt="Jan Albireo" fill priority className="object-cover" referrerPolicy="no-referrer" />
+              <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-black/5 dark:ring-white/5 pointer-events-none"></div>
             </div>
+            <p className="text-[10px] sm:text-[11px] font-medium text-slate-400 dark:text-slate-500 tracking-widest uppercase mt-4 text-center">
+              {t.hero.portfolioYear}
+            </p>
+          </div>
+        </section>
+
+
+        {/* PROFILE SNAPSHOT */}
+        <section className="bg-white dark:bg-slate-950 py-16 md:py-20 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {t.snapshot.map((snap, idx) => (
+              <div key={idx} className="p-6 rounded-[1rem] bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 shadow-sm hover:border-sky-200 dark:hover:border-sky-800 transition-colors">
+                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest block mb-3">
+                  0{idx + 1}
+                </span>
+                <h4 className="text-[15px] font-bold text-slate-950 dark:text-white mb-2">{snap.title}</h4>
+                <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {snap.description}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-[0.8fr_1.2fr] gap-16 items-start border-t border-gray-200">
-          <div className="relative w-full max-w-sm mx-auto aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden bg-[#f4f6f7] shadow-sm border border-gray-100">
-             <Image src="/imgprofil.png" alt="Jan Albireo" fill className="object-cover" />
+        <section id="about" className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 md:py-24 grid md:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
+          <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm mx-auto aspect-[3/4] md:aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none border border-slate-200/50 dark:border-slate-800">
+             <Image src="https://picsum.photos/seed/profil/500/625" alt="Jan Albireo" fill className="object-cover" referrerPolicy="no-referrer" />
           </div>
-          <div className="space-y-8">
-            <h2 className="text-sm font-bold text-gray-400 uppercase tracking-[0.2em]">About</h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-[#111] leading-[1.1] tracking-tight">
-              Bridging the gap between interactive media and digital product.
-            </h3>
-            <div className="text-lg text-gray-600 leading-relaxed space-y-6">
-              <p>
-                Saya terbiasa mengerjakan proyek multimedia digital yang menggabungkan aspek visual, teknis, dokumentasi, dan pengalaman pengguna. Dalam beberapa proyek akademik maupun personal, saya berkontribusi pada environment design, UI/UX, Lua scripting, web prototyping, Android development, testing scenario, research documentation, dan academic report writing.
-              </p>
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.about.section}</span>
+              <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
             </div>
-            <div className="pt-8 border-t border-gray-200">
-              <p className="text-[13px] text-gray-500 leading-relaxed italic">
-                * AI tools are used as supporting resources for references, debugging, ideation, and documentation structure with manual review and validation.
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white leading-[1.2] tracking-tight">
+              {t.about.headline}
+            </h3>
+            <div className="h-1 w-12 bg-sky-200 dark:bg-sky-800 rounded-full"></div>
+            <div className="text-[15px] md:text-base text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+              <p>{t.about.paragraph}</p>
+            </div>
+            <div className="pt-6 sm:pt-8 border-t border-slate-200 dark:border-slate-800">
+              <p className="text-[12px] text-slate-500 dark:text-slate-500 leading-relaxed italic">
+                {t.about.aiNote}
               </p>
             </div>
           </div>
         </section>
 
         {/* INTERNSHIP INTEREST */}
-        <section className="bg-[#f4f6f7] py-24 border-y border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[0.8fr_1.2fr] gap-16 items-start">
+        <section className="bg-slate-50 dark:bg-slate-900/40 py-16 md:py-24 border-y border-slate-200 dark:border-slate-800 transition-colors duration-300">
+          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid md:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-[#111]">Internship Interest</h2>
-              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                Saya terbuka untuk kesempatan magang yang berhubungan dengan pengembangan produk digital, media interaktif, UI/UX, web application, game development, Android development, dan multimedia production.
+               <div className="flex items-center gap-4 mb-2">
+                 <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.internship.section}</span>
+               </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white">{t.internship.title}</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[14px] sm:text-[15px] md:text-base pt-2 border-t border-slate-200 dark:border-slate-800">
+                {t.internship.description}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {[
-                "UI/UX Designer Intern", "Front-End Developer Intern", "Interactive Media Developer Intern",
-                "Game Developer Intern", "Android Developer Intern", "Multimedia Designer Intern"
-              ].map((role, idx) => (
-                <span key={idx} className="px-5 py-2.5 bg-white border border-gray-200 text-[#111] font-bold text-[13px] rounded-full text-center shadow-sm">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              {t.internship.roles.map((role, idx) => (
+                <span key={idx} className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-[12px] sm:text-[13px] rounded-full text-center shadow-sm">
                   {role}
                 </span>
               ))}
@@ -130,124 +290,128 @@ export default function PortfolioPage() {
         </section>
 
         {/* SELECTED WORKS SECTION */}
-        <section id="projects" className="max-w-7xl mx-auto px-6 py-32">
-          <div className="mb-20 max-w-3xl">
-            <h2 className="text-5xl font-bold text-[#111] tracking-tight mb-6">Selected Work</h2>
-            <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-              Selected project-based experiences in interactive media, game development, web prototype, and Android implementation.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-24">
-            {data.projects.map((project, idx) => {
-              const isWide = idx === 0 || idx === 3;
-              const displayTags = project.tags.slice(0, 5);
-              const remainingTags = project.tags.length - 5;
-              
-              return (
-                <div key={idx} className={`group flex flex-col gap-6 ${isWide ? 'md:col-span-2' : 'md:col-span-1'}`}>
-                  {/* Image container */}
-                  <div className={`relative w-full rounded-[0.75rem] overflow-hidden bg-[#f4f6f7] ${isWide ? 'aspect-[16/9] md:aspect-[21/9]' : 'aspect-[4/3]'} border border-gray-200/60`}>
-                    <Image 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      fill 
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" 
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  
-                  {/* Content container */}
-                  <div className="space-y-4">
-                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                      <div className="space-y-1.5">
-                        <h3 className="text-2xl md:text-3xl font-bold text-[#111] leading-tight flex items-center gap-3">
-                          {project.title}
-                          <ArrowUpRight className="w-6 h-6 text-gray-300 opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
-                        </h3>
-                        <p className="text-[12px] font-bold text-gray-500 uppercase tracking-[0.15em]">
-                          {project.category} • {project.period}
+        <section id="projects" className="bg-slate-50 dark:bg-slate-900/50 py-20 lg:py-24 border-y border-slate-200 dark:border-slate-800 relative transition-colors duration-300">
+          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
+            <div className="mb-12 max-w-3xl">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.work.section}</span>
+                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[100px]"></div>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-950 dark:text-white tracking-tight mb-4">{t.work.title}</h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                {t.work.subtitle}
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {t.work.projects.map((project, idx) => {
+                const displayTags = project.tags.slice(0, 4);
+                const remainingTags = project.tags.length - 4;
+                
+                return (
+                  <article key={idx} className="group flex h-full min-h-[430px] flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
+                      <Image 
+                        src={project.imageUrl} 
+                        alt={project.title} 
+                        fill 
+                        className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" 
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    
+                    <div className="flex flex-1 flex-col p-5">
+                      <div className="mb-3 flex items-center justify-between gap-2">
+                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
+                          {project.category} · {project.period}
                         </p>
-                      </div>
-                      <span className="shrink-0 inline-flex items-center px-3 py-1 bg-gray-100 border border-gray-200 rounded-md text-[10px] font-bold text-gray-600 uppercase tracking-wider">
-                        {project.status}
-                      </span>
-                    </div>
-                    
-                    <div className="text-gray-600 leading-relaxed space-y-4 max-w-4xl">
-                      <p className="text-base text-gray-800">{project.description}</p>
-                      <div className="text-sm space-y-2 border-l-2 border-gray-200 pl-4">
-                        <p><span className="font-bold text-[#111]">Role:</span> {project.role}</p>
-                        <p><span className="font-bold text-[#111]">Contribution:</span> {project.contribution}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="pt-2 flex flex-wrap gap-2">
-                      {displayTags.map((tag, tIdx) => (
-                        <span key={tIdx} className="text-[11px] bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-md font-medium shadow-sm">
-                          {tag}
+                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
+                          {project.status}
                         </span>
-                      ))}
-                      {remainingTags > 0 && (
-                        <span className="text-[11px] bg-[#f4f6f7] border border-gray-200 text-gray-500 px-3 py-1.5 rounded-md font-bold shadow-sm">
-                          +{remainingTags} more
-                        </span>
-                      )}
+                      </div>
+                      
+                      <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
+                        <span className="line-clamp-2">{project.title}</span>
+                      </h3>
+                      
+                      <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                        {project.description}
+                      </div>
+
+                      <div className="mb-4 space-y-1.5 flex-1">
+                        <p className="text-xs flex gap-1.5"><span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">{t.work.roleLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-1">{project.role}</span></p>
+                        <p className="text-xs flex flex-col gap-0.5"><span className="font-semibold text-slate-900 dark:text-slate-200">{t.work.contributionLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">{project.contribution}</span></p>
+                      </div>
+                      
+                      <div className="pt-4 flex flex-wrap gap-1.5 mt-auto border-t border-slate-100 dark:border-slate-800">
+                        {displayTags.map((tag, tIdx) => (
+                          <span key={tIdx} className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium">
+                            {tag}
+                          </span>
+                        ))}
+                        {remainingTags > 0 && (
+                          <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold">
+                            +{remainingTags} {t.work.moreLabel}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 
-        {/* SKILLS & EDUCATION (Academic Trajectory style) */}
-        <section id="skills" className="bg-[#f4f6f7] py-24 md:py-32 border-y border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-24">
+        {/* SKILLS & EDUCATION */}
+        <section id="skills" className="bg-white dark:bg-slate-950 py-20 lg:py-24 transition-colors duration-300">
+          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
             
             {/* Left: Skills */}
             <div>
-              <h2 className="text-3xl font-bold text-[#111] mb-12 border-b border-gray-300 pb-4">Expertise & Toolkit</h2>
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.skills.section}</span>
+                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
+              </div>
+              <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">{t.skills.title}</h2>
+              
               <div className="space-y-6">
-                 {/* Card 1 */}
-                 <div className="p-8 bg-white border border-gray-200 rounded-[1rem] shadow-sm">
-                   <h4 className="font-bold text-[#111] text-xl mb-4">Interactive Media & Game</h4>
-                   <p className="text-gray-600 leading-relaxed text-sm">
-                     Roblox Studio, Lua, Unity, 3D Virtual Tour, Game Development
-                   </p>
-                 </div>
-                 {/* Card 2 */}
-                 <div className="p-8 bg-white border border-gray-200 rounded-[1rem] shadow-sm">
-                   <h4 className="font-bold text-[#111] text-xl mb-4">Web & App Development</h4>
-                   <p className="text-gray-600 leading-relaxed text-sm">
-                     HTML, CSS, JavaScript, TypeScript / TSX, React, Tailwind CSS, Java, Kotlin, Android Studio
-                   </p>
-                 </div>
-                 {/* Card 3 */}
-                 <div className="p-8 bg-white border border-gray-200 rounded-[1rem] shadow-sm">
-                   <h4 className="font-bold text-[#111] text-xl mb-4">Design & Multimedia</h4>
-                   <p className="text-gray-600 leading-relaxed text-sm">
-                     Figma, Canva, CapCut, Adobe Photoshop, Adobe Illustrator, Autodesk Maya, Blender
-                   </p>
-                 </div>
-                 {/* Card 4 */}
-                 <div className="p-8 bg-white border border-gray-200 rounded-[1rem] shadow-sm">
-                   <h4 className="font-bold text-[#111] text-xl mb-4">Technical Workflow</h4>
-                   <p className="text-gray-600 leading-relaxed text-sm">
-                     GitHub / Version Control, Arduino, ESP32, Wokwi, Documentation, Functional Testing, Problem Solving
-                   </p>
-                 </div>
+                {t.skills.categories.map((cat, idx) => (
+                  <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-200 dark:hover:border-sky-700 transition-colors rounded-[1rem] shadow-sm group">
+                    <div className="w-10 h-10 rounded-full bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center mb-6 text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
+                      <span className="w-3 h-3 rounded-full bg-sky-400 dark:bg-sky-500"></span>
+                    </div>
+                    <h4 className="font-bold text-slate-950 dark:text-white text-lg mb-4">{cat.name}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.items.map((s, i) => {
+                         // Distinct style for first category just for variety like original
+                         if (idx === 0) {
+                           return (
+                             <span key={i} className="text-[11px] bg-sky-50 dark:bg-sky-900/30 text-sky-800 dark:text-sky-300 border border-sky-100 dark:border-sky-800 px-3 py-1 rounded-full font-medium">
+                               {s}
+                             </span>
+                           );
+                         } 
+                         return (
+                           <span key={i} className="text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-3 py-1 rounded-full font-medium">
+                             {s}
+                           </span>
+                         );
+                      })}
+                    </div>
+                  </div>
+                ))}
 
                  {/* Compact list */}
                  <div className="pt-6 space-y-4">
-                   <div className="flex border-b border-gray-200 pb-4">
-                     <span className="w-1/3 font-bold text-[#111] text-sm">Languages</span>
-                     <span className="w-2/3 text-gray-600 text-sm">Indonesian - Native, English - Intermediate</span>
+                   <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4">
+                     <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest">{t.skills.languagesLbl}</span>
+                     <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px]">{t.skills.languagesVal}</span>
                    </div>
                    <div className="flex">
-                     <span className="w-1/3 font-bold text-[#111] text-sm">Soft Skills</span>
-                     <span className="w-2/3 text-gray-600 text-sm leading-relaxed">
-                       Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking
+                     <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest">{t.skills.softSkillsLbl}</span>
+                     <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed">
+                       {t.skills.softSkillsVal}
                      </span>
                    </div>
                  </div>
@@ -256,117 +420,124 @@ export default function PortfolioPage() {
 
             {/* Right: Education & Recognition */}
             <div id="education">
-               <h2 className="text-3xl font-bold text-[#111] mb-12 border-b border-gray-300 pb-4">Academic Trajectory</h2>
+               <div className="flex items-center gap-4 mb-8">
+                 <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.education.section}</span>
+                 <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
+               </div>
+               <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">{t.education.title}</h2>
+               
                <div className="space-y-12 mb-16">
-                 {/* Education 1 */}
-                 <div className="relative pl-6 border-l border-gray-300">
-                   <div className="absolute w-3 h-3 bg-[#f4f6f7] border-[3px] border-[#111] rounded-full -left-[6.5px] top-1"></div>
-                   <span className="text-xs font-bold text-[#5c7a8c] uppercase tracking-widest mb-2 block">Sep 2023 – Present</span>
-                   <h3 className="text-xl font-bold text-[#111] mb-1">D4 / Applied Bachelor Degree in Teknik Multimedia Digital</h3>
-                   <p className="text-sm font-medium text-[#111]">Politeknik Negeri Jakarta</p>
-                   <p className="text-sm text-gray-500 mb-4">Depok, Indonesia</p>
-                   <div className="text-sm text-gray-600 leading-relaxed">
-                     <span className="font-bold text-[#111]">Relevant Coursework:</span> Interactive Multimedia, UI/UX Design, 3D Modeling and Animation, Game Development, Web Programming, Mobile Programming, Database, Embedded System, IoT, Digital Multimedia Production.
+                 {t.education.items.map((ed, i) => (
+                   <div key={i} className="relative pl-8 border-l border-sky-200 dark:border-sky-800">
+                     <div className="absolute w-3 h-3 bg-white dark:bg-slate-950 border-2 border-sky-400 dark:border-sky-500 rounded-full -left-[7px] top-1"></div>
+                     <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">{ed.period}</span>
+                     <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-1">{ed.degree}</h3>
+                     <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">{ed.school}</p>
+                     <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">{ed.location}</p>
+                     
+                     {ed.relevantCourseworkText && (
+                       <div className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+                         <span className="font-bold text-slate-900 dark:text-slate-200 block mb-1">{ed.relevantCourseworkText}</span> 
+                         {ed.relevantCourseworkValue}
+                       </div>
+                     )}
                    </div>
-                 </div>
-                 
-                 {/* Education 2 */}
-                 <div className="relative pl-6 border-l border-gray-300">
-                   <div className="absolute w-3 h-3 bg-[#f4f6f7] border-[3px] border-[#111] rounded-full -left-[6.5px] top-1"></div>
-                   <span className="text-xs font-bold text-[#5c7a8c] uppercase tracking-widest mb-2 block">2020 – 2023</span>
-                   <h3 className="text-xl font-bold text-[#111] mb-1">Senior High School</h3>
-                   <p className="text-sm font-medium text-[#111]">SMA Regina Pacis Bogor</p>
-                   <p className="text-sm text-gray-500">Bogor, Indonesia</p>
-                 </div>
+                 ))}
                </div>
 
-               <h2 className="text-3xl font-bold text-[#111] mb-12 border-b border-gray-300 pb-4">Recognition / Training</h2>
+               <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">{t.certification.title}</h2>
                <div className="space-y-6">
-                 <div className="p-8 bg-white border border-gray-200 rounded-[1rem] shadow-sm">
-                   <span className="text-xs font-bold text-[#5c7a8c] uppercase tracking-widest mb-2 block">Jul 2025</span>
-                   <h4 className="text-xl font-bold text-[#111] mb-1">Intermediate Multimedia Designer - Vocational School Graduate Academy</h4>
-                   <p className="text-sm font-medium text-[#111]">Digital Talent Scholarship 2025</p>
-                   <p className="text-sm text-gray-500 mb-4">BPSDMP Jakarta</p>
-                   <p className="text-sm text-gray-600 leading-relaxed">
-                     Completed a 24-hour training program covering multimedia design fundamentals, digital production, and applied creative workflow.
-                   </p>
-                 </div>
+                 {t.certification.items.map((cert, idx) => (
+                   <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 border-l-4 border-l-sky-400 dark:border-l-sky-500 rounded-[1rem] shadow-sm">
+                     <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">{cert.period}</span>
+                     <h4 className="text-lg font-bold text-slate-950 dark:text-white mb-1 leading-snug">{cert.program}</h4>
+                     <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">{cert.organizer}</p>
+                     <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">{cert.location}</p>
+                     <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                       {cert.description}
+                     </p>
+                   </div>
+                 ))}
                </div>
+               
+               <h2 className="text-3xl font-bold text-slate-950 dark:text-white mt-16 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">{t.academicExperience.title}</h2>
+               <div className="space-y-6">
+                  {t.academicExperience.items.map((exp, idx) => (
+                    <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 border-l-4 border-l-slate-400 dark:border-l-slate-500 rounded-[1rem] shadow-sm">
+                      <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">{exp.period}</span>
+                      <h4 className="text-lg font-bold text-slate-950 dark:text-white mb-1 leading-snug">{exp.title}</h4>
+                      <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">{exp.role}</p>
+                      <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">{exp.location}</p>
+                      <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {exp.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-[12px] leading-relaxed">
+                            <span className="w-1 h-1 rounded-full bg-slate-400 mt-2 shrink-0"></span>
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+               </div>
+               
             </div>
 
-          </div>
-        </section>
-
-        {/* ACADEMIC TEAM EXPERIENCE */}
-        <section className="bg-white py-24 md:py-32 border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6">
-             <div className="max-w-3xl">
-               <h2 className="text-3xl font-bold text-[#111] mb-12 border-b border-gray-200 pb-4">Academic Team Experience</h2>
-               <div className="space-y-4">
-                 <h3 className="text-2xl font-bold text-[#111]">Semester-Based Multimedia Projects</h3>
-                 <p className="text-sm font-bold text-[#5c7a8c] uppercase tracking-[0.1em]">2023 – Present • Politeknik Negeri Jakarta</p>
-                 <p className="text-base font-medium text-[#111] pb-2">Project Contributor / Team Coordinator</p>
-                 <p className="text-gray-600 leading-relaxed text-base">
-                   Worked on team-based semester projects including simple websites, 2D/3D games, Unity educational games, IoT simulations with Arduino/ESP32, and multimedia applications.
-                 </p>
-                 <ul className="space-y-3 pt-2">
-                   <li className="flex items-start gap-3 text-gray-600 text-sm leading-relaxed">
-                     <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 shrink-0"></span>
-                     Adapted roles across concept development, design, development, testing, documentation, presentation, and problem-solving.
-                   </li>
-                   <li className="flex items-start gap-3 text-gray-600 text-sm leading-relaxed">
-                     <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 shrink-0"></span>
-                     Contributed to project planning, technical implementation, team coordination, and academic presentation.
-                   </li>
-                 </ul>
-               </div>
-             </div>
           </div>
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-start">
-          <div className="space-y-12">
+        <section id="contact" className="relative mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-start border-t border-slate-200 dark:border-slate-800 overflow-hidden transition-colors duration-300">
+          {/* Subtle contact background gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-50/50 dark:from-cyan-900/10 via-transparent to-transparent pointer-events-none -z-10"></div>
+          
+          <div className="space-y-12 relative z-10">
             <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-[#111] tracking-tight mb-8">Get in touch</h2>
-              <p className="text-xl text-gray-800 leading-relaxed mb-4 max-w-md">
-                Saya terbuka untuk kesempatan magang, kolaborasi akademik, dan pengembangan proyek digital interaktif.
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">{t.contact.section}</span>
+                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-bold text-slate-950 dark:text-white tracking-tight mb-8">{t.contact.title}</h2>
+              <p className="text-[15px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-4 max-w-md">
+                {t.contact.subtitle}
               </p>
-              <p className="text-sm text-gray-600 leading-relaxed max-w-sm">
-                Portfolio ini disusun sebagai ringkasan pengalaman proyek, skill, dan kesiapan saya untuk mengikuti program magang.
+              <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+                {t.contact.microcopy}
               </p>
             </div>
             
-            <div className="space-y-6 pt-6 border-t border-gray-200">
+            <div className="space-y-6 pt-6 border-t border-slate-200/60 dark:border-slate-800/60">
               <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Direct Email</p>
-                <a href="mailto:janalbireo123@gmail.com" className="text-xl sm:text-2xl font-bold text-[#111] hover:text-[#5c7a8c] transition-colors break-all">
+                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">{t.contact.directEmail}</p>
+                <a href="mailto:janalbireo123@gmail.com" className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-white hover:text-sky-700 dark:hover:text-sky-400 transition-colors break-all">
                   janalbireo123@gmail.com
                 </a>
               </div>
               <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-[0.15em] mb-2">Location</p>
-                <p className="text-xl sm:text-2xl font-bold text-[#111]">
-                  Bogor, Indonesia
+                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">{t.contact.location}</p>
+                <p className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-white">
+                  {t.contact.locationValue}
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="bg-[#f4f6f7] p-10 md:p-14 rounded-2xl border border-gray-200 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold text-[#111] mb-8">Connect & Download</h3>
+          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm p-10 md:p-14 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col justify-center relative z-10 shadow-sm">
+            <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-8">{t.contact.connectTitle}</h3>
             <div className="flex flex-col gap-4">
-              <a href="mailto:janalbireo123@gmail.com" className="w-full inline-flex items-center justify-center px-6 py-4 bg-[#111] text-white text-sm font-bold rounded-full hover:bg-gray-800 transition-colors shadow-sm">
-                Email Me
+              <a href="mailto:janalbireo123@gmail.com" className="w-full inline-flex items-center justify-center px-6 py-4 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full hover:bg-slate-800 dark:hover:bg-white hover:shadow-md transition-all shadow-sm">
+                {t.contact.buttons.email}
               </a>
-              <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center px-6 py-4 bg-white text-[#111] border border-gray-200 text-sm font-bold rounded-full hover:border-gray-300 transition-colors shadow-sm">
-                LinkedIn
+              <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center px-6 py-4 bg-white dark:bg-slate-900 text-slate-950 dark:text-white border border-slate-200 dark:border-slate-700 text-[13px] font-bold rounded-full hover:border-sky-300 dark:hover:border-sky-600 hover:text-sky-800 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors shadow-sm">
+                {t.contact.buttons.linkedin}
               </a>
-              <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center px-6 py-4 bg-white text-[#111] border border-gray-200 text-sm font-bold rounded-full hover:border-gray-300 transition-colors shadow-sm">
-                GitHub
+              <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="w-full inline-flex items-center justify-center px-6 py-4 bg-white dark:bg-slate-900 text-slate-950 dark:text-white border border-slate-200 dark:border-slate-700 text-[13px] font-bold rounded-full hover:border-sky-300 dark:hover:border-sky-600 hover:text-sky-800 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors shadow-sm">
+                {t.contact.buttons.github}
               </a>
-              <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="w-full mt-4 inline-flex items-center justify-center px-6 py-4 bg-transparent text-[#111] border-2 border-[#111] text-sm font-bold rounded-full hover:bg-gray-100 transition-colors gap-2">
-                <Download className="w-4 h-4" /> Download CV
+              <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="w-full mt-4 inline-flex items-center justify-center px-6 py-4 bg-transparent text-slate-950 dark:text-white border-2 border-slate-950 dark:border-white text-[13px] font-bold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-sky-800 dark:hover:text-sky-400 transition-colors gap-2">
+                <Download className="w-4 h-4" /> {t.contact.buttons.download}
               </a>
             </div>
           </div>
@@ -375,18 +546,18 @@ export default function PortfolioPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-gray-200 bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <p className="text-sm font-bold text-[#111] tracking-widest uppercase">
+      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 relative z-10 transition-colors duration-300">
+        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <p className="text-[11px] font-bold text-slate-950 dark:text-white tracking-[0.2em] uppercase">
             JAN ALBIREO
           </p>
-          <p className="text-sm text-gray-500">
-            © 2026 Jan Albireo. Digital Multimedia Portfolio.
+          <p className="text-[11px] text-slate-500 dark:text-slate-400 tracking-wide">
+            {t.footer.copyright}
           </p>
           <div className="flex gap-6 items-center">
-              <a href="mailto:janalbireo123@gmail.com" className="text-sm font-bold text-gray-500 hover:text-[#111] transition-colors">Email</a>
-              <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="text-sm font-bold text-gray-500 hover:text-[#111] transition-colors">LinkedIn</a>
-              <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="text-sm font-bold text-gray-500 hover:text-[#111] transition-colors">GitHub</a>
+              <a href="mailto:janalbireo123@gmail.com" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.email}</a>
+              <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.linkedin}</a>
+              <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.github}</a>
           </div>
         </div>
       </footer>

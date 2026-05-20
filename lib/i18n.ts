@@ -1,0 +1,530 @@
+export const content = {
+  en: {
+    nav: {
+      home: "Home",
+      work: "Work",
+      about: "About",
+      skills: "Skills",
+      education: "Education",
+      contact: "Contact",
+      downloadCV: "Download CV"
+    },
+    hero: {
+      intro: "01 / INTRO",
+      badge: "Open for Internship Opportunities",
+      headingText1: "Building ",
+      headingHighlight: "interactive digital",
+      headingText2: " experiences.",
+      role1: "Digital Multimedia Technology Student & ",
+      role2: "Interactive Media Developer",
+      description: "I am a sixth-semester Digital Multimedia Technology student at Politeknik Negeri Jakarta with project-based experience in Roblox interactive media, UI/UX, web prototypes, Android app development, testing, and documentation.",
+      primaryCta: "Selected Work",
+      secondaryCta: "Download Resume",
+      pills: ['Roblox Interactive Media', 'UI/UX', 'Web Prototype', 'Android App'],
+      portfolioYear: "Digital Multimedia Portfolio / 2026"
+    },
+    snapshot: [
+      {
+        title: "6th Semester",
+        description: "Digital Multimedia Technology student at Politeknik Negeri Jakarta."
+      },
+      {
+        title: "4 Featured Projects",
+        description: "Roblox, web prototype, Android app, and educational game projects."
+      },
+      {
+        title: "Interactive Media",
+        description: "Focused on virtual environments, NPC interaction, UI systems, and testing."
+      },
+      {
+        title: "Internship Ready",
+        description: "Open to UI/UX, front-end, game, Android, and multimedia roles."
+      }
+    ],
+    about: {
+      section: "03 / ABOUT",
+      title: "About",
+      headline: "Bridging the gap between interactive media and digital product.",
+      paragraph: "I work on digital multimedia projects that combine visual design, technical implementation, documentation, and user experience. Through academic and personal projects, I have contributed to environment design, UI/UX, Lua scripting, web prototyping, Android development, testing scenarios, research documentation, and academic report writing.",
+      aiNote: "* AI tools are used as supporting resources for references, debugging, ideation, and documentation structure with manual review and validation."
+    },
+    internship: {
+      section: "INTERNSHIP",
+      title: "Internship Interest",
+      description: "I am open to internship opportunities related to digital product development, interactive media, UI/UX, web applications, game development, Android development, and multimedia production.",
+      roles: [
+        "UI/UX Designer Intern", "Front-End Developer Intern", "Interactive Media Developer Intern",
+        "Game Developer Intern", "Android Developer Intern", "Multimedia Designer Intern"
+      ]
+    },
+    work: {
+      section: "02 / SELECTED WORK",
+      title: "Selected Work",
+      subtitle: "Selected project-based experiences in interactive media, game development, web prototypes, Android implementation, and academic multimedia production.",
+      roleLabel: "Role:",
+      contributionLabel: "Contribution:",
+      moreLabel: "more",
+      projects: [
+        {
+          title: "SEAMOLEC Virtual Room Tour",
+          category: "Lecturer-Supervised Academic Project",
+          status: "In Development",
+          period: "2026 – Present",
+          role: "Interactive Media Developer / Roblox Scripter",
+          description: "A Roblox-based 3D virtual room tour developed as an interactive information medium for exploring SEAMOLEC facilities.",
+          contribution: "Focused on Roblox environment design, Lua scripting, NPC guide interaction, Proximity Prompt system, minimap, teleportation, testing scenarios, and academic report writing.",
+          tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
+          imageUrl: "/imgproject1.png"
+        },
+        {
+          title: "Edufun Obby",
+          category: "Academic Project",
+          status: "Academic Prototype",
+          period: "2025",
+          role: "Game Developer / Level Designer",
+          description: "An educational obstacle game in Roblox designed with learning-oriented gameplay flow.",
+          contribution: "Focused on level design, game logic, player interaction, basic UI-related features, and Roblox Studio implementation.",
+          tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
+          imageUrl: "/imgproject2.png"
+        },
+        {
+          title: "Track.Studio / TrackLabID",
+          category: "Personal Project",
+          status: "Web Prototype",
+          period: "2026",
+          role: "Running Analytics & Calculator Web Prototype",
+          description: "A running analytics and calculator web prototype for pace, heart rate zones, training metrics, performance estimation, and training planning.",
+          contribution: "Focused on feature planning, running calculator logic, UI iteration, debugging support, and manual testing.",
+          tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
+          imageUrl: "/imgproject3.png"
+        },
+        {
+          title: "University Website Redesign to Android App",
+          category: "Academic Project",
+          status: "Academic Prototype",
+          period: "2025",
+          role: "Android Developer / UI Implementer",
+          description: "An academic project that recreated a university website concept into an Android application using Android Studio.",
+          contribution: "Focused on Java-based logic, UI layout implementation, app navigation, Android Studio workflow, and debugging.",
+          tags: ["Android Studio", "Java", "Android App", "Mobile Development", "UI Implementation", "App Navigation"],
+          imageUrl: "/imgproject4.png"
+        },
+        {
+          title: "Semester-Based Multimedia Projects",
+          category: "Academic Experience",
+          status: "Ongoing",
+          period: "2023 – Present",
+          role: "Project Contributor / Team Coordinator",
+          description: "Team-based semester projects covering websites, 2D/3D games, Unity educational games, IoT simulations, and multimedia applications.",
+          contribution: "Adapted across concept development, design, development, testing, documentation, presentation, and team coordination.",
+          tags: ["Team Project", "Multimedia", "Documentation", "Testing", "Presentation", "Problem Solving"],
+          imageUrl: "/imgproject1.png"
+        },
+        {
+          title: "Unity Educational Game Prototype",
+          category: "Academic Project",
+          status: "Prototype",
+          period: "2024 – 2025",
+          role: "Game Development Contributor",
+          description: "A Unity-based educational game prototype developed as part of semester-based multimedia learning projects.",
+          contribution: "Contributed to gameplay concept, scene structure, UI flow, testing, and project documentation.",
+          tags: ["Unity", "Game Prototype", "UI Flow", "Educational Game", "Testing", "Documentation"],
+          imageUrl: "/imgproject2.png"
+        },
+        {
+          title: "IoT Simulation with Arduino / ESP32",
+          category: "Academic Project",
+          status: "Simulation Prototype",
+          period: "2024 – 2025",
+          role: "IoT Simulation Contributor",
+          description: "Academic IoT simulation project using Arduino, ESP32, and Wokwi to explore embedded system logic and digital interaction.",
+          contribution: "Worked on simulation setup, logic testing, documentation, and presentation support.",
+          tags: ["Arduino", "ESP32", "Wokwi", "IoT", "Embedded System", "Simulation"],
+          imageUrl: "/imgproject3.png"
+        },
+        {
+          title: "UI/UX Interface Exploration",
+          category: "Academic / Personal Exploration",
+          status: "Design Exploration",
+          period: "2024 – 2026",
+          role: "UI/UX Designer",
+          description: "Interface design exploration focused on layout structure, visual hierarchy, usability, and responsive digital product concepts.",
+          contribution: "Focused on wireframing, visual layout, user flow planning, UI refinement, and design iteration.",
+          tags: ["UI/UX", "Figma", "Wireframe", "Visual Hierarchy", "User Flow", "Responsive Design"],
+          imageUrl: "/imgproject4.png"
+        },
+        {
+          title: "Digital Multimedia Production",
+          category: "Multimedia Project",
+          status: "Project-Based Learning",
+          period: "2023 – Present",
+          role: "Multimedia Project Contributor",
+          description: "Creative multimedia production experience covering visual assets, editing workflow, design tools, and digital content preparation.",
+          contribution: "Worked with design and multimedia tools to support visual production, documentation, and project presentation.",
+          tags: ["Multimedia", "Canva", "CapCut", "Photoshop", "Illustrator", "Visual Production"],
+          imageUrl: "/imgproject1.png"
+        }
+      ]
+    },
+    skills: {
+      section: "04 / TOOLKIT",
+      title: "Expertise & Toolkit",
+      categories: [
+        {
+          name: "Interactive Media & Game",
+          items: ["Roblox Studio", "Lua", "Unity", "3D Virtual Tour", "Game Development"]
+        },
+        {
+          name: "Web & App Development",
+          items: ["HTML", "CSS", "JavaScript", "TypeScript / TSX", "React", "Tailwind CSS", "Java", "Kotlin", "Android Studio"]
+        },
+        {
+          name: "Design & Multimedia",
+          items: ["Figma", "Canva", "CapCut", "Adobe Photoshop", "Adobe Illustrator", "Autodesk Maya", "Blender"]
+        },
+        {
+          name: "Technical Workflow",
+          items: ["GitHub / Version Control", "Arduino", "ESP32", "Wokwi", "Documentation", "Functional Testing", "Problem Solving"]
+        }
+      ],
+      languagesLbl: "Languages",
+      languagesVal: "Indonesian - Native, English - Intermediate",
+      softSkillsLbl: "Soft Skills",
+      softSkillsVal: "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking"
+    },
+    education: {
+      section: "05 / ACADEMIC",
+      title: "Academic Trajectory",
+      items: [
+        {
+          period: "Sep 2023 – Present",
+          degree: "D4 / Applied Bachelor Degree in Digital Multimedia Technology",
+          school: "Politeknik Negeri Jakarta",
+          location: "Depok, Indonesia",
+          relevantCourseworkText: "Relevant Coursework: ",
+          relevantCourseworkValue: "Interactive Multimedia, UI/UX Design, 3D Modeling and Animation, Game Development, Web Programming, Mobile Programming, Database, Embedded System, IoT, Digital Multimedia Production."
+        },
+        {
+          period: "2020 – 2023",
+          degree: "Senior High School",
+          school: "SMA Regina Pacis Bogor",
+          location: "Bogor, Indonesia"
+        }
+      ]
+    },
+    certification: {
+      title: "Recognition / Training",
+      items: [
+        {
+          period: "Jul 2025",
+          program: "Intermediate Multimedia Designer - Vocational School Graduate Academy",
+          organizer: "Digital Talent Scholarship 2025",
+          location: "BPSDMP Jakarta",
+          description: "Completed a 24-hour training program covering multimedia design fundamentals, digital production, and applied creative workflow."
+        }
+      ]
+    },
+    academicExperience: {
+      title: "Academic Team Experience",
+      items: [
+        {
+          period: "2023 – Present",
+          title: "Semester-Based Multimedia Projects",
+          role: "Project Contributor / Team Coordinator",
+          location: "Politeknik Negeri Jakarta",
+          description: "Worked on team-based semester projects including simple websites, 2D/3D games, Unity educational games, IoT simulations with Arduino/ESP32, and multimedia applications.",
+          bullets: [
+            "Adapted roles across concept development, design, development, testing, documentation, presentation, and problem-solving.",
+            "Contributed to project planning, technical implementation, team coordination, and academic presentation."
+          ]
+        }
+      ]
+    },
+    contact: {
+      section: "06 / CONTACT",
+      title: "Get in touch",
+      subtitle: "I am open to internship opportunities, academic collaboration, and interactive digital project development.",
+      microcopy: "This portfolio is prepared as a summary of my project experience, skills, and readiness for internship opportunities.",
+      directEmail: "Direct Email",
+      location: "Location",
+      locationValue: "Bogor, Indonesia",
+      connectTitle: "Connect & Download",
+      buttons: {
+        email: "Email Me",
+        linkedin: "LinkedIn",
+        github: "GitHub",
+        download: "Download CV"
+      }
+    },
+    footer: {
+      copyright: "© 2026 Jan Albireo. Digital Multimedia Portfolio.",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub"
+    }
+  },
+  id: {
+    nav: {
+      home: "Beranda",
+      work: "Karya",
+      about: "Tentang",
+      skills: "Keahlian",
+      education: "Pendidikan",
+      contact: "Kontak",
+      downloadCV: "Unduh CV"
+    },
+    hero: {
+      intro: "01 / INTRO",
+      badge: "Terbuka untuk Kesempatan Magang",
+      headingText1: "Membangun ",
+      headingHighlight: "pengalaman digital",
+      headingText2: " interaktif.",
+      role1: "Mahasiswa Teknik Multimedia Digital & ",
+      role2: "Interactive Media Developer",
+      description: "Saya adalah mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam Roblox interactive media, UI/UX, web prototype, Android app development, testing, dan documentation.",
+      primaryCta: "Lihat Karya",
+      secondaryCta: "Unduh CV",
+      pills: ['Roblox Interactive Media', 'UI/UX', 'Web Prototype', 'Android App'],
+      portfolioYear: "Digital Multimedia Portfolio / 2026"
+    },
+    snapshot: [
+      {
+        title: "Semester 6",
+        description: "Mahasiswa Teknik Multimedia Digital di Politeknik Negeri Jakarta."
+      },
+      {
+        title: "4 Proyek Utama",
+        description: "Proyek Roblox, web prototype, aplikasi Android, dan game edukasi."
+      },
+      {
+        title: "Interactive Media",
+        description: "Berfokus pada virtual environment, NPC interaction, UI system, dan testing."
+      },
+      {
+        title: "Siap Magang",
+        description: "Terbuka untuk role UI/UX, front-end, game, Android, dan multimedia."
+      }
+    ],
+    about: {
+      section: "03 / TENTANG",
+      title: "Tentang",
+      headline: "Menjembatani interactive media dan pengembangan produk digital.",
+      paragraph: "Saya terbiasa mengerjakan proyek multimedia digital yang menggabungkan aspek visual, teknis, dokumentasi, dan pengalaman pengguna. Dalam beberapa proyek akademik maupun personal, saya berkontribusi pada environment design, UI/UX, Lua scripting, web prototyping, Android development, testing scenario, research documentation, dan academic report writing.",
+      aiNote: "* AI tools digunakan sebagai sumber pendukung untuk referensi, debugging, ideasi, dan struktur dokumentasi dengan review serta validasi manual."
+    },
+    internship: {
+      section: "MAGANG",
+      title: "Minat Magang",
+      description: "Saya terbuka untuk kesempatan magang yang berhubungan dengan pengembangan produk digital, media interaktif, UI/UX, web application, game development, Android development, dan multimedia production.",
+      roles: [
+        "UI/UX Designer Intern", "Front-End Developer Intern", "Interactive Media Developer Intern",
+        "Game Developer Intern", "Android Developer Intern", "Multimedia Designer Intern"
+      ]
+    },
+    work: {
+      section: "02 / KARYA PILIHAN",
+      title: "Karya Pilihan",
+      subtitle: "Pengalaman proyek pilihan dalam interactive media, game development, web prototype, implementasi Android, dan produksi multimedia akademik.",
+      roleLabel: "Peran:",
+      contributionLabel: "Kontribusi:",
+      moreLabel: "lainnya",
+      projects: [
+        {
+          title: "SEAMOLEC Virtual Room Tour",
+          category: "Lecturer-Supervised Academic Project",
+          status: "Dalam Pengembangan",
+          period: "2026 – Present",
+          role: "Interactive Media Developer / Roblox Scripter",
+          description: "Virtual room tour 3D berbasis Roblox yang dikembangkan sebagai media informasi interaktif untuk mengeksplorasi fasilitas SEAMOLEC.",
+          contribution: "Berfokus pada Roblox environment design, Lua scripting, NPC guide interaction, Proximity Prompt system, minimap, teleportation, testing scenario, dan academic report writing.",
+          tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
+          imageUrl: "/imgproject1.png"
+        },
+        {
+          title: "Edufun Obby",
+          category: "Academic Project",
+          status: "Academic Prototype",
+          period: "2025",
+          role: "Game Developer / Level Designer",
+          description: "Game edukasi berbasis obstacle game di Roblox dengan alur gameplay berorientasi pembelajaran.",
+          contribution: "Berfokus pada level design, game logic, player interaction, fitur UI sederhana, dan implementasi di Roblox Studio.",
+          tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
+          imageUrl: "/imgproject2.png"
+        },
+        {
+          title: "Track.Studio / TrackLabID",
+          category: "Personal Project",
+          status: "Web Prototype",
+          period: "2026",
+          role: "Running Analytics & Calculator Web Prototype",
+          description: "Prototipe web running analytics dan kalkulator lari untuk pace, heart rate zone, training metrics, estimasi performa, dan perencanaan latihan.",
+          contribution: "Berfokus pada feature planning, running calculator logic, UI iteration, debugging support, dan manual testing.",
+          tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
+          imageUrl: "/imgproject3.png"
+        },
+        {
+          title: "University Website Redesign to Android App",
+          category: "Academic Project",
+          status: "Academic Prototype",
+          period: "2025",
+          role: "Android Developer / UI Implementer",
+          description: "Proyek akademik untuk merekonstruksi konsep website universitas menjadi aplikasi Android menggunakan Android Studio.",
+          contribution: "Berfokus pada Java-based logic, UI layout implementation, app navigation, Android Studio workflow, dan debugging.",
+          tags: ["Android Studio", "Java", "Android App", "Mobile Development", "UI Implementation", "App Navigation"],
+          imageUrl: "/imgproject4.png"
+        },
+        {
+          title: "Semester-Based Multimedia Projects",
+          category: "Academic Experience",
+          status: "Ongoing",
+          period: "2023 – Present",
+          role: "Project Contributor / Team Coordinator",
+          description: "Proyek multimedia semeteran berbasis tim yang mencakup pembuatan website, game 2D/3D, game edukasi Unity, simulasi IoT, dan aplikasi multimedia.",
+          contribution: "Beradaptasi dalam pengembangan konsep, desain, pengembangan, testing, dokumentasi, presentasi, dan koordinasi tim.",
+          tags: ["Team Project", "Multimedia", "Documentation", "Testing", "Presentation", "Problem Solving"],
+          imageUrl: "/imgproject1.png"
+        },
+        {
+          title: "Unity Educational Game Prototype",
+          category: "Academic Project",
+          status: "Prototype",
+          period: "2024 – 2025",
+          role: "Game Development Contributor",
+          description: "Prototipe game edukasi berbasis Unity yang dikembangkan sebagai bagian dari proyek akhir mata kuliah.",
+          contribution: "Berkontribusi pada konsep gameplay, scene structure, alur UI, testing, dan dokumentasi proyek.",
+          tags: ["Unity", "Game Prototype", "UI Flow", "Educational Game", "Testing", "Documentation"],
+          imageUrl: "/imgproject2.png"
+        },
+        {
+          title: "IoT Simulation with Arduino / ESP32",
+          category: "Academic Project",
+          status: "Simulation Prototype",
+          period: "2024 – 2025",
+          role: "IoT Simulation Contributor",
+          description: "Proyek simulasi IoT akademik menggunakan Arduino, ESP32, dan Wokwi untuk eksplorasi logika sistem tertanam.",
+          contribution: "Bekerja dalam mengatur simulasi, pengujian logika, dokumentasi, dan presentasi pendukung.",
+          tags: ["Arduino", "ESP32", "Wokwi", "IoT", "Embedded System", "Simulation"],
+          imageUrl: "/imgproject3.png"
+        },
+        {
+          title: "UI/UX Interface Exploration",
+          category: "Academic / Personal Exploration",
+          status: "Design Exploration",
+          period: "2024 – 2026",
+          role: "UI/UX Designer",
+          description: "Eksplorasi desain antarmuka yang difokuskan pada struktur layout, hierarki visual, usability, dan konsep desain responsif.",
+          contribution: "Berfokus pada tahap pembuatan wireframe, layout visual, rancangan alur pengguna (user flow), iterasi desain, dan UI refinement.",
+          tags: ["UI/UX", "Figma", "Wireframe", "Visual Hierarchy", "User Flow", "Responsive Design"],
+          imageUrl: "/imgproject4.png"
+        },
+        {
+          title: "Digital Multimedia Production",
+          category: "Multimedia Project",
+          status: "Project-Based Learning",
+          period: "2023 – Present",
+          role: "Multimedia Project Contributor",
+          description: "Pengalaman produksi multimedia kreatif yang mencakup pengolahan aset visual, alur editing, serta penyiapan materi digital.",
+          contribution: "Menggunakan tools desain dan multimedia untuk membantu produksi visual, penyusunan dokumentasi, dan penyiapan presentasi.",
+          tags: ["Multimedia", "Canva", "CapCut", "Photoshop", "Illustrator", "Visual Production"],
+          imageUrl: "/imgproject1.png"
+        }
+      ]
+    },
+    skills: {
+      section: "04 / KEAHLIAN",
+      title: "Keahlian & Toolkit",
+      categories: [
+        {
+          name: "Interactive Media & Game",
+          items: ["Roblox Studio", "Lua", "Unity", "3D Virtual Tour", "Game Development"]
+        },
+        {
+          name: "Web & App Development",
+          items: ["HTML", "CSS", "JavaScript", "TypeScript / TSX", "React", "Tailwind CSS", "Java", "Kotlin", "Android Studio"]
+        },
+        {
+          name: "Design & Multimedia",
+          items: ["Figma", "Canva", "CapCut", "Adobe Photoshop", "Adobe Illustrator", "Autodesk Maya", "Blender"]
+        },
+        {
+          name: "Technical Workflow",
+          items: ["GitHub / Version Control", "Arduino", "ESP32", "Wokwi", "Documentation", "Functional Testing", "Problem Solving"]
+        }
+      ],
+      languagesLbl: "Bahasa",
+      languagesVal: "Indonesian - Native, English - Intermediate",
+      softSkillsLbl: "Soft Skills",
+      softSkillsVal: "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking"
+    },
+    education: {
+      section: "05 / PENDIDIKAN",
+      title: "Riwayat Akademik",
+      items: [
+        {
+          period: "Sep 2023 – Present",
+          degree: "D4 / Sarjana Terapan Teknik Multimedia Digital",
+          school: "Politeknik Negeri Jakarta",
+          location: "Depok, Indonesia",
+          relevantCourseworkText: "Mata Kuliah Relevan: ",
+          relevantCourseworkValue: "Interactive Multimedia, UI/UX Design, 3D Modeling and Animation, Game Development, Web Programming, Mobile Programming, Database, Embedded System, IoT, Digital Multimedia Production."
+        },
+        {
+          period: "2020 – 2023",
+          degree: "Senior High School",
+          school: "SMA Regina Pacis Bogor",
+          location: "Bogor, Indonesia"
+        }
+      ]
+    },
+    certification: {
+      title: "Pelatihan / Sertifikasi",
+      items: [
+        {
+          period: "Jul 2025",
+          program: "Intermediate Multimedia Designer - Vocational School Graduate Academy",
+          organizer: "Digital Talent Scholarship 2025",
+          location: "BPSDMP Jakarta",
+          description: "Menyelesaikan program pelatihan 24 jam yang mencakup dasar desain multimedia, produksi digital, dan alur kerja kreatif terapan."
+        }
+      ]
+    },
+    academicExperience: {
+      title: "Pengalaman Tim Akademik",
+      items: [
+        {
+          period: "2023 – Present",
+          title: "Semester-Based Multimedia Projects",
+          role: "Project Contributor / Team Coordinator",
+          location: "Politeknik Negeri Jakarta",
+          description: "Berpartisipasi dalam proyek semester berbasis tim, termasuk website sederhana, game 2D/3D, Unity educational game, simulasi IoT dengan Arduino/ESP32, dan aplikasi multimedia.",
+          bullets: [
+            "Beradaptasi dalam peran concept development, design, development, testing, documentation, presentation, dan problem-solving.",
+            "Berkontribusi pada project planning, technical implementation, team coordination, dan academic presentation."
+          ]
+        }
+      ]
+    },
+    contact: {
+      section: "06 / KONTAK",
+      title: "Hubungi Saya",
+      subtitle: "Saya terbuka untuk kesempatan magang, kolaborasi akademik, dan pengembangan proyek digital interaktif.",
+      microcopy: "Portfolio ini disusun sebagai ringkasan pengalaman proyek, skill, dan kesiapan saya untuk mengikuti program magang.",
+      directEmail: "Email Langsung",
+      location: "Lokasi",
+      locationValue: "Bogor, Indonesia",
+      connectTitle: "Koneksi & Unduh",
+      buttons: {
+        email: "Email Saya",
+        linkedin: "LinkedIn",
+        github: "GitHub",
+        download: "Unduh CV"
+      }
+    },
+    footer: {
+      copyright: "© 2026 Jan Albireo. Digital Multimedia Portfolio.",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub"
+    }
+  }
+};
