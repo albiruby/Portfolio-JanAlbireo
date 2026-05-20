@@ -198,6 +198,7 @@ export const content = {
       items: [
         {
           period: "Sep 2023 – Present",
+          badge: "Current Study",
           degree: "D4 / Applied Bachelor Degree in Digital Multimedia Technology",
           school: "Politeknik Negeri Jakarta",
           location: "Depok, Indonesia",
@@ -206,6 +207,7 @@ export const content = {
         },
         {
           period: "2020 – 2023",
+          badge: "Senior High School",
           degree: "Senior High School",
           school: "SMA Regina Pacis Bogor",
           location: "Bogor, Indonesia"
@@ -462,6 +464,7 @@ export const content = {
       items: [
         {
           period: "Sep 2023 – Present",
+          badge: "Pendidikan Saat Ini",
           degree: "D4 / Sarjana Terapan Teknik Multimedia Digital",
           school: "Politeknik Negeri Jakarta",
           location: "Depok, Indonesia",
@@ -470,7 +473,8 @@ export const content = {
         },
         {
           period: "2020 – 2023",
-          degree: "Senior High School",
+          badge: "Senior High School",
+          degree: "Sekolah Menengah Atas",
           school: "SMA Regina Pacis Bogor",
           location: "Bogor, Indonesia"
         }

@@ -426,21 +426,32 @@ export default function PortfolioPage() {
                </div>
                <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">{t.education.title}</h2>
                
-               <div className="space-y-12 mb-16">
+               <div className="space-y-8 mb-16">
                  {t.education.items.map((ed, i) => (
-                   <div key={i} className="relative pl-8 border-l border-sky-200 dark:border-sky-800">
-                     <div className="absolute w-3 h-3 bg-white dark:bg-slate-950 border-2 border-sky-400 dark:border-sky-500 rounded-full -left-[7px] top-1"></div>
-                     <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">{ed.period}</span>
-                     <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-1">{ed.degree}</h3>
-                     <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">{ed.school}</p>
-                     <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">{ed.location}</p>
+                   <div key={i} className="relative pl-8 md:pl-10 border-l border-slate-200 dark:border-slate-800 group/timeline">
+                     <div className="absolute w-[11px] h-[11px] bg-slate-50 dark:bg-slate-950 border-2 border-sky-400 dark:border-sky-500 rounded-full -left-[6px] top-6 transition-colors group-hover/timeline:bg-sky-100 dark:group-hover/timeline:bg-sky-900/50"></div>
                      
-                     {ed.relevantCourseworkText && (
-                       <div className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
-                         <span className="font-bold text-slate-900 dark:text-slate-200 block mb-1">{ed.relevantCourseworkText}</span> 
-                         {ed.relevantCourseworkValue}
+                     <article className="rounded-2xl border border-slate-200 bg-white/80 p-6 md:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/80">
+                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                         <span className="text-xs font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em] shrink-0">{ed.period}</span>
+                         {ed.badge && (
+                           <span className={`inline-flex items-center px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-widest shrink-0 w-fit ${i === 0 ? 'bg-sky-50 text-sky-700 border border-sky-100 dark:bg-sky-900/40 dark:text-sky-300 dark:border-sky-800/60' : 'bg-slate-100 text-slate-600 border border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700'}`}>
+                             {ed.badge}
+                           </span>
+                         )}
                        </div>
-                     )}
+                       
+                       <h3 className="text-2xl md:text-[28px] font-bold tracking-tight text-slate-950 dark:text-white mb-2 leading-tight">{ed.school}</h3>
+                       <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-300 mb-2">{ed.degree}</h4>
+                       <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-6">{ed.location}</p>
+                       
+                       {ed.relevantCourseworkText && (
+                         <div className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border border-slate-100 dark:border-slate-800">
+                           <span className="font-bold text-slate-900 dark:text-slate-200 block mb-1.5">{ed.relevantCourseworkText}</span> 
+                           {ed.relevantCourseworkValue}
+                         </div>
+                       )}
+                     </article>
                    </div>
                  ))}
                </div>
