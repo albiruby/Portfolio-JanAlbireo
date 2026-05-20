@@ -7,6 +7,14 @@ export const data = {
     avatarUrl: "/imgprofil.png",
     resume: "/CV_Jan_Albireo.pdf"
   },
+  snapshot: [
+    { title: "6th Semester", description: "Digital Multimedia Technology student at Politeknik Negeri Jakarta." },
+    { title: "4 Featured Projects", description: "Roblox, web prototype, Android app, and educational game projects." },
+    { title: "Interactive Media", description: "Focused on virtual environment, NPC interaction, UI system, and testing." },
+    { title: "Technical + Visual", description: "Combining visual design, implementation, documentation, and problem-solving." },
+    { title: "Internship Ready", description: "Open to UI/UX, front-end, game, Android, and multimedia roles." },
+    { title: "Manual Validation", description: "AI-supported workflow with manual review and validation." }
+  ],
   about: {
     title: "About Me",
     description: "Saya terbiasa mengerjakan proyek multimedia digital yang menggabungkan aspek visual, teknis, dokumentasi, dan pengalaman pengguna. Dalam beberapa proyek akademik maupun personal, saya berkontribusi pada environment design, UI/UX, Lua scripting, web prototyping, Android development, testing scenario, research documentation, dan academic report writing.",
@@ -38,11 +46,22 @@ export const data = {
       title: "SEAMOLEC Virtual Room Tour",
       subtitle: "Roblox Studio",
       category: "Lecturer-Supervised Academic Project",
+      status: "In Development",
       location: "Depok, Indonesia",
       period: "2026 – Present",
       role: "Interactive Media Developer / Roblox Scripter",
       description: "Pengembangan virtual room tour 3D berbasis Roblox Studio sebagai media informasi interaktif untuk mengeksplorasi fasilitas SEAMOLEC. Proyek ini menghadirkan navigasi bebas dalam virtual environment, NPC guide, Proximity Prompt, dialogue UI, minimap, teleportation, room interactions, dan functional testing.",
       contribution: "Focused on Roblox environment design, Lua scripting, NPC guide interaction, Proximity Prompt system, minimap, teleportation, testing scenarios, and academic report writing.",
+      keyFeatures: [
+        "3D virtual environment",
+        "NPC guide behavior",
+        "Proximity Prompt interaction",
+        "Dialogue UI",
+        "Minimap",
+        "Teleportation",
+        "Room interactions",
+        "Functional testing"
+      ],
       tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
       imageUrl: "/imgproject1.png",
       link: "#"
@@ -52,11 +71,19 @@ export const data = {
       title: "Edufun Obby",
       subtitle: "Roblox Educational Game",
       category: "Academic Project",
+      status: "Academic Prototype",
       location: "Depok, Indonesia",
       period: "2025",
       role: "Game Developer / Level Designer",
       description: "Pengembangan game edukasi berbasis obstacle game di Roblox dengan alur gameplay berorientasi pembelajaran. Proyek ini berfokus pada player interaction, desain level, game logic, dan fitur UI sederhana.",
       contribution: "Focused on level design, game logic, player interaction, basic UI-related features, and Roblox Studio implementation.",
+      keyFeatures: [
+        "Educational obstacle gameplay",
+        "Learning-oriented game flow",
+        "Player interaction",
+        "Level design",
+        "Basic UI features"
+      ],
       tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
       imageUrl: "/imgproject2.png",
       link: "#"
@@ -66,11 +93,20 @@ export const data = {
       title: "Track.Studio / TrackLabID",
       subtitle: "Running Analytics & Calculator Web Prototype",
       category: "Personal Project",
+      status: "Web Prototype",
       location: "Personal Project",
       period: "2026",
       role: "Running Analytics & Calculator Web Prototype",
       description: "Prototipe web running analytics dan kalkulator lari untuk membantu pelari menghitung pace, heart rate zone, training metrics, estimasi performa, dan perencanaan latihan.",
       contribution: "Focused on feature planning, running calculator logic, UI iteration, debugging support, and manual testing.",
+      keyFeatures: [
+        "Pace calculator",
+        "Heart rate zone",
+        "Training metrics",
+        "Running analytics concept",
+        "UI iteration",
+        "Manual testing"
+      ],
       tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
       imageUrl: "/imgproject3.png",
       link: "#"
@@ -80,11 +116,19 @@ export const data = {
       title: "University Website Redesign to Android App",
       subtitle: "Android Application",
       category: "Academic Project",
+      status: "Academic Prototype",
       location: "Depok, Indonesia",
       period: "2025",
       role: "Android Developer / UI Implementer",
       description: "Proyek akademik untuk merekonstruksi konsep website universitas menjadi aplikasi Android menggunakan Android Studio. Fokus utama proyek ini adalah implementasi UI layout, app navigation, Java-based logic, dan debugging.",
       contribution: "Focused on Java-based logic, UI layout implementation, app navigation, Android Studio workflow, and debugging.",
+      keyFeatures: [
+        "Android UI layout",
+        "Java-based logic",
+        "App navigation",
+        "Website-to-app redesign",
+        "Debugging"
+      ],
       tags: ["Android Studio", "Java", "Android App", "Mobile Development", "UI Implementation", "App Navigation"],
       imageUrl: "/imgproject4.png",
       link: "#"
@@ -148,6 +192,24 @@ export const data = {
         "Adapted roles across concept development, design, development, testing, documentation, presentation, and problem-solving.",
         "Contributed to project planning, technical implementation, team coordination, and academic presentation."
       ]
+    }
+  ],
+  workingStyle: [
+    {
+      title: "Project-Based Learning",
+      description: "Learning through academic and personal projects with clear deliverables."
+    },
+    {
+      title: "Technical Implementation",
+      description: "Comfortable working on scripting, layout implementation, app navigation, and testing."
+    },
+    {
+      title: "Documentation-Oriented",
+      description: "Able to support research documentation, testing scenarios, and academic report writing."
+    },
+    {
+      title: "AI-Supported, Manually Validated",
+      description: "Using AI tools for references and debugging support while keeping manual review and validation."
     }
   ],
   socials: {
