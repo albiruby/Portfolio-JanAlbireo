@@ -196,8 +196,8 @@ export const data = {
   ],
   socials: {
     email: "mailto:janalbireo123@gmail.com",
-    github: "https://github.com/janalbireo123",
-    linkedin: "https://linkedin.com/in/janalbireogd",
+    github: "https://github.com/albiruby",
+    linkedin: "https://www.linkedin.com/in/janalbireogd/",
     resume: "/CV_Jan_Albireo.pdf"
   }
 };
