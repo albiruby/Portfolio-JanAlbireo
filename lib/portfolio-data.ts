@@ -11,7 +11,7 @@ export const data = {
     { title: "6th Semester", description: "Digital Multimedia Technology student at Politeknik Negeri Jakarta." },
     { title: "4 Featured Projects", description: "Roblox, web prototype, Android app, and educational game projects." },
     { title: "Interactive Media", description: "Focused on virtual environment, NPC interaction, UI system, and testing." },
-    { title: "Technical + Visual", description: "Combining visual design, implementation, documentation, and problem-solving." },
+    { title: "Technical + Visual", description: "Combining visual design, technical implementation, documentation, and problem-solving." },
     { title: "Internship Ready", description: "Open to UI/UX, front-end, game, Android, and multimedia roles." },
     { title: "Manual Validation", description: "AI-supported workflow with manual review and validation." }
   ],
@@ -26,7 +26,7 @@ export const data = {
       "Project-Based Learning",
       "Manual Validation"
     ],
-    aiNote: "AI tools are used only as supporting resources for references, debugging, ideation, and documentation structure with manual review and validation."
+    aiNote: "AI tools are used as supporting resources for references, debugging, ideation, and documentation structure with manual review and validation."
   },
   internshipInterest: {
     title: "Internship Interest",
@@ -64,7 +64,6 @@ export const data = {
       ],
       tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
       imageUrl: "/imgproject1.png",
-      link: "#"
     },
     {
       id: 2,
@@ -86,7 +85,6 @@ export const data = {
       ],
       tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
       imageUrl: "/imgproject2.png",
-      link: "#"
     },
     {
       id: 3,
@@ -109,7 +107,6 @@ export const data = {
       ],
       tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
       imageUrl: "/imgproject3.png",
-      link: "#"
     },
     {
       id: 4,
@@ -131,31 +128,16 @@ export const data = {
       ],
       tags: ["Android Studio", "Java", "Android App", "Mobile Development", "UI Implementation", "App Navigation"],
       imageUrl: "/imgproject4.png",
-      link: "#"
     }
   ],
   skills: {
-    "Programming & Web": [
-      "HTML", "CSS", "JavaScript", "TypeScript / TSX", "React", "Tailwind CSS", "GitHub / Version Control"
-    ],
-    "Mobile & Software": [
-      "Java", "Kotlin", "Android Studio", "C++", "C#"
-    ],
-    "Game & Interactive Media": [
-      "Roblox Studio", "Lua", "Unity", "Interactive Media", "3D Virtual Tour", "Game Development"
-    ],
-    "Design & Multimedia": [
-      "Figma", "Canva", "CapCut", "Adobe Photoshop", "Adobe Illustrator", "Autodesk Maya", "Blender"
-    ],
-    "IoT & Simulation": [
-      "Arduino", "ESP32", "Wokwi", "Embedded System", "IoT Simulation"
-    ],
-    "Soft Skills": [
-      "Team Collaboration", "Communication", "Adaptability", "Problem Solving", "Time Management", "Documentation", "Attention to Detail", "Analytical Thinking"
-    ],
-    "Languages": [
-      "Indonesian - Native", "English - Intermediate"
-    ]
+    "Programming & Web": ["HTML", "CSS", "JavaScript", "TypeScript / TSX", "React", "Tailwind CSS", "GitHub / Version Control"],
+    "Mobile & Software": ["Java", "Kotlin", "Android Studio", "C++", "C#"],
+    "Game & Interactive Media": ["Roblox Studio", "Lua", "Unity", "Interactive Media", "3D Virtual Tour", "Game Development"],
+    "Design & Multimedia": ["Figma", "Canva", "CapCut", "Adobe Photoshop", "Adobe Illustrator", "Autodesk Maya", "Blender"],
+    "IoT & Simulation": ["Arduino", "ESP32", "Wokwi", "Embedded System", "IoT Simulation"],
+    "Soft Skills": ["Team Collaboration", "Communication", "Adaptability", "Problem Solving", "Time Management", "Documentation", "Attention to Detail", "Analytical Thinking"],
+    "Languages": ["Indonesian - Native", "English - Intermediate"]
   },
   education: [
     {
