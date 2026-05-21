@@ -63,7 +63,7 @@ export const data = {
         "Functional testing"
       ],
       tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
-      imageUrl: "/imgproject1.png",
+      imageUrl: "/img-seamolec-tour.png",
     },
     {
       id: 2,
@@ -84,7 +84,7 @@ export const data = {
         "Basic UI features"
       ],
       tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
-      imageUrl: "/imgproject2.png",
+      imageUrl: "/img-edufun-obby.png",
     },
     {
       id: 3,
@@ -106,7 +106,7 @@ export const data = {
         "Manual testing"
       ],
       tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
-      imageUrl: "/imgproject3.png",
+      imageUrl: "/img-track-studio.png",
     },
     {
       id: 4,

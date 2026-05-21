@@ -140,7 +140,7 @@ export const content = {
           description: "Academic IoT simulation project using Arduino, ESP32, and Wokwi to explore embedded system logic and digital interaction.",
           contribution: "Worked on simulation setup, logic testing, documentation, and presentation support.",
           tags: ["Arduino", "ESP32", "Wokwi", "IoT", "Embedded System", "Simulation"],
-          imageUrl: "/imgproject3.png"
+          imageUrl: "/imgproject4.png"
         },
         {
           title: "UI/UX Interface Exploration",
@@ -406,7 +406,7 @@ export const content = {
           description: "Proyek simulasi IoT akademik menggunakan Arduino, ESP32, dan Wokwi untuk eksplorasi logika sistem tertanam.",
           contribution: "Bekerja dalam mengatur simulasi, pengujian logika, dokumentasi, dan presentasi pendukung.",
           tags: ["Arduino", "ESP32", "Wokwi", "IoT", "Embedded System", "Simulation"],
-          imageUrl: "/imgproject3.png"
+          imageUrl: "/imgproject4.png"
         },
         {
           title: "UI/UX Interface Exploration",
