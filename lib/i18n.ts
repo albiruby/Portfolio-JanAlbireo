@@ -74,7 +74,7 @@ export const content = {
           description: "A Roblox-based 3D virtual room tour developed as an interactive information medium for exploring SEAMOLEC facilities.",
           contribution: "Focused on Roblox environment design, Lua scripting, NPC guide interaction, Proximity Prompt system, minimap, teleportation, testing scenarios, and academic report writing.",
           tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
-          imageUrl: "/imgproject1.png"
+          imageUrl: "/img-seamolec-tour.png"
         },
         {
           title: "Edufun Obby",
@@ -85,7 +85,7 @@ export const content = {
           description: "An educational obstacle game in Roblox designed with learning-oriented gameplay flow.",
           contribution: "Focused on level design, game logic, player interaction, basic UI-related features, and Roblox Studio implementation.",
           tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
-          imageUrl: "/imgproject2.png"
+          imageUrl: "/img-edufun-obby.png"
         },
         {
           title: "Track.Studio / TrackLabID",
@@ -96,7 +96,7 @@ export const content = {
           description: "A running analytics and calculator web prototype for pace, heart rate zones, training metrics, performance estimation, and training planning.",
           contribution: "Focused on feature planning, running calculator logic, UI iteration, debugging support, and manual testing.",
           tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
-          imageUrl: "/imgproject3.png"
+          imageUrl: "/img-track-studio.png"
         },
         {
           title: "University Website Redesign to Android App",
@@ -340,7 +340,7 @@ export const content = {
           description: "Virtual room tour 3D berbasis Roblox yang dikembangkan sebagai media informasi interaktif untuk mengeksplorasi fasilitas SEAMOLEC.",
           contribution: "Berfokus pada Roblox environment design, Lua scripting, NPC guide interaction, Proximity Prompt system, minimap, teleportation, testing scenario, dan academic report writing.",
           tags: ["Roblox Studio", "Lua", "Interactive Media", "3D Virtual Tour", "NPC Guide", "Proximity Prompt", "Minimap", "Teleportation"],
-          imageUrl: "/imgproject1.png"
+          imageUrl: "/img-seamolec-tour.png"
         },
         {
           title: "Edufun Obby",
@@ -351,7 +351,7 @@ export const content = {
           description: "Game edukasi berbasis obstacle game di Roblox dengan alur gameplay berorientasi pembelajaran.",
           contribution: "Berfokus pada level design, game logic, player interaction, fitur UI sederhana, dan implementasi di Roblox Studio.",
           tags: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game", "Player Interaction"],
-          imageUrl: "/imgproject2.png"
+          imageUrl: "/img-edufun-obby.png"
         },
         {
           title: "Track.Studio / TrackLabID",
@@ -362,7 +362,7 @@ export const content = {
           description: "Prototipe web running analytics dan kalkulator lari untuk pace, heart rate zone, training metrics, estimasi performa, dan perencanaan latihan.",
           contribution: "Berfokus pada feature planning, running calculator logic, UI iteration, debugging support, dan manual testing.",
           tags: ["React", "Tailwind CSS", "Web Prototype", "Running Calculator", "Running Analytics", "Pace Calculator", "Heart Rate Zone", "Training Metrics"],
-          imageUrl: "/imgproject3.png"
+          imageUrl: "/img-track-studio.png"
         },
         {
           title: "University Website Redesign to Android App",

@@ -215,7 +215,7 @@ export default function PortfolioPage() {
           
           <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md mx-auto z-10 flex flex-col items-center mt-4 lg:mt-0">
             <div className="relative w-full aspect-[4/5] max-h-[420px] rounded-[1.5rem] overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none ring-1 ring-slate-200/50 dark:ring-slate-800">
-              <Image src="https://picsum.photos/seed/profil/500/625" alt="Jan Albireo" fill priority className="object-cover" referrerPolicy="no-referrer" />
+              <Image src="/img-profil.jpg" alt="Jan Albireo" fill priority className="object-cover" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-black/5 dark:ring-white/5 pointer-events-none"></div>
             </div>
             <p className="text-[10px] sm:text-[11px] font-medium text-slate-400 dark:text-slate-500 tracking-widest uppercase mt-4 text-center">
@@ -245,7 +245,7 @@ export default function PortfolioPage() {
         {/* ABOUT SECTION */}
         <section id="about" className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 md:py-24 grid md:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
           <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm mx-auto aspect-[3/4] md:aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none border border-slate-200/50 dark:border-slate-800">
-             <Image src="https://picsum.photos/seed/profil/500/625" alt="Jan Albireo" fill className="object-cover" referrerPolicy="no-referrer" />
+             <Image src="/img-profil.jpg" alt="Jan Albireo" fill className="object-cover" referrerPolicy="no-referrer" />
           </div>
           <div className="space-y-6 sm:space-y-8">
             <div className="flex items-center gap-4">
