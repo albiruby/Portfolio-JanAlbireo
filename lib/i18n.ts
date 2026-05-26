@@ -264,6 +264,8 @@ export const content = {
             "Unity",
             "3D Virtual Tour",
             "Game Development",
+            "Level Design",
+            "Functional Testing",
           ],
         },
         {
@@ -302,6 +304,11 @@ export const content = {
             "Documentation",
             "Functional Testing",
             "Problem Solving",
+            "Online Research",
+            "Basic Google Sheets / Excel",
+            "Report Writing",
+            "AI-Supported Workflow",
+            "Manual Validation",
           ],
         },
       ],
@@ -309,7 +316,7 @@ export const content = {
       languagesVal: "Indonesian - Native, English - Intermediate",
       softSkillsLbl: "Soft Skills",
       softSkillsVal:
-        "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking",
+        "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking, Fast Learning, Initiative, Process-Oriented Mindset",
     },
     education: {
       section: "05 / ACADEMIC",
@@ -656,6 +663,8 @@ export const content = {
             "Unity",
             "3D Virtual Tour",
             "Game Development",
+            "Level Design",
+            "Functional Testing",
           ],
         },
         {
@@ -694,6 +703,11 @@ export const content = {
             "Documentation",
             "Functional Testing",
             "Problem Solving",
+            "Online Research",
+            "Basic Google Sheets / Excel",
+            "Report Writing",
+            "AI-Supported Workflow",
+            "Manual Validation",
           ],
         },
       ],
@@ -701,7 +715,7 @@ export const content = {
       languagesVal: "Indonesian - Native, English - Intermediate",
       softSkillsLbl: "Soft Skills",
       softSkillsVal:
-        "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking",
+        "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking, Fast Learning, Initiative, Process-Oriented Mindset",
     },
     education: {
       section: "05 / PENDIDIKAN",
