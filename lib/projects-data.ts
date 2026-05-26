@@ -197,23 +197,37 @@ export const projectsData = [
       "/trackstudio6.png",
     ],
     tags: {
-      en: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"],
-      id: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"],
+      en: [
+        "HTML",
+        "CSS",
+        "JavaScript/TypeScript",
+        "AI-supported workflow",
+        "Google Sheets refs",
+      ],
+      id: [
+        "HTML",
+        "CSS",
+        "JavaScript/TypeScript",
+        "AI-supported workflow",
+        "Google Sheets refs",
+      ],
     },
     content: {
       en: {
-        title: "Track.Studio",
+        title: "Track.Studio / TrackLabID",
         subtitle: "Biometric Analytics Web Prototype",
         category: "Personal Project",
         status: "Web Prototype",
         period: "2026",
-        role: "Web Prototyping Developer & UI Designer",
+        role: "Project Developer / Product Explorer",
         overview:
-          "A personal web prototype exploring biometric analytical dashboard concepts for endurance athletes like runners.",
+          "A personal web prototype focused on running-related analytics and calculator features, including pace, training metrics, intensity zones, and performance-oriented planning.",
         context:
           "Developed as a personal project, Track.Studio is a web dashboard prototype focused on sports data visualization. The project involved researching athletic metrics and translating them into a clear, user-focused interface using React and Tailwind CSS.",
         contribution:
-          "Focused on feature planning, biometric analytics logic, UI iteration, and manual testing for athlete-centric metrics.",
+          "Worked on feature planning, UI flow, running-related metric structure, manual testing, and iterative refinement.",
+        interestArea:
+          "Sports technology, running, and endurance-focused digital tools.",
         keyFeatures: [
           "Deterministic Training Stress Scores",
           "ACWR (Acute:Chronic Workload Ratio) modeling",
@@ -228,10 +242,11 @@ export const projectsData = [
           "Prepared integration concepts for Strava and Intervals.icu.",
         ],
         tools: [
-          "React",
-          "Tailwind CSS",
-          "TypeScript / TSX",
-          "Analytics Dashboard",
+          "HTML",
+          "CSS",
+          "JavaScript/TypeScript",
+          "AI-supported workflow",
+          "basic Google Sheets/Excel references",
         ],
         outcome:
           "A functional React prototype showcasing front-end capabilities, state management, and clear data visualization.",
@@ -239,18 +254,20 @@ export const projectsData = [
           "This project improved my understanding of athletic biometric data, dashboard UI complexity, structured training metrics, and sports service integrations.",
       },
       id: {
-        title: "Track.Studio",
+        title: "Track.Studio / TrackLabID",
         subtitle: "Prototipe Dasbor Analitik Biometrik",
         category: "Personal Project",
         status: "Web Prototype",
         period: "2026",
-        role: "Developer Prototipe Web",
+        role: "Project Developer / Product Explorer",
         overview:
-          "Track.Studio dikembangkan sebagai proyek personal untuk bereksplorasi dengan visualisasi data olahraga bagi pelari. Proyek ini berfokus pada perancangan prototipe web menggunakan React dan Tailwind.",
+          "Prototipe web personal yang berfokus pada analitik terkait lari dan fitur kalkulator, termasuk pace, metrik latihan, zona intensitas, dan perencanaan berorientasi performa.",
         context:
           "Fokus utama pembelajaran adalah bagaimana menerjemahkan metrik kompleks menjadi UI yang mudah dipahami (user-focused) dan merancang tata letak (layout) yang terstruktur.",
         contribution:
-          "Berfokus pada perencanaan fitur metrik daya tahan, logika dashboard analitik, dan perumusan integrasi layanan pihak ketiga.",
+          "Mengerjakan perencanaan fitur, alur UI, struktur metrik terkait lari, pengujian manual, dan penyempurnaan iteratif.",
+        interestArea:
+          "Teknologi olahraga, lari, dan alat digital yang berfokus pada daya tahan.",
         keyFeatures: [
           "Skor Stres Latihan Deterministik (Training Stress Scores): Aplikasi ini membantu atlet untuk mengukur, melacak, dan menganalisis metrik beban dari setiap aktivitas latihan mereka secara akurat.",
           "Pemodelan ACWR (Acute:Chronic Workload Ratio): Fitur yang dapat menganalisis rasio antara baban kerja jangka pendek (akut) dan beban kerja jangka panjang (kronis). Ini sangat berguna untuk mencegah overtraining dan meminimalisir risiko cedera.",
@@ -264,10 +281,11 @@ export const projectsData = [
           "Menyesuaikan dasar integrasi untuk Strava & Intervals.icu.",
         ],
         tools: [
-          "React",
-          "Tailwind CSS",
-          "TypeScript / TSX",
-          "Analytics Dashboard",
+          "HTML",
+          "CSS",
+          "JavaScript/TypeScript",
+          "alur kerja dengan AI",
+          "referensi Google Sheets/Excel dasar",
         ],
         outcome:
           "Menghasilkan prototipe web fungsional yang mendemonstrasikan implementasi antarmuka untuk data analitik.",
@@ -300,13 +318,13 @@ export const projectsData = [
         category: "Academic Project",
         status: "Academic Prototype",
         period: "2025",
-        role: "Android UI Implementer (Academic)",
+        role: "Android Developer / UI Implementer",
         overview:
-          "An academic project that recreated a university website concept into an Android application using Android Studio.",
+          "An academic Android project that recreated a university website concept into a mobile application with improved navigation, content structure, and user accessibility.",
         context:
           "The university's information was mainly accessed via the web. This project aimed to translate that experience into a mobile-native format using Android tools, enhancing the accessibility and navigation of academic information.",
         contribution:
-          "Focused on Java-based logic, UI layout implementation, application navigation structuring, workflow setup in Android Studio, and system debugging.",
+          "Focused on Java-based logic, UI layout implementation, navigation structuring, Android Studio workflow, and debugging.",
         keyFeatures: [
           "Android UI layout structuring",
           "Java-based logic integration",
@@ -321,13 +339,7 @@ export const projectsData = [
           "Wrote Java-based logic to handle navigation and data presentation.",
           "Conducted debugging and refinement for a smoother user experience.",
         ],
-        tools: [
-          "Android Studio",
-          "Java",
-          "XML",
-          "Mobile UI Design",
-          "Debugging",
-        ],
+        tools: ["Android Studio", "Java", "Figma", "Canva"],
         outcome:
           "The project successfully translated a web-based structure into a functional Android prototype with clear mobile navigation and native UI components.",
         learning:
@@ -339,13 +351,13 @@ export const projectsData = [
         category: "Academic Project",
         status: "Academic Prototype",
         period: "2025",
-        role: "Android UI Implementer (Academic)",
+        role: "Android Developer / UI Implementer",
         overview:
-          "Proyek akademik untuk merekonstruksi konsep website universitas menjadi aplikasi Android menggunakan Android Studio.",
+          "Proyek akademik Android yang merekonstruksi konsep website universitas menjadi aplikasi mobile dengan navigasi, struktur konten, dan aksesibilitas pengguna yang lebih baik.",
         context:
           "Informasi universitas utamanya diakses melalui web. Proyek ini bertujuan menerjemahkan pengalaman tersebut ke dalam format mobile-native menggunakan tools Android, guna meningkatkan aksesibilitas informasi akademik.",
         contribution:
-          "Berfokus pada Java-based logic, UI layout implementation, struktur app navigation, pengaturan workflow di Android Studio, serta system debugging.",
+          "Berfokus pada logika berbasis Java, implementasi tata letak UI, penataan struktur navigasi, alur kerja Android Studio, dan debugging.",
         keyFeatures: [
           "Android UI layout structuring",
           "Java-based logic integration",
@@ -360,13 +372,7 @@ export const projectsData = [
           "Menulis Java-based logic untuk menangani navigasi dan penyajian data.",
           "Melakukan debugging dan refinement agar pengalaman pengguna lebih mulus.",
         ],
-        tools: [
-          "Android Studio",
-          "Java",
-          "XML",
-          "Mobile UI Design",
-          "Debugging",
-        ],
+        tools: ["Android Studio", "Java", "Figma", "Canva"],
         outcome:
           "Proyek ini berhasil menerjemahkan struktur berbasis web menjadi prototipe Android fungsional dengan navigasi mobile yang jelas.",
         learning:
@@ -386,8 +392,8 @@ export const projectsData = [
       "/runcard4.png",
     ],
     tags: {
-      en: ["Web Design Platform", "Local-First", "Data Visualization", "React"],
-      id: ["Web Design Platform", "Local-First", "Data Visualization", "React"],
+      en: ["HTML", "CSS", "JavaScript/TypeScript", "UI prototyping"],
+      id: ["HTML", "CSS", "JavaScript/TypeScript", "Pembuatan prototipe UI"],
     },
     content: {
       en: {
@@ -396,13 +402,13 @@ export const projectsData = [
         subtitle: "Visual Generator for Runners",
         status: "Completed",
         period: "2026",
-        role: "Front-End UI Developer",
+        role: "Developer",
         overview:
-          "A web design platform (generator) specifically designed for runners and fitness enthusiasts to transform running data into aesthetic visual cards.",
+          "A personal web-based concept for generating visually structured running cards and summaries from workout-related data.",
         context:
           "This app, named RunCard Studio, is a web design platform designed for runners. In short, RunCard Studio is a practical tool for runners to create cool and unique achievement activity reports, without needing any design skills at all.",
         contribution:
-          "Developed the core local-first generator capabilities, diverse visual themes, and robust export options.",
+          "Worked on core generator flow, layout planning, visual card structure, and export-oriented design exploration.",
         keyFeatures: [
           "16 Types of Visual Generators (Run Receipt, Race Recap, Pace Band, Race Bib, Route Poster)",
           "Fully Secure & Local (Local-First), no login or server uploads",
@@ -414,12 +420,7 @@ export const projectsData = [
           "Implemented local-first architecture for absolute privacy.",
           "Added multiple export resolutions and themes.",
         ],
-        tools: [
-          "React",
-          "Data Visualization",
-          "Web Technologies",
-          "Local-First Architecture",
-        ],
+        tools: ["HTML", "CSS", "JavaScript/TypeScript", "UI prototyping"],
         outcome:
           "A functional static web app demonstrating canvas manipulations, React state, and local-first data principles.",
         learning:
@@ -431,13 +432,13 @@ export const projectsData = [
         subtitle: "Visual Generator untuk Pelari",
         status: "Selesai",
         period: "2026",
-        role: "Front-End UI Developer",
+        role: "Developer",
         overview:
-          "Proyek web personal yang mengeksplorasi kapabilitas manipulasi object dan local-first di browser. Aplikasi ini mengubah input sederhana menjadi gambar statis terformat (kartu olahraga).",
+          "Konsep berbasis web personal untuk menghasilkan kartu lari yang terstruktur secara visual dan ringkasan dari data terkait olahraga.",
         context:
           "Fokusnya adalah pada implementasi UI/UX serta logika front-end menggunakan React tanpa bergantung pada backend/database.",
         contribution:
-          "Mengembangkan generator lokal-pertama, beragam pilihan ekspor visual, serta dukungan 16 jenis template visual.",
+          "Mengerjakan alur generator inti, perencanaan tata letak, struktur visual kartu, dan eksplorasi desain berorientasi ekspor.",
         keyFeatures: [
           "16 Jenis Generator Visual: Anda dapat membuat berbagai format kartu laporan, seperti Run Receipt, Race Recap, Pace Band, Race Bib, dan Route Poster dari lintasan GPX.",
           "Sepenuhnya Aman & Lokal (Local-First): Seluruh proses pengeditan langsung di browser tanpa login atau pengiriman data privasi/lokasi lari (GPX).",
@@ -449,10 +450,10 @@ export const projectsData = [
           "Menambahkan engine dukungan ekspor desain untuk multi-rasio dan resolusi tinggi.",
         ],
         tools: [
-          "React",
-          "Data Visualization",
-          "Web Technologies",
-          "Local-First Architecture",
+          "HTML",
+          "CSS",
+          "JavaScript/TypeScript",
+          "Pembuatan prototipe UI",
         ],
         outcome:
           "Prototipe final yang fungsional membuktikan keahlian dalam rekayasa DOM/Canvas serta prinsip local-first.",

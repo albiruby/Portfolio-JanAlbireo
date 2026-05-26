@@ -310,6 +310,16 @@ export default function PortfolioPage() {
                               {projectContent.contribution}
                             </span>
                           </p>
+                          {projectContent.interestArea && (
+                            <p className="text-xs flex flex-col gap-0.5">
+                              <span className="font-semibold text-slate-900 dark:text-slate-200">
+                                {t.work.interestAreaLabel}
+                              </span>{" "}
+                              <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                                {projectContent.interestArea}
+                              </span>
+                            </p>
+                          )}
                         </div>
 
                         <div className="pt-4 flex flex-col gap-3 mt-auto border-t border-slate-100 dark:border-slate-800">

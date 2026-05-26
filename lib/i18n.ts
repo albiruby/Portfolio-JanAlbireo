@@ -85,6 +85,7 @@ export const content = {
       subtitle: "Selected project-based experiences in interactive media, Roblox development, educational games, web prototypes, Android implementation, and academic multimedia production.",
       roleLabel: "Role:",
       contributionLabel: "Contribution:",
+      interestAreaLabel: "Interest Area:",
       moreLabel: "more",
       projects: [
         {
@@ -158,16 +159,14 @@ export const content = {
           period: "2025",
           role: "Android Developer / UI Implementer",
           description:
-            "An academic project that recreated a university website concept into an Android application using Android Studio.",
+            "An academic Android project that recreated a university website concept into a mobile application with improved navigation, content structure, and user accessibility.",
           contribution:
-            "Focused on Java-based logic, UI layout implementation, app navigation, Android Studio workflow, and debugging.",
+            "Focused on Java-based logic, UI layout implementation, navigation structuring, Android Studio workflow, and debugging.",
           tags: [
             "Android Studio",
             "Java",
-            "Android App",
-            "Mobile Development",
-            "UI Implementation",
-            "App Navigation",
+            "Figma",
+            "Canva"
           ],
           imageUrl: "/imgproject4.png",
         },
@@ -498,6 +497,7 @@ export const content = {
       subtitle: "Pengalaman berbasis proyek pilihan dalam media interaktif, pengembangan Roblox, game edukasi, prototipe web, implementasi Android, dan produksi multimedia akademik.",
       roleLabel: "Peran:",
       contributionLabel: "Kontribusi:",
+      interestAreaLabel: "Area Minat:",
       moreLabel: "lainnya",
       projects: [
         {
@@ -571,16 +571,14 @@ export const content = {
           period: "2025",
           role: "Android Developer / UI Implementer",
           description:
-            "Proyek akademik untuk merekonstruksi konsep website universitas menjadi aplikasi Android menggunakan Android Studio.",
+            "Proyek akademik Android yang merekonstruksi konsep website universitas menjadi aplikasi mobile dengan navigasi, struktur konten, dan aksesibilitas pengguna yang lebih baik.",
           contribution:
-            "Berfokus pada Java-based logic, UI layout implementation, app navigation, Android Studio workflow, dan debugging.",
+            "Berfokus pada logika berbasis Java, implementasi tata letak UI, penataan struktur navigasi, alur kerja Android Studio, dan debugging.",
           tags: [
             "Android Studio",
             "Java",
-            "Android App",
-            "Mobile Development",
-            "UI Implementation",
-            "App Navigation",
+            "Figma",
+            "Canva"
           ],
           imageUrl: "/imgproject4.png",
         },
