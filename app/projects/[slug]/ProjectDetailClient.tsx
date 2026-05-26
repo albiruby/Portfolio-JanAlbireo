@@ -192,7 +192,11 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
                     src={img} 
                     alt={`${c.title} - Image ${idx + 1}`} 
                     fill 
-                    className="object-cover"
+                    className={`object-cover ${
+                      ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(project.slug) && idx === 0
+                      ? "object-left"
+                      : "object-center"
+                    }`}
                     referrerPolicy="no-referrer"
                     priority={idx === 0}
                   />
@@ -302,7 +306,11 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
                         src={img} 
                         alt="Project gallery" 
                         fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        className={`object-cover group-hover:scale-105 transition-transform duration-500 ${
+                          ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(project.slug) && i === 0
+                          ? "object-left"
+                          : "object-center"
+                        }`} 
                         referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -338,7 +346,11 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
                         src={rp.image}
                         alt={rpC.title}
                         fill
-                        className="object-cover transition duration-700 ease-out group-hover:scale-105"
+                        className={`object-cover transition duration-700 ease-out group-hover:scale-105 ${
+                          ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(rp.slug)
+                          ? "object-left"
+                          : "object-center"
+                        }`}
                         referrerPolicy="no-referrer"
                       />
                     </div>
