@@ -3,7 +3,7 @@ export const projectsData = [
     id: 1,
     slug: "seamolec-virtual-room-tour",
     image: "/img-seamolec-tour.png",
-    gallery: ["/img-seamolec-tour.png"],
+    gallery: ["/img-seamolec-tour.png", "/seamolec1.png", "/seamolec2.png", "/seamolec3.png"],
     tags: {
       en: ["Roblox Studio", "Lua", "Interactive Media"],
       id: ["Roblox Studio", "Lua", "Interactive Media"]
