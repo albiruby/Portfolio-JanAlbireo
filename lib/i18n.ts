@@ -82,8 +82,7 @@ export const content = {
     work: {
       section: "02 / SELECTED WORK",
       title: "Selected Work",
-      subtitle:
-        "Selected project-based experiences in interactive media, game development, web prototypes, Android implementation, and academic multimedia production.",
+      subtitle: "Selected project-based experiences in interactive media, Roblox development, educational games, web prototypes, Android implementation, and academic multimedia production.",
       roleLabel: "Role:",
       contributionLabel: "Contribution:",
       moreLabel: "more",
@@ -496,8 +495,7 @@ export const content = {
     work: {
       section: "02 / KARYA PILIHAN",
       title: "Karya Pilihan",
-      subtitle:
-        "Pengalaman proyek pilihan dalam interactive media, game development, web prototype, implementasi Android, dan produksi multimedia akademik.",
+      subtitle: "Pengalaman berbasis proyek pilihan dalam media interaktif, pengembangan Roblox, game edukasi, prototipe web, implementasi Android, dan produksi multimedia akademik.",
       roleLabel: "Peran:",
       contributionLabel: "Kontribusi:",
       moreLabel: "lainnya",
