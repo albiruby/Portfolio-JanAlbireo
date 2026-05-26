@@ -2,13 +2,13 @@ export const data = {
   hero: {
     greeting: "Halo, nama saya",
     name: "Jan Albireo",
-    role: "Digital Multimedia Technology Student & Interactive Media Developer",
+    role: "Teknik Multimedia Digital Student & Interactive Media Developer",
     description: "Saya adalah mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam Roblox interactive media, UI/UX, web prototype, Android app development, testing, dan documentation.",
     avatarUrl: "/imgprofil.png",
     resume: "/CV_Jan_Albireo.pdf"
   },
   snapshot: [
-    { title: "6th Semester", description: "Digital Multimedia Technology student at Politeknik Negeri Jakarta." },
+    { title: "6th Semester", description: "Teknik Multimedia Digital student at Politeknik Negeri Jakarta." },
     { title: "4 Featured Projects", description: "Roblox, web prototype, Android app, and educational game projects." },
     { title: "Interactive Media", description: "Focused on virtual environment, NPC interaction, UI system, and testing." },
     { title: "Technical + Visual", description: "Combining visual design, technical implementation, documentation, and problem-solving." },

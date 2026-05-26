@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { ArrowUpRight, Download, Sun, Moon, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { content } from "@/lib/i18n";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -249,104 +250,117 @@ export default function PortfolioPage() {
                 const remainingTags = projectTags.length - 3;
 
                 return (
-                  <Link
+                  <motion.div
                     key={project.id}
-                    href={`/projects/${project.slug}`}
-                    className="group block h-full flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden cursor-pointer"
+                    initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{
+                      duration: 0.8,
+                      delay: (idx % 3) * 0.2,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="h-full"
                   >
-                    <article className="flex h-full min-h-[430px] flex-col">
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
-                        <Image
-                          src={project.image}
-                          alt={projectContent.title}
-                          fill
-                          className={`h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105 ${
-                            [
-                              "trackstudio-tracklabid",
-                              "university-website-redesign-android-app",
-                              "runcard-studio",
-                            ].includes(project.slug)
-                              ? "object-left"
-                              : "object-center"
-                          }`}
-                          referrerPolicy="no-referrer"
-                        />
-                      </div>
-
-                      <div className="flex flex-1 flex-col p-5">
-                        <div className="mb-3 flex items-center justify-between gap-2">
-                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
-                            {projectContent.category} · {projectContent.period}
-                          </p>
-                          <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
-                            {projectContent.status}
-                          </span>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="group block h-full flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden cursor-pointer"
+                    >
+                      <article className="flex h-full min-h-[430px] flex-col">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
+                          <Image
+                            src={project.image}
+                            alt={projectContent.title}
+                            fill
+                            className={`h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105 ${
+                              [
+                                "trackstudio-tracklabid",
+                                "university-website-redesign-android-app",
+                                "runcard-studio",
+                              ].includes(project.slug)
+                                ? "object-left"
+                                : "object-center"
+                            }`}
+                            referrerPolicy="no-referrer"
+                          />
                         </div>
 
-                        <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
-                          <span className="line-clamp-2">
-                            {projectContent.title}
-                          </span>
-                        </h3>
-
-                        <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
-                          {projectContent.overview}
-                        </div>
-
-                        <div className="mb-4 space-y-1.5 flex-1">
-                          <p className="text-xs flex gap-1.5">
-                            <span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">
-                              {t.work.roleLabel}
-                            </span>{" "}
-                            <span className="text-slate-600 dark:text-slate-400 line-clamp-1">
-                              {projectContent.role}
+                        <div className="flex flex-1 flex-col p-5">
+                          <div className="mb-3 flex items-center justify-between gap-2">
+                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
+                              {projectContent.category} ·{" "}
+                              {projectContent.period}
+                            </p>
+                            <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
+                              {projectContent.status}
                             </span>
-                          </p>
-                          <p className="text-xs flex flex-col gap-0.5">
-                            <span className="font-semibold text-slate-900 dark:text-slate-200">
-                              {t.work.contributionLabel}
-                            </span>{" "}
-                            <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                              {projectContent.contribution}
+                          </div>
+
+                          <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
+                            <span className="line-clamp-2">
+                              {projectContent.title}
                             </span>
-                          </p>
-                          {projectContent.interestArea && (
-                            <p className="text-xs flex flex-col gap-0.5">
-                              <span className="font-semibold text-slate-900 dark:text-slate-200">
-                                {t.work.interestAreaLabel}
+                          </h3>
+
+                          <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                            {projectContent.overview}
+                          </div>
+
+                          <div className="mb-4 space-y-1.5 flex-1">
+                            <p className="text-xs flex gap-1.5">
+                              <span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">
+                                {t.work.roleLabel}
                               </span>{" "}
-                              <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                                {projectContent.interestArea}
+                              <span className="text-slate-600 dark:text-slate-400 line-clamp-1">
+                                {projectContent.role}
                               </span>
                             </p>
-                          )}
-                        </div>
-
-                        <div className="pt-4 flex flex-col gap-3 mt-auto border-t border-slate-100 dark:border-slate-800">
-                          <div className="flex flex-wrap gap-1.5">
-                            {displayTags.map((tag, tIdx) => (
-                              <span
-                                key={tIdx}
-                                className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium"
-                              >
-                                {tag}
+                            <p className="text-xs flex flex-col gap-0.5">
+                              <span className="font-semibold text-slate-900 dark:text-slate-200">
+                                {t.work.contributionLabel}
+                              </span>{" "}
+                              <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                                {projectContent.contribution}
                               </span>
-                            ))}
-                            {remainingTags > 0 && (
-                              <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold text-slate-500">
-                                +{remainingTags} {t.work.moreLabel}
-                              </span>
+                            </p>
+                            {projectContent.interestArea && (
+                              <p className="text-xs flex flex-col gap-0.5">
+                                <span className="font-semibold text-slate-900 dark:text-slate-200">
+                                  {t.work.interestAreaLabel}
+                                </span>{" "}
+                                <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                                  {projectContent.interestArea}
+                                </span>
+                              </p>
                             )}
                           </div>
-                          <span className="font-medium text-[13px] text-sky-600 dark:text-sky-400 flex items-center group-hover:underline">
-                            {lang === "en"
-                              ? "View case study →"
-                              : "Lihat detail proyek →"}
-                          </span>
+
+                          <div className="pt-4 flex flex-col gap-3 mt-auto border-t border-slate-100 dark:border-slate-800">
+                            <div className="flex flex-wrap gap-1.5">
+                              {displayTags.map((tag, tIdx) => (
+                                <span
+                                  key={tIdx}
+                                  className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {remainingTags > 0 && (
+                                <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold text-slate-500">
+                                  +{remainingTags} {t.work.moreLabel}
+                                </span>
+                              )}
+                            </div>
+                            <span className="font-medium text-[13px] text-sky-600 dark:text-sky-400 flex items-center group-hover:underline">
+                              {lang === "en"
+                                ? "View case study →"
+                                : "Lihat detail proyek →"}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </article>
-                  </Link>
+                      </article>
+                    </Link>
+                  </motion.div>
                 );
               })}
             </div>
@@ -628,7 +642,7 @@ export default function PortfolioPage() {
                 {t.contact.buttons.linkedin}
               </a>
               <a
-                href="https://github.com/janalbireo123"
+                href="https://github.com/albiruby"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full inline-flex items-center justify-center px-6 py-4 bg-white dark:bg-slate-900 text-slate-950 dark:text-white border border-slate-200 dark:border-slate-700 text-[13px] font-bold rounded-full hover:border-sky-300 dark:hover:border-sky-600 hover:text-sky-800 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors shadow-sm"

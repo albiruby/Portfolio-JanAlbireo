@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex gap-6 items-center">
             <a href="mailto:janalbireo123@gmail.com" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.email}</a>
             <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.linkedin}</a>
-            <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.github}</a>
+            <a href="https://github.com/albiruby" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.github}</a>
         </div>
       </div>
     </footer>

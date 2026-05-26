@@ -15,10 +15,10 @@ export const content = {
       headingText1: "Building ",
       headingHighlight: "interactive digital",
       headingText2: " experiences.",
-      role1: "Digital Multimedia Technology Student & ",
+      role1: "Teknik Multimedia Digital Student & ",
       role2: "Interactive Media Developer",
       description:
-        "I am a sixth-semester Digital Multimedia Technology student at Politeknik Negeri Jakarta with project-based experience in interactive media, Roblox-based development, UI/UX, web prototyping, Android implementation, testing, and documentation.",
+        "I am a sixth-semester Teknik Multimedia Digital student at Politeknik Negeri Jakarta with project-based experience in interactive media, Roblox-based development, UI/UX, web prototyping, Android implementation, testing, and documentation.",
       primaryCta: "Selected Work",
       secondaryCta: "Download Resume",
       pills: [
@@ -34,7 +34,7 @@ export const content = {
       {
         title: "6th Semester",
         description:
-          "Digital Multimedia Technology student at Politeknik Negeri Jakarta.",
+          "Teknik Multimedia Digital student at Politeknik Negeri Jakarta.",
       },
       {
         title: "Featured Projects",
@@ -191,24 +191,6 @@ export const content = {
           imageUrl: "/imgproject1.png",
         },
         {
-          title: "Unity Educational Game Prototype",
-          category: "Academic Project",
-          status: "Prototype",
-          period: "2024 – 2025",
-          role: "Game Development Contributor",
-          description:
-            "A semester-based Unity educational game prototype developed as part of multimedia learning projects, focusing on gameplay structure, UI flow, and functional testing.",
-          contribution:
-            "Contributed to gameplay concept development, scene structuring, UI flow, and testing support.",
-          tags: [
-            "Unity",
-            "C#",
-            "Figma",
-            "Canva"
-          ],
-          imageUrl: "/imgproject2.png",
-        },
-        {
           title: "IoT Simulation with Arduino / ESP32",
           category: "Academic Project",
           status: "Simulation Prototype",
@@ -337,7 +319,7 @@ export const content = {
           period: "Sep 2023 – Present",
           badge: "Current Study",
           degree:
-            "D4 / Applied Bachelor Degree in Digital Multimedia Technology",
+            "D4 / Applied Bachelor Degree in Teknik Multimedia Digital",
           school: "Politeknik Negeri Jakarta",
           location: "Depok, Indonesia",
           relevantCourseworkText: "Relevant Coursework: ",
@@ -428,7 +410,7 @@ export const content = {
       role1: "Mahasiswa Teknik Multimedia Digital & ",
       role2: "Interactive Media Developer",
       description:
-        "Saya mahasiswa semester 6 Teknologi Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek di bidang media interaktif, pengembangan berbasis Roblox, UI/UX, prototipe web, implementasi Android, pengujian, dan dokumentasi.",
+        "Saya mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek di bidang media interaktif, pengembangan berbasis Roblox, UI/UX, prototipe web, implementasi Android, pengujian, dan dokumentasi.",
       primaryCta: "Lihat Karya",
       secondaryCta: "Unduh CV",
       pills: [
@@ -599,24 +581,6 @@ export const content = {
             "Problem Solving",
           ],
           imageUrl: "/imgproject1.png",
-        },
-        {
-          title: "Unity Educational Game Prototype",
-          category: "Academic Project",
-          status: "Prototype",
-          period: "2024 – 2025",
-          role: "Game Development Contributor",
-          description:
-            "Prototipe game edukasi Unity berbasis semester yang dikembangkan sebagai bagian dari proyek pembelajaran multimedia, berfokus pada struktur gameplay, alur UI, dan pengujian fungsional.",
-          contribution:
-            "Berkontribusi pada pengembangan konsep gameplay, penataan scene, alur UI, dan dukungan pengujian.",
-          tags: [
-            "Unity",
-            "C#",
-            "Figma",
-            "Canva"
-          ],
-          imageUrl: "/imgproject2.png",
         },
         {
           title: "IoT Simulation with Arduino / ESP32",
