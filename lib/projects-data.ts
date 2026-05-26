@@ -2,6 +2,7 @@ export const projectsData = [
   {
     id: 1,
     slug: "seamolec-virtual-room-tour",
+    link: "https://www.roblox.com/share?code=6e51d9cf65594b478be3e676dee14fc8&type=ExperienceDetails&stamp=1779795892280",
     image: "/img-seamolec-tour.png",
     gallery: [
       "/img-seamolec-tour.png",
@@ -91,6 +92,7 @@ export const projectsData = [
   {
     id: 2,
     slug: "edufun-obby",
+    link: "https://www.roblox.com/share?code=c2d244ad75d4d44a8570bce48d83ebe5&type=ExperienceDetails&stamp=1779795885281",
     image: "/img-edufun-obby.png",
     gallery: [
       "/img-edufun-obby.png",

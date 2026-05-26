@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut, RefreshCcw, Maximize } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut, RefreshCcw, Maximize, ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useAppContext } from "@/components/Providers";
@@ -271,6 +271,16 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
                   {c.status}
                 </span>
               </div>
+
+              {'link' in project && project.link && (
+                <div>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Link</p>
+                  <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 hover:bg-sky-200 dark:hover:bg-sky-900/60 text-[14px] font-extrabold rounded-lg shadow-sm transition-all hover:scale-[1.02]">
+                    {project.link.includes('roblox.com') ? 'Play Experience / Visit Link' : 'Visit Link'}
+                    <ArrowUpRight className="w-4 h-4 ml-1.5" />
+                  </a>
+                </div>
+              )}
 
               <div>
                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">{t.tools}</p>
