@@ -144,70 +144,65 @@ export const projectsData = [
   {
     id: 3,
     slug: "trackstudio-tracklabid",
-    image: "/img-track-studio.png",
-    gallery: ["/img-track-studio.png"],
+    image: "/trackstudio1.png",
+    gallery: ["/trackstudio1.png", "/trackstudio2.png", "/trackstudio3.png", "/trackstudio4.png", "/trackstudio5.png", "/trackstudio6.png"],
     tags: {
       en: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"],
       id: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"]
     },
     content: {
       en: {
-        title: "Track.Studio / TrackLabID",
-        subtitle: "Running Analytics & Calculator Web Prototype",
+        title: "Track.Studio",
+        subtitle: "High-Performance Biometric Analytical Cockpit",
         category: "Personal Project",
         status: "Web Prototype",
         period: "2026",
-        role: "Running Analytics & Calculator Web Prototype",
-        overview: "A running analytics and calculator web prototype for pace, heart rate zones, training metrics, performance estimation, and training planning.",
-        context: "This project was created from my interest in running data, training analysis, and digital tools for runners. It focuses on calculator-based features and structured running metrics rather than AI-generated coaching.",
-        contribution: "Focused on feature planning, running calculator logic, UI iteration, debugging support, and manual testing.",
+        role: "Running Analytics Dashboard Developer",
+        overview: "A high-performance biometric analytical cockpit specifically designed for endurance athletes like runners and cyclists.",
+        context: "This app, named Track.Studio, is a high-performance biometric analytical cockpit specifically designed for endurance athletes, such as runners and cyclists. Based on the existing codebase, this application is also designed to integrate directly with third-party sports services like Strava and Intervals.icu to automatically pull and synchronize user training data.",
+        contribution: "Focused on feature planning, biometric analytics logic, UI iteration, and manual testing for athlete-centric metrics.",
         keyFeatures: [
-          "Pace calculator",
-          "Heart rate zone calculator",
-          "Training metrics",
-          "Running analytics concept",
-          "UI iteration",
-          "Manual testing"
+          "Deterministic Training Stress Scores",
+          "ACWR (Acute:Chronic Workload Ratio) modeling",
+          "Gear Wear Trackers",
+          "Morning Health Logs",
+          "Third-party integration (Strava, Intervals.icu)"
         ],
         process: [
-          "Planned core calculator features.",
-          "Designed the dashboard and input-output flow.",
-          "Built prototype pages using web technologies.",
-          "Tested calculation logic manually.",
-          "Iterated UI structure based on usability needs."
+          "Planned core athletic analytics features like TSS and ACWR.",
+          "Designed the high-performance analytical dashboard.",
+          "Implemented gear wear tracking and health log mechanisms.",
+          "Prepared integration concepts for Strava and Intervals.icu."
         ],
-        tools: ["React", "Tailwind CSS", "TypeScript / TSX", "Web Prototype", "Manual Testing"],
-        outcome: "The project resulted in a running web prototype that organizes running calculators and training-related metrics in a structured interface.",
-        learning: "This project improved my understanding of data-oriented UI, calculator logic, structured feature planning, and manual validation."
+        tools: ["React", "Tailwind CSS", "TypeScript / TSX", "Analytics Dashboard"],
+        outcome: "The project resulted in an advanced running analytics cockpit prototype focusing on metrics like TSS, ACWR, gear tracking, and morning health logs.",
+        learning: "This project improved my understanding of athletic biometric data, dashboard UI complexity, structured training metrics, and sports service integrations."
       },
       id: {
-        title: "Track.Studio / TrackLabID",
-        subtitle: "Running Analytics & Calculator Web Prototype",
+        title: "Track.Studio",
+        subtitle: "Dasbor Analitik Biometrik",
         category: "Personal Project",
         status: "Web Prototype",
         period: "2026",
-        role: "Running Analytics & Calculator Web Prototype",
-        overview: "Prototipe web running analytics dan kalkulator lari untuk pace, heart rate zone, training metrics, estimasi performa, dan perencanaan latihan.",
-        context: "Proyek ini dibuat dari ketertarikan saya pada running data, analisis latihan, dan digital tools untuk pelari. Fokus proyek ini adalah fitur berbasis kalkulator dan metrik lari terstruktur, bukan AI-generated coaching.",
-        contribution: "Berfokus pada feature planning, running calculator logic, UI iteration, debugging support, dan manual testing.",
+        role: "Developer Dasbor Analitik",
+        overview: "Aplikasi ini bernama Track.Studio. Secara garis besar, aplikasi ini adalah sebuah dasbor analitik biometrik (analytical cockpit) berkinerja tinggi yang dirancang khusus untuk atlet daya tahan (endurance athletes), seperti pelari maupun pesepeda.",
+        context: "Selain itu, berdasarkan basis kode yang ada, aplikasi ini juga didesain untuk bisa terintegrasi secara langsung dengan layanan olahraga pihak ketiga seperti Strava dan Intervals.icu sehingga dapat secara otomatis menarik dan mensinkronisasikan data latihan pengguna.",
+        contribution: "Berfokus pada perencanaan fitur metrik daya tahan, logika dashboard analitik, dan perumusan integrasi layanan pihak ketiga.",
         keyFeatures: [
-          "Pace calculator",
-          "Heart rate zone calculator",
-          "Training metrics",
-          "Running analytics concept",
-          "UI iteration",
-          "Manual testing"
+          "Skor Stres Latihan Deterministik (Training Stress Scores): Aplikasi ini membantu atlet untuk mengukur, melacak, dan menganalisis metrik beban dari setiap aktivitas latihan mereka secara akurat.",
+          "Pemodelan ACWR (Acute:Chronic Workload Ratio): Fitur yang dapat menganalisis rasio antara baban kerja jangka pendek (akut) dan beban kerja jangka panjang (kronis). Ini sangat berguna untuk mencegah overtraining dan meminimalisir risiko cedera.",
+          "Pelacak Keausan Perlengkapan (Gear Wear Trackers): Fitur untuk memantau usia pemakaian dan tingkat keausan perlengkapan olahraga, seperti jarak tempuh yang sudah dilalui oleh sepatu lari atau komponen sepeda tertentu.",
+          "Catatan Kesehatan Pagi (Morning Health Logs): Catatan harian lokal untuk memantau kondisi fisiologis tubuh atlet setiap paginya (seperti detak jantung istirahat, HRV, atau kualitas tidur) yang dapat digunakan sebagai parameter kesiapan latihan."
         ],
         process: [
-          "Merancang fitur kalkulator inti.",
-          "Mendesain dashboard dan alur input-output.",
-          "Membangun halaman prototype menggunakan web technologies.",
-          "Menguji calculation logic secara manual.",
-          "Melakukan iterasi struktur UI berdasarkan kebutuhan usability."
+          "Merancang fitur inti analitik atlet (TSS dan ACWR).",
+          "Mendesain dasbor analitik berkinerja tinggi.",
+          "Mengimplementasi tracker perlengkapan dan health log.",
+          "Menyesuaikan dasar integrasi untuk Strava & Intervals.icu."
         ],
-        tools: ["React", "Tailwind CSS", "TypeScript / TSX", "Web Prototype", "Manual Testing"],
-        outcome: "Proyek ini menghasilkan running web prototype yang menyusun kalkulator lari dan metrik latihan dalam interface yang terstruktur.",
-        learning: "Proyek ini meningkatkan pemahaman saya tentang data-oriented UI, calculator logic, structured feature planning, dan manual validation."
+        tools: ["React", "Tailwind CSS", "TypeScript / TSX", "Analytics Dashboard"],
+        outcome: "Proyek ini menghasilkan prototipe dasbor analitik pelari lanjutan dengan fitur lengkap untuk pelacakan beban kerja, perlengkapan, dan kesiapan tubuh.",
+        learning: "Proyek ini meningkatkan pemahaman saya pada pemrosesan data biometrik, desain UI analitik kompleks, dan layanan third-party di aplikasi olahraga."
       }
     }
   },
@@ -281,71 +276,62 @@ export const projectsData = [
   },
   {
     id: 5,
-    slug: "semester-based-multimedia-projects",
-    image: "/imgproject1.png",
-    gallery: ["/imgproject1.png"],
+    slug: "runcard-studio",
+    image: "/runcard1.png",
+    gallery: ["/runcard1.png", "/runcard2.png", "/runcard3.png", "/runcard4.png"],
     tags: {
-      en: ["Team Project", "Multimedia", "Documentation"],
-      id: ["Team Project", "Multimedia", "Documentation"]
+      en: ["Web Design Platform", "Local-First", "Data Visualization", "React"],
+      id: ["Web Design Platform", "Local-First", "Data Visualization", "React"]
     },
     content: {
       en: {
-        title: "Semester-Based Multimedia Projects",
-        category: "Academic Experience",
-        subtitle: "Multiple Collaborative Projects",
-        status: "Ongoing",
-        period: "2023 – Present",
-        role: "Project Contributor / Team Coordinator",
-        overview: "Team-based academic projects covering simple websites, 2D/3D games, Unity educational games, IoT simulations with Arduino/ESP32, and multimedia applications.",
-        context: "These projects were undertaken to apply theoretical multimedia and technology concepts into practical, team-driven scenarios, helping build a well-rounded foundation in digital production.",
-        contribution: "Adapted roles across concept development, design, software development, manual testing, documentation drafting, presentation delivery, and team coordination.",
+        title: "RunCard Studio",
+        category: "Personal Project",
+        subtitle: "Visual Generator for Runners",
+        status: "Completed",
+        period: "2026",
+        role: "Developer",
+        overview: "A web design platform (generator) specifically designed for runners and fitness enthusiasts to transform running data into aesthetic visual cards.",
+        context: "This app, named RunCard Studio, is a web design platform designed for runners. In short, RunCard Studio is a practical tool for runners to create cool and unique achievement activity reports, without needing any design skills at all.",
+        contribution: "Developed the core local-first generator capabilities, diverse visual themes, and robust export options.",
         keyFeatures: [
-          "Development of standard websites and prototypes",
-          "2D/3D game concepts",
-          "Unity educational games",
-          "IoT simulations",
-          "Comprehensive project documentation",
-          "Academic presentations and team coordination"
+          "16 Types of Visual Generators (Run Receipt, Race Recap, Pace Band, Race Bib, Route Poster)",
+          "Fully Secure & Local (Local-First), no login or server uploads",
+          "Various Export Options & Themes (Square, Story, Landscape, A4 sizes)",
+          "Diverse color themes like Minimal Line, Dark Route"
         ],
         process: [
-          "Coordinated team discussions for objective setting and task division.",
-          "Contributed to the creative design and technical implementation.",
-          "Executed functional testing across different prototypes.",
-          "Drafted detailed academic documentation and process logs.",
-          "Delivered final presentations to peers and lecturers."
+          "Designed the various visual generator templates.",
+          "Implemented local-first architecture for absolute privacy.",
+          "Added multiple export resolutions and themes."
         ],
-        tools: ["Unity", "Arduino", "Web Technologies", "Figma", "Documentation Tools", "Presentation Software"],
-        outcome: "A consistent track record of successfully delivering diverse multimedia prototypes on time while maintaining team synergy.",
-        learning: "These ongoing projects solidify my adaptability in learning new tools, collaborating in dynamic teams, and effectively documenting technical processes."
+        tools: ["React", "Data Visualization", "Web Technologies", "Local-First Architecture"],
+        outcome: "A successful practical tool for runners to create beautiful sports cards securely without needing design skills.",
+        learning: "Enhancing skills in local-first web architecture, complex canvas/image exports, and creating customizable user-focused visual tools."
       },
       id: {
-        title: "Semester-Based Multimedia Projects",
-        category: "Academic Experience",
-        subtitle: "Proyek Kolaboratif",
-        status: "Berlangsung",
-        period: "2023 – Present",
-        role: "Project Contributor / Team Coordinator",
-        overview: "Proyek multimedia semesteran berbasis tim yang mencakup pembuatan website sederhana, game 2D/3D, game edukasi Unity, simulasi IoT dengan Arduino/ESP32, dan aplikasi multimedia.",
-        context: "Proyek-proyek ini dilakukan untuk menerapkan konsep teori multimedia dan teknologi ke dalam skenario kolaborasi praktikal yang membangun fondasi kuat dalam produksi digital.",
-        contribution: "Beradaptasi dalam peran development konsep, desain, pengembangan software, manual testing, penulisan dokumentasi, penyajian presentasi, dan koordinasi tim.",
+        title: "RunCard Studio",
+        category: "Personal Project",
+        subtitle: "Visual Generator untuk Pelari",
+        status: "Selesai",
+        period: "2026",
+        role: "Developer",
+        overview: "Aplikasi ini adalah RunCard Studio, sebuah platform desain web (generator) yang dirancang khusus untuk pelari dan penggemar kebugaran. Aplikasi ini berfungsi untuk menyulap data atau statistik lari Anda menjadi kartu visual, infografis, dan poster yang sangat estetis dan siap dibagikan ke media sosial.",
+        context: "Singkatnya, RunCard Studio adalah alat praktis bagi pelari untuk membuat laporan aktivitas pencapaian yang keren dan unik, tanpa perlu kemampuan desain sama sekali.",
+        contribution: "Mengembangkan generator lokal-pertama, beragam pilihan ekspor visual, serta dukungan 16 jenis template visual.",
         keyFeatures: [
-          "Pengembangan website dan prototipe",
-          "Konsep game 2D/3D",
-          "Game edukasi menggunakan Unity",
-          "Simulasi IoT",
-          "Dokumentasi proyek yang komprehensif",
-          "Presentasi akademik dan koordinasi tim"
+          "16 Jenis Generator Visual: Anda dapat membuat berbagai format kartu laporan, seperti Run Receipt, Race Recap, Pace Band, Race Bib, dan Route Poster dari lintasan GPX.",
+          "Sepenuhnya Aman & Lokal (Local-First): Seluruh proses pengeditan langsung di browser tanpa login atau pengiriman data privasi/lokasi lari (GPX).",
+          "Berbagai Pilihan Ekspor & Tema: Resolusi tinggi untuk desain berukuran Square, Story, Landscape, hingga cetak (A4), dengan beragam tema warna."
         ],
         process: [
-          "Mengkoordinasi diskusi tim untuk penentuan tujuan dan pembagian tugas.",
-          "Berkontribusi pada desain kreatif dan implementasi teknis.",
-          "Melakukan functional testing pada berbagai prototipe.",
-          "Menyusun dokumentasi akademik detail dan log proses pengerjaan.",
-          "Menyampaikan presentasi akhir kepada rekan dan dosen."
+          "Merancang berbagai opsi template generator visual untuk pelari.",
+          "Menjamin privasi data secara absolut dengan implementasi arsitektur aplikasi local-first pada browser.",
+          "Menambahkan engine dukungan ekspor desain untuk multi-rasio dan resolusi tinggi."
         ],
-        tools: ["Unity", "Arduino", "Web Technologies", "Figma", "Documentation Tools", "Presentation Software"],
-        outcome: "Rekam jejak konsisten dalam menyelesaikan berbagai prototipe multimedia tepat waktu dengan menjaga sinergi tim.",
-        learning: "Proyek berkelanjutan ini memantapkan kemampuan adaptasi saya mempelajari tools baru, berkolaborasi dalam tim yang dinamis, serta mendokumentasikan proses teknis dengan baik."
+        tools: ["React", "Data Visualization", "Web Technologies", "Local-First Architecture"],
+        outcome: "Produk final yang sangat berfokus pada desain visual dan privasi lokal tanpa penyimpanan server eksternal.",
+        learning: "Menajamkan pola implementasi local-first, pengelolaan ekspor gambar di browser, dan manipulasi template data dinamis."
       }
     }
   },
