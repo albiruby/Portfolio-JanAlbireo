@@ -66,7 +66,7 @@ export function Header() {
           </button>
 
           {/* Download CV - Desktop */}
-          <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full shadow-sm hover:bg-slate-800 dark:hover:bg-white transition-colors">
+          <a href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link" target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full shadow-sm hover:bg-slate-800 dark:hover:bg-white transition-colors">
             {t.nav.downloadCV}
           </a>
 
@@ -106,7 +106,7 @@ export function Header() {
               );
             })}
           </nav>
-          <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center px-6 py-3.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-xl shadow-md transition-colors text-[14px]">
+          <a href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center px-6 py-3.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-xl shadow-md transition-colors text-[14px]">
             {t.nav.downloadCV}
           </a>
         </div>

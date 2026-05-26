@@ -5,7 +5,7 @@ export const data = {
     role: "Teknik Multimedia Digital Student & Interactive Media Developer",
     description: "Saya adalah mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam Roblox interactive media, UI/UX, web prototype, Android app development, testing, dan documentation.",
     avatarUrl: "/img-profil.jpg",
-    resume: "/CV_Jan_Albireo.pdf"
+    resume: "https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
   },
   snapshot: [
     { title: "6th Semester", description: "Teknik Multimedia Digital student at Politeknik Negeri Jakarta." },
@@ -198,6 +198,6 @@ export const data = {
     email: "mailto:janalbireo123@gmail.com",
     github: "https://github.com/albiruby",
     linkedin: "https://www.linkedin.com/in/janalbireogd/",
-    resume: "/CV_Jan_Albireo.pdf"
+    resume: "https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
   }
 };

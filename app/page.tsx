@@ -94,8 +94,7 @@ export default function PortfolioPage() {
                 {t.hero.primaryCta} <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
-                href="/CV_Jan_Albireo.pdf"
-                download="CV_Jan_Albireo.pdf"
+                href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-transparent border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-[12px] sm:text-[13px] font-bold rounded-full hover:border-sky-600 hover:text-sky-700 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors gap-2"
@@ -653,8 +652,7 @@ export default function PortfolioPage() {
                 {t.contact.buttons.github}
               </a>
               <a
-                href="/CV_Jan_Albireo.pdf"
-                download="CV_Jan_Albireo.pdf"
+                href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full mt-4 inline-flex items-center justify-center px-6 py-4 bg-transparent text-slate-950 dark:text-white border-2 border-slate-950 dark:border-white text-[13px] font-bold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-sky-800 dark:hover:text-sky-400 transition-colors gap-2"
