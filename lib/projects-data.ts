@@ -144,8 +144,8 @@ export const projectsData = [
   {
     id: 3,
     slug: "trackstudio-tracklabid",
-    image: "/trackstudio1.png",
-    gallery: ["/trackstudio1.png", "/trackstudio2.png", "/trackstudio3.png", "/trackstudio4.png", "/trackstudio5.png", "/trackstudio6.png"],
+    image: "/trackstudio7.png",
+    gallery: ["/trackstudio7.png", "/trackstudio1.png", "/trackstudio2.png", "/trackstudio3.png", "/trackstudio4.png", "/trackstudio5.png", "/trackstudio6.png"],
     tags: {
       en: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"],
       id: ["React", "Tailwind CSS", "Web Prototype", "Running Analytics"]
@@ -209,8 +209,8 @@ export const projectsData = [
   {
     id: 4,
     slug: "university-website-redesign-android-app",
-    image: "/imgproject4.png",
-    gallery: ["/imgproject4.png"],
+    image: "/android7.png",
+    gallery: ["/android7.png", "/android1.png", "/android2.png", "/android3.png", "/android4.png", "/android5.png", "/android6.png"],
     tags: {
       en: ["Android Studio", "Java", "Mobile Development"],
       id: ["Android Studio", "Java", "Mobile Development"]
@@ -277,8 +277,8 @@ export const projectsData = [
   {
     id: 5,
     slug: "runcard-studio",
-    image: "/runcard1.png",
-    gallery: ["/runcard1.png", "/runcard2.png", "/runcard3.png", "/runcard4.png"],
+    image: "/runcard5.png",
+    gallery: ["/runcard5.png", "/runcard1.png", "/runcard2.png", "/runcard3.png", "/runcard4.png"],
     tags: {
       en: ["Web Design Platform", "Local-First", "Data Visualization", "React"],
       id: ["Web Design Platform", "Local-First", "Data Visualization", "React"]
