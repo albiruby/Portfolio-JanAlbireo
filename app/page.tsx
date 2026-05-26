@@ -5,48 +5,18 @@ import { ArrowUpRight, Download, Sun, Moon, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { content } from "@/lib/i18n";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { useAppContext } from "@/components/Providers";
+import { projectsData } from "@/lib/projects-data";
 
 export default function PortfolioPage() {
-  const [lang, setLang] = useState<"en" | "id">("en");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { lang } = useAppContext();
   const [mounted, setMounted] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    const initialize = () => {
-      const savedLang = localStorage.getItem("lang");
-      if (savedLang === "id") setLang("id");
-
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme === "dark") {
-        setTheme("dark");
-        document.documentElement.classList.add("dark");
-      } else {
-        setTheme("light");
-        document.documentElement.classList.remove("dark");
-      }
-      setMounted(true);
-    };
-    initialize();
+    setMounted(true);
   }, []);
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
-  };
-
-  const toggleLang = (newLang: "en" | "id") => {
-    setLang(newLang);
-    localStorage.setItem("lang", newLang);
-  };
 
   if (!mounted) {
     // Return empty placeholder with same background to prevent hydration mismatch and layout shift
@@ -60,102 +30,7 @@ export default function PortfolioPage() {
       {/* Subtle Noise Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.025] dark:opacity-[0.04] mix-blend-multiply dark:mix-blend-overlay z-50" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
 
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full bg-[#fafafa]/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 h-20 md:h-24 flex items-center justify-between">
-          <Link href="/" className="font-bold text-2xl tracking-tighter text-slate-950 dark:text-white flex items-center shrink-0" title="Jan Albireo">
-            STUDIO<span className="text-sky-600 dark:text-sky-400 ml-0.5 text-3xl leading-none">.</span>
-          </Link>
-          
-          <nav className="hidden lg:flex gap-8">
-            {[
-              { id: 'home', label: t.nav.home },
-              { id: 'work', label: t.nav.work },
-              { id: 'about', label: t.nav.about },
-              { id: 'skills', label: t.nav.skills },
-              { id: 'education', label: t.nav.education },
-              { id: 'contact', label: t.nav.contact }
-            ].map((item) => {
-              const isActive = item.id === 'home';
-              const href = item.id === 'home' ? '#home' : item.id === 'work' ? '#projects' : `#${item.id}`;
-              return (
-                <a key={item.id} href={href} className={`text-[13px] font-semibold tracking-wide transition-colors pb-1 border-b-2 items-center flex ${isActive ? 'text-slate-950 dark:text-white border-sky-600 dark:border-sky-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white border-transparent'}`}>
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
-
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Language Toggle */}
-            <div className="flex items-center bg-slate-200/50 dark:bg-slate-800/50 p-1 rounded-full">
-              <button 
-                onClick={() => toggleLang("en")} 
-                aria-label="Switch to English"
-                className={`text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${lang === 'en' ? 'bg-slate-950 text-white dark:bg-slate-100 dark:text-slate-950 shadow-sm' : 'text-slate-500 dark:text-slate-400'}`}
-              >
-                EN
-              </button>
-              <button 
-                onClick={() => toggleLang("id")} 
-                aria-label="Switch to Indonesia"
-                className={`text-[11px] font-bold px-3 py-1.5 rounded-full transition-all ${lang === 'id' ? 'bg-slate-950 text-white dark:bg-slate-100 dark:text-slate-950 shadow-sm' : 'text-slate-500 dark:text-slate-400'}`}
-              >
-                ID
-              </button>
-            </div>
-            
-            {/* Theme Toggle */}
-            <button 
-              onClick={toggleTheme} 
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0" 
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-            </button>
-
-            {/* Download CV - Desktop */}
-            <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" target="_blank" rel="noreferrer" className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full shadow-sm hover:bg-slate-800 dark:hover:bg-white transition-colors">
-              {t.nav.downloadCV}
-            </a>
-
-            {/* Mobile Menu Toggle */}
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)} 
-              className="lg:hidden w-9 h-9 flex items-center justify-center text-slate-950 dark:text-white shrink-0"
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-        
-        {/* Mobile Dropdown Menu */}
-        {menuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#fafafa] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-xl py-6 px-6 flex flex-col gap-6">
-            <nav className="flex flex-col gap-4">
-              {[
-                { id: 'home', label: t.nav.home },
-                { id: 'work', label: t.nav.work },
-                { id: 'about', label: t.nav.about },
-                { id: 'skills', label: t.nav.skills },
-                { id: 'education', label: t.nav.education },
-                { id: 'contact', label: t.nav.contact }
-              ].map((item) => {
-                const href = item.id === 'home' ? '#home' : item.id === 'work' ? '#projects' : `#${item.id}`;
-                return (
-                  <a key={item.id} href={href} onClick={() => setMenuOpen(false)} className={`text-base font-bold tracking-wide transition-colors ${item.id === 'home' ? 'text-sky-700 dark:text-sky-400' : 'text-slate-700 dark:text-slate-300'}`}>
-                    {item.label}
-                  </a>
-                );
-              })}
-            </nav>
-            <a href="/CV_Jan_Albireo.pdf" download="CV_Jan_Albireo.pdf" onClick={() => setMenuOpen(false)} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[14px] font-bold rounded-full shadow-sm">
-              {t.nav.downloadCV}
-            </a>
-          </div>
-        )}
-      </header>
+      <Header />
 
       <main>
         {/* HERO SECTION */}
@@ -304,59 +179,68 @@ export default function PortfolioPage() {
             </div>
             
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {t.work.projects.map((project, idx) => {
-                const displayTags = project.tags.slice(0, 4);
-                const remainingTags = project.tags.length - 4;
+              {projectsData.map((project, idx) => {
+                const projectContent = project.content[lang];
+                const projectTags = project.tags[lang];
+                const displayTags = projectTags.slice(0, 3);
+                const remainingTags = projectTags.length - 3;
                 
                 return (
-                  <article key={idx} className="group flex h-full min-h-[430px] flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
-                      <Image 
-                        src={project.imageUrl} 
-                        alt={project.title} 
-                        fill 
-                        className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" 
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-                    
-                    <div className="flex flex-1 flex-col p-5">
-                      <div className="mb-3 flex items-center justify-between gap-2">
-                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
-                          {project.category} · {project.period}
-                        </p>
-                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
-                          {project.status}
-                        </span>
+                  <Link key={project.id} href={`/projects/${project.slug}`} className="group block h-full flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden cursor-pointer">
+                    <article className="flex h-full min-h-[430px] flex-col">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
+                        <Image 
+                          src={project.image} 
+                          alt={projectContent.title} 
+                          fill 
+                          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" 
+                          referrerPolicy="no-referrer"
+                        />
                       </div>
                       
-                      <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
-                        <span className="line-clamp-2">{project.title}</span>
-                      </h3>
-                      
-                      <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
-                        {project.description}
-                      </div>
+                      <div className="flex flex-1 flex-col p-5">
+                        <div className="mb-3 flex items-center justify-between gap-2">
+                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
+                            {projectContent.category} · {projectContent.period}
+                          </p>
+                          <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
+                            {projectContent.status}
+                          </span>
+                        </div>
+                        
+                        <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
+                          <span className="line-clamp-2">{projectContent.title}</span>
+                        </h3>
+                        
+                        <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                          {projectContent.overview}
+                        </div>
 
-                      <div className="mb-4 space-y-1.5 flex-1">
-                        <p className="text-xs flex gap-1.5"><span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">{t.work.roleLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-1">{project.role}</span></p>
-                        <p className="text-xs flex flex-col gap-0.5"><span className="font-semibold text-slate-900 dark:text-slate-200">{t.work.contributionLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">{project.contribution}</span></p>
-                      </div>
-                      
-                      <div className="pt-4 flex flex-wrap gap-1.5 mt-auto border-t border-slate-100 dark:border-slate-800">
-                        {displayTags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium">
-                            {tag}
+                        <div className="mb-4 space-y-1.5 flex-1">
+                          <p className="text-xs flex gap-1.5"><span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">{t.work.roleLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-1">{projectContent.role}</span></p>
+                          <p className="text-xs flex flex-col gap-0.5"><span className="font-semibold text-slate-900 dark:text-slate-200">{t.work.contributionLabel}</span> <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">{projectContent.contribution}</span></p>
+                        </div>
+                        
+                        <div className="pt-4 flex flex-col gap-3 mt-auto border-t border-slate-100 dark:border-slate-800">
+                          <div className="flex flex-wrap gap-1.5">
+                            {displayTags.map((tag, tIdx) => (
+                              <span key={tIdx} className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium">
+                                {tag}
+                              </span>
+                            ))}
+                            {remainingTags > 0 && (
+                              <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold text-slate-500">
+                                +{remainingTags} {t.work.moreLabel}
+                              </span>
+                            )}
+                          </div>
+                          <span className="font-medium text-[13px] text-sky-600 dark:text-sky-400 flex items-center group-hover:underline">
+                            {lang === 'en' ? 'View case study →' : 'Lihat detail proyek →'}
                           </span>
-                        ))}
-                        {remainingTags > 0 && (
-                          <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold">
-                            +{remainingTags} {t.work.moreLabel}
-                          </span>
-                        )}
+                        </div>
                       </div>
-                    </div>
-                  </article>
+                    </article>
+                  </Link>
                 );
               })}
             </div>
@@ -556,22 +440,7 @@ export default function PortfolioPage() {
 
       </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 relative z-10 transition-colors duration-300">
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <p className="text-[11px] font-bold text-slate-950 dark:text-white tracking-[0.2em] uppercase">
-            JAN ALBIREO
-          </p>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 tracking-wide">
-            {t.footer.copyright}
-          </p>
-          <div className="flex gap-6 items-center">
-              <a href="mailto:janalbireo123@gmail.com" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.email}</a>
-              <a href="https://linkedin.com/in/janalbireogd" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.linkedin}</a>
-              <a href="https://github.com/janalbireo123" target="_blank" rel="noreferrer" className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest hover:text-sky-700 dark:hover:text-sky-400 transition-colors">{t.footer.github}</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
