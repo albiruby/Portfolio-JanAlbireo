@@ -463,6 +463,80 @@ export const projectsData = [
     },
   },
   {
+    id: 6,
+    slug: "unity-educational-game-prototype",
+    image: "/imgproject2.png",
+    gallery: ["/imgproject2.png"],
+    tags: {
+      en: ["Unity", "C#", "Figma", "Canva"],
+      id: ["Unity", "C#", "Figma", "Canva"],
+    },
+    content: {
+      en: {
+        title: "Unity Educational Game Prototype",
+        subtitle: "Educational Game Prototype",
+        category: "Academic Project",
+        status: "Prototype",
+        period: "2024 – 2025",
+        role: "Game Development Contributor",
+        overview:
+          "A semester-based Unity educational game prototype developed as part of multimedia learning projects, focusing on gameplay structure, UI flow, and functional testing.",
+        context:
+          "This project was developed as a part of multimedia learning assignments to explore game mechanics, interactive learning elements, and user interfaces inside the Unity engine.",
+        contribution:
+          "Contributed to gameplay concept development, scene structuring, UI flow, and testing support.",
+        keyFeatures: [
+          "Educational gameplay mechanics",
+          "Scene structure and transitions",
+          "Interactive UI flow",
+          "Functional game testing",
+        ],
+        process: [
+          "Formulated the gameplay concept for educational purposes.",
+          "Set up the scene structure and game environments in Unity.",
+          "Designed and implemented the user interface flow.",
+          "Conducted testing to ensure functional gameplay.",
+        ],
+        tools: ["Unity", "C#", "Figma", "Canva"],
+        outcome:
+          "A functional Unity educational game prototype that successfully demonstrates interactive learning concepts.",
+        learning:
+          "This project enhanced practical skills in Unity development, C# scripting, UI navigation, and teamwork in game development.",
+      },
+      id: {
+        title: "Unity Educational Game Prototype",
+        subtitle: "Prototipe Game Edukasi",
+        category: "Academic Project",
+        status: "Prototype",
+        period: "2024 – 2025",
+        role: "Game Development Contributor",
+        overview:
+          "Prototipe game edukasi Unity berbasis semester yang dikembangkan sebagai bagian dari proyek pembelajaran multimedia, berfokus pada struktur gameplay, alur UI, dan pengujian fungsional.",
+        context:
+          "Proyek ini dikembangkan sebagai bagian dari tugas pembelajaran multimedia untuk mengeksplorasi mekanika game, elemen pembelajaran interaktif, dan antarmuka pengguna di dalam engine Unity.",
+        contribution:
+          "Berkontribusi pada pengembangan konsep gameplay, penataan scene, alur UI, dan dukungan pengujian.",
+        keyFeatures: [
+          "Mekanika gameplay edukatif",
+          "Struktur scene dan transisi",
+          "Alur UI interaktif",
+          "Pengujian game fungsional",
+        ],
+        process: [
+          "Merumuskan konsep gameplay untuk tujuan edukasi.",
+          "Menyesuaikan struktur scene dan lingkungan game di Unity.",
+          "Merancang dan mengimplementasikan alur antarmuka pengguna.",
+          "Melakukan pengujian untuk memastikan gameplay yang fungsional.",
+        ],
+        tools: ["Unity", "C#", "Figma", "Canva"],
+        outcome:
+          "Prototipe game edukasi Unity fungsional yang berhasil mendemonstrasikan konsep pembelajaran interaktif.",
+        learning:
+          "Proyek ini meningkatkan keterampilan praktis dalam pengembangan Unity, scripting C#, navigasi UI, dan kerja sama tim dalam pengembangan game.",
+      },
+    },
+  },
+  {
     id: 7,
     slug: "iot-simulation-arduino-esp32",
     image: "/iot5.png",

@@ -197,16 +197,14 @@ export const content = {
           period: "2024 – 2025",
           role: "Game Development Contributor",
           description:
-            "A Unity-based educational game prototype developed as part of semester-based multimedia learning projects.",
+            "A semester-based Unity educational game prototype developed as part of multimedia learning projects, focusing on gameplay structure, UI flow, and functional testing.",
           contribution:
-            "Contributed to gameplay concept, scene structure, UI flow, testing, and project documentation.",
+            "Contributed to gameplay concept development, scene structuring, UI flow, and testing support.",
           tags: [
             "Unity",
-            "Game Prototype",
-            "UI Flow",
-            "Educational Game",
-            "Testing",
-            "Documentation",
+            "C#",
+            "Figma",
+            "Canva"
           ],
           imageUrl: "/imgproject2.png",
         },
@@ -609,16 +607,14 @@ export const content = {
           period: "2024 – 2025",
           role: "Game Development Contributor",
           description:
-            "Prototipe game edukasi berbasis Unity yang dikembangkan sebagai bagian dari proyek akhir mata kuliah.",
+            "Prototipe game edukasi Unity berbasis semester yang dikembangkan sebagai bagian dari proyek pembelajaran multimedia, berfokus pada struktur gameplay, alur UI, dan pengujian fungsional.",
           contribution:
-            "Berkontribusi pada konsep gameplay, scene structure, alur UI, testing, dan dokumentasi proyek.",
+            "Berkontribusi pada pengembangan konsep gameplay, penataan scene, alur UI, dan dukungan pengujian.",
           tags: [
             "Unity",
-            "Game Prototype",
-            "UI Flow",
-            "Educational Game",
-            "Testing",
-            "Documentation",
+            "C#",
+            "Figma",
+            "Canva"
           ],
           imageUrl: "/imgproject2.png",
         },
