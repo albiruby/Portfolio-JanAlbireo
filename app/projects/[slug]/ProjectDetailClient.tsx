@@ -22,6 +22,7 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -66,6 +67,7 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
+    // eslint-disable-next-line react-hooks/immutability
     document.body.style.overflow = "hidden";
   };
 

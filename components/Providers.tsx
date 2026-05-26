@@ -21,6 +21,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedLang = localStorage.getItem("lang") as Lang | null;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedLang === "id" || savedLang === "en") setLang(savedLang);
 
     const savedTheme = localStorage.getItem("theme") as Theme | null;
@@ -31,6 +32,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
       setTheme("light");
       document.documentElement.classList.remove("dark");
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
