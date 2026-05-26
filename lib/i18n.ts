@@ -317,6 +317,9 @@ export const content = {
       softSkillsLbl: "Soft Skills",
       softSkillsVal:
         "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking, Fast Learning, Initiative, Process-Oriented Mindset",
+      relevantInterestsLbl: "Relevant Interests",
+      relevantInterestsVal:
+        "Digital media, interactive products, gaming ecosystem, creative IP, sports technology, running and endurance sports, streaming platforms, user experience, and entertainment technology.",
     },
     education: {
       section: "05 / ACADEMIC",
@@ -716,6 +719,9 @@ export const content = {
       softSkillsLbl: "Soft Skills",
       softSkillsVal:
         "Team Collaboration, Communication, Adaptability, Problem Solving, Time Management, Documentation, Attention to Detail, Analytical Thinking, Fast Learning, Initiative, Process-Oriented Mindset",
+      relevantInterestsLbl: "Relevant Interests",
+      relevantInterestsVal:
+        "Digital media, interactive products, gaming ecosystem, creative IP, sports technology, running and endurance sports, streaming platforms, user experience, and entertainment technology.",
     },
     education: {
       section: "05 / PENDIDIKAN",

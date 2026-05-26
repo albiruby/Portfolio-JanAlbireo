@@ -427,20 +427,28 @@ export default function PortfolioPage() {
 
                 {/* Compact list */}
                 <div className="pt-6 space-y-4">
-                  <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4">
-                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest">
+                  <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
+                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
                       {t.skills.languagesLbl}
                     </span>
                     <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px]">
                       {t.skills.languagesVal}
                     </span>
                   </div>
-                  <div className="flex">
-                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest">
+                  <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
+                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
                       {t.skills.softSkillsLbl}
                     </span>
                     <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed">
                       {t.skills.softSkillsVal}
+                    </span>
+                  </div>
+                  <div className="flex">
+                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
+                      {t.skills.relevantInterestsLbl}
+                    </span>
+                    <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed">
+                      {t.skills.relevantInterestsVal}
                     </span>
                   </div>
                 </div>
