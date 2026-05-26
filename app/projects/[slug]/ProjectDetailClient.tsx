@@ -2,18 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut, RefreshCcw, Maximize } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useAppContext } from "@/components/Providers";
 import { projectsData } from "@/lib/projects-data";
 import { useEffect, useState } from "react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 type Project = typeof projectsData[0];
 
 export function ProjectDetailClient({ project, relatedProjects }: { project: Project; relatedProjects: Project[] }) {
   const { lang } = useAppContext();
   const [mounted, setMounted] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -25,6 +31,58 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
 
   const c = project.content[lang];
   const tags = project.tags[lang];
+  const gallery = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
+    }
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = "";
+  };
+
+  const nextLightboxImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setLightboxIndex((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevLightboxImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setLightboxIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
 
   const dict = {
     en: {
@@ -112,17 +170,70 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
           </div>
         </div>
 
-        {/* Hero image placeholder or actual image */}
+        {/* Hero image carousel */}
         <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 mb-16 lg:mb-24">
-          <div className="w-full aspect-video sm:aspect-[21/9] bg-slate-100 dark:bg-slate-900 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-slate-800">
-            <Image 
-              src={project.image} 
-              alt={c.title} 
-              fill 
-              className="object-cover"
-              referrerPolicy="no-referrer"
-              priority
-            />
+          <div 
+            className="w-full aspect-video sm:aspect-[21/9] bg-slate-100 dark:bg-slate-900 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-slate-800 group"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div 
+              className="flex w-full h-full transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+            >
+              {gallery.map((img, idx) => (
+                <div 
+                  key={idx} 
+                  className="w-full h-full shrink-0 relative cursor-pointer"
+                  onClick={() => openLightbox(idx)}
+                >
+                  <Image 
+                    src={img} 
+                    alt={`${c.title} - Image ${idx + 1}`} 
+                    fill 
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                    priority={idx === 0}
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center">
+                    <Maximize className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 drop-shadow-md scale-50 group-hover:scale-100 transition-all duration-300" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            {gallery.length > 1 && (
+              <>
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-sm"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-sm"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+
+                {/* Dot Indicators */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-2 bg-slate-900/30 dark:bg-slate-900/60 backdrop-blur-md rounded-full">
+                  {gallery.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`transition-all duration-300 rounded-full ${idx === currentImageIndex ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'}`}
+                      aria-label={`Go to image ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -182,14 +293,21 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
               <div className="mb-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.gallery.map((img, i) => (
-                    <div key={i} className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <div 
+                      key={i} 
+                      className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 cursor-pointer group"
+                      onClick={() => openLightbox(i)}
+                    >
                       <Image 
                         src={img} 
                         alt="Project gallery" 
                         fill 
-                        className="object-cover hover:scale-105 transition-transform duration-500" 
+                        className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         referrerPolicy="no-referrer"
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <Maximize className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 drop-shadow-md scale-50 group-hover:scale-100 transition-all duration-300" />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -242,6 +360,83 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
       )}
 
       <Footer />
+
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm">
+          {/* Top Controls */}
+          <div className="absolute top-0 left-0 w-full p-4 flex items-center justify-between z-[110]">
+            <div className="text-white text-sm font-bold opacity-70 tracking-widest uppercase">
+              {lightboxIndex + 1} / {gallery.length}
+            </div>
+            <button
+              onClick={closeLightbox}
+              className="p-2 text-white/70 hover:text-white transition-colors"
+              aria-label="Close lightbox"
+            >
+              <X className="w-8 h-8" />
+            </button>
+          </div>
+
+          <TransformWrapper
+            initialScale={1}
+            minScale={1}
+            maxScale={4}
+            centerOnInit
+            centerZoomedOut
+          >
+            {({ zoomIn, zoomOut, resetTransform }) => (
+              <>
+                {/* Bottom Zoom Controls */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full z-[110]">
+                  <button onClick={() => zoomOut()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Zoom out">
+                    <ZoomOut className="w-6 h-6" />
+                  </button>
+                  <button onClick={() => resetTransform()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Reset zoom">
+                    <RefreshCcw className="w-5 h-5" />
+                  </button>
+                  <button onClick={() => zoomIn()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Zoom in">
+                    <ZoomIn className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center text-center cursor-grab active:cursor-grabbing">
+                  <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }} contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div className="relative w-screen h-screen">
+                      <Image
+                        src={gallery[lightboxIndex]}
+                        alt="Enlarged view"
+                        fill
+                        className="object-contain"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </TransformComponent>
+                </div>
+              </>
+            )}
+          </TransformWrapper>
+
+          {/* Navigation */}
+          {gallery.length > 1 && (
+            <>
+              <button
+                onClick={prevLightboxImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/50 hover:text-white transition-colors z-[110]"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button
+                onClick={nextLightboxImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/50 hover:text-white transition-colors z-[110]"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-10 h-10" />
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

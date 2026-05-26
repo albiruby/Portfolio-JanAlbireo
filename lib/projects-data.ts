@@ -77,7 +77,7 @@ export const projectsData = [
     id: 2,
     slug: "edufun-obby",
     image: "/img-edufun-obby.png",
-    gallery: ["/img-edufun-obby.png"],
+    gallery: ["/img-edufun-obby.png", "/edufun1.png", "/edufun2.png", "/edufun3.png"],
     tags: {
       en: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game"],
       id: ["Roblox Studio", "Lua", "Game Development", "Level Design", "Educational Game"]
