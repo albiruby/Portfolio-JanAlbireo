@@ -279,6 +279,8 @@ export default function PortfolioPage() {
                                 "runcard-studio",
                               ].includes(project.slug)
                                 ? "object-left"
+                                : project.slug === "iot-simulation-arduino-esp32"
+                                ? "object-[15%_center]"
                                 : "object-center"
                             }`}
                             referrerPolicy="no-referrer"
