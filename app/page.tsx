@@ -118,7 +118,7 @@ export default function PortfolioPage() {
           <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md mx-auto z-10 flex flex-col items-center mt-4 lg:mt-0">
             <div className="relative w-full aspect-[4/5] max-h-[420px] rounded-[1.5rem] overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none ring-1 ring-slate-200/50 dark:ring-slate-800">
               <Image
-                src="/fotodiri2_1.jpg"
+                src="/fotodiri2.png"
                 alt="Jan Albireo"
                 fill
                 priority
@@ -162,7 +162,7 @@ export default function PortfolioPage() {
         >
           <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm mx-auto aspect-[3/4] md:aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none border border-slate-200/50 dark:border-slate-800">
             <Image
-              src="/fotodiri2_2.jpg"
+              src="/fotodiri2.png"
               alt="Jan Albireo"
               fill
               className="object-cover object-[center_20%]"

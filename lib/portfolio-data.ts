@@ -4,7 +4,7 @@ export const data = {
     name: "Jan Albireo",
     role: "Teknik Multimedia Digital Student & Interactive Media Developer",
     description: "Saya adalah mahasiswa semester 6 Teknik Multimedia Digital di Politeknik Negeri Jakarta dengan pengalaman berbasis proyek dalam Roblox interactive media, UI/UX, web prototype, Android app development, testing, dan documentation.",
-    avatarUrl: "/fotodiri2_1.jpg",
+    avatarUrl: "/fotodiri2.png",
     resume: "https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
   },
   snapshot: [
