@@ -60,6 +60,7 @@ export const content = {
       paragraphs: [
         "I work on digital multimedia projects that combine visual design, technical implementation, documentation, and user experience. Through academic and personal projects, I have contributed to interactive media development, UI/UX, Lua scripting, web prototyping, Android implementation, testing scenarios, research documentation, and academic report writing.",
         "I am especially interested in building structured, user-focused digital experiences and improving them through iteration, testing, and problem-solving.",
+        "Outside of academic projects, I am interested in running and endurance sports, as well as casual music playing through drum, cajon, and basic keyboard. These interests support my creative perspective in multimedia and entertainment-related projects.",
       ],
       aiNote:
         "* AI tools are used as supporting resources for research, debugging, ideation, and documentation, with manual review and validation.",
@@ -462,6 +463,7 @@ export const content = {
       paragraphs: [
         "Saya mengerjakan proyek multimedia digital yang menggabungkan desain visual, implementasi teknis, dokumentasi, dan pengalaman pengguna. Melalui proyek akademik dan personal, saya telah berkontribusi pada pengembangan media interaktif, UI/UX, Lua scripting, pembuatan prototipe web, implementasi Android, skenario pengujian, dokumentasi penelitian, dan penulisan laporan akademik.",
         "Saya sangat tertarik dalam membangun pengalaman digital yang terstruktur dan berfokus pada pengguna, serta meningkatkannya melalui iterasi, pengujian, dan penyelesaian masalah.",
+        "Di luar proyek akademik, saya tertarik pada olahraga lari dan ketahanan (endurance sports), serta bermain musik secara santai melalui drum, cajon, dan keyboard dasar. Minat-minat ini mendukung perspektif kreatif saya dalam proyek multimedia dan proyek yang berhubungan dengan hiburan.",
       ],
       aiNote:
         "* AI tools digunakan sebagai sumber pendukung untuk riset, debugging, ideasi, dan dokumentasi, dengan review dan validasi manual.",
