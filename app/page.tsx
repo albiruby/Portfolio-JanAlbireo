@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowUpRight, Download, Sun, Moon, Menu, X } from "lucide-react";
+import { ArrowUpRight, Download, ArrowDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -21,198 +21,451 @@ export default function PortfolioPage() {
   }, []);
 
   if (!mounted) {
-    // Return empty placeholder with same background to prevent hydration mismatch and layout shift
-    return <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950"></div>;
+    return <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950" />;
   }
 
   const t = content[lang];
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#fafafa] dark:bg-slate-950 text-slate-600 dark:text-slate-400 font-sans selection:bg-sky-100 selection:text-sky-900 scroll-smooth relative transition-colors duration-300">
-      {/* Subtle Noise Texture Overlay */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-[0.025] dark:opacity-[0.04] mix-blend-multiply dark:mix-blend-overlay z-50"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
-        }}
-      ></div>
-
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#fafafa] dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white scroll-smooth relative transition-colors duration-300">
       <Header />
 
       <main>
-        {/* HERO SECTION */}
+        {/* ========================================================
+            01. HERO SECTION (Fusion of Edison Palmer & Francois Mercer WITH Vibrant Colors)
+           ======================================================== */}
         <section
           id="home"
-          className="relative mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 pt-16 md:pt-20 lg:pt-24 pb-20 md:pb-24 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 sm:gap-12 lg:gap-16 items-center"
+          className="relative mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 pt-10 sm:pt-14 md:pt-16 pb-16 md:pb-24 border-b border-slate-200 dark:border-slate-800"
         >
-          {/* Subtle faint dotted background for Hero */}
-          <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
-          {/* Soft pale cyan radial gradient on the right */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-100/40 dark:bg-cyan-900/10 rounded-full blur-[100px] opacity-60 pointer-events-none"></div>
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-sky-200/40 dark:bg-sky-900/15 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-          <div className="space-y-6 sm:space-y-8 relative z-10">
-            <div className="flex flex-col items-start gap-4">
-              <span className="text-[10px] sm:text-[11px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                {t.hero.intro}
-              </span>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100/50 dark:border-sky-800/50 rounded-full text-[10px] sm:text-[11px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400"></span>
-                {t.hero.badge}
+          {/* Top Presentation Meta (Image 2 style with Color) */}
+          <div className="flex items-center justify-between pb-6 mb-8 border-b border-slate-200 dark:border-slate-800">
+            <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+              {t.hero.intro}
+            </span>
+            <span className="meta text-slate-500 dark:text-slate-400 hidden sm:inline">
+              2026 DIGITAL MULTIMEDIA ARCHIVE
+            </span>
+            <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1 text-sky-700 dark:text-sky-300 font-bold rounded-full inline-flex items-center gap-2 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              {t.hero.badge}
+            </span>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-start">
+            {/* Left Column: Huge Stacked Name + Dual Specs (Image 1 & 2 style) */}
+            <div className="space-y-8">
+              <div>
+                <h1 className="display text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] leading-[0.84] text-slate-950 dark:text-white tracking-tight">
+                  Jan
+                  <br />
+                  Albireo
+                </h1>
+              </div>
+
+              {/* Sub-spec columns (Directly inspired by Edison Palmer: "Digital Designer | Based in New York") */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-slate-200 dark:border-slate-800">
+                <div>
+                  <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-1">
+                    DISCIPLINE
+                  </p>
+                  <p className="display-sm text-lg sm:text-xl text-slate-950 dark:text-white leading-tight">
+                    {t.hero.role2}
+                  </p>
+                </div>
+                <div>
+                  <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-1">
+                    LOCATION & INSTITUTION
+                  </p>
+                  <p className="display-sm text-lg sm:text-xl text-slate-950 dark:text-white leading-tight">
+                    PNJ Jakarta, ID
+                  </p>
+                </div>
+              </div>
+
+              {/* Bio Statement with colorful accent border */}
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl border-l-2 border-sky-500 dark:border-sky-400 pl-4 sm:pl-5">
+                {t.hero.description}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <a href="#projects" className="btn btn-solid">
+                  {t.hero.primaryCta} <ArrowDown className="w-3.5 h-3.5 text-sky-400" />
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-outline"
+                >
+                  {t.hero.secondaryCta} <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
+              {/* Focus Pills in subtle colors */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {t.hero.pills.map((pill, idx) => (
+                  <span
+                    key={idx}
+                    className="meta text-[10px] py-1.5 px-3 bg-sky-50/80 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80 rounded-sm font-semibold tracking-wider"
+                  >
+                    {pill}
+                  </span>
+                ))}
               </div>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-bold tracking-tight text-slate-950 dark:text-white leading-[1.1] sm:leading-[1.05]">
-                {t.hero.headingText1}
-                <span className="relative inline-block mx-1.5">
-                  <span className="relative z-10 text-sky-800 dark:text-sky-400 focus:outline-none">
-                    {t.hero.headingHighlight}
+            {/* Right Column: Full-Color Framed Portrait Plate (Image 1 & 2 style) */}
+            <div className="relative w-full max-w-[360px] sm:max-w-[400px] lg:max-w-md mx-auto group">
+              <div className="relative w-full aspect-[4/5] border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-xl shadow-sky-950/5">
+                <Image
+                  src="/fotodiri2.png"
+                  alt="Jan Albireo"
+                  fill
+                  priority
+                  className="object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="flex items-center justify-between mt-3 text-slate-500 dark:text-slate-400 text-xs">
+                <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+                  PRESENTED BY: JAN ALBIREO
+                </span>
+                <span className="meta">{t.hero.portfolioYear}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            02. EDITORIAL STATEMENT (Edison Palmer Mid-Section WITH Color)
+           ======================================================== */}
+        <section className="relative border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-sky-50/40 to-transparent dark:from-sky-950/20 dark:to-transparent py-16 md:py-20">
+          <div className="mx-auto w-full max-w-4xl px-5 sm:px-8 text-center space-y-6">
+            <span className="meta text-sky-700 dark:text-sky-400 block tracking-[0.2em] font-bold">
+              CORE PHILOSOPHY // 06TH SEMESTER
+            </span>
+            <p className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-900 dark:text-white leading-relaxed sm:leading-snug">
+              {lang === "en" ? (
+                <>
+                  A sixth-semester Multimedia Digital student at{" "}
+                  <span className="text-sky-600 dark:text-sky-400 font-semibold">
+                    Politeknik Negeri Jakarta
                   </span>
-                  <span className="absolute bottom-1 sm:bottom-1.5 left-0 w-full h-2 sm:h-3 bg-sky-100 dark:bg-sky-900/40 -z-10"></span>
-                </span>
-                {t.hero.headingText2}
-              </h1>
-
-              <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-slate-500 dark:text-slate-400 leading-snug">
-                Jan Albireo — {t.hero.role1}{" "}
-                <span className="text-slate-800 dark:text-slate-200">
-                  {t.hero.role2}
-                </span>
-              </h2>
-            </div>
-
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl border-l-2 border-slate-200 dark:border-slate-800 pl-4">
-              {t.hero.description}
+                  , blending technical Lua scripting, UI/UX systems, and interactive media. Focused on creating immersive{" "}
+                  <span className="text-sky-600 dark:text-sky-400 font-semibold">
+                    3D virtual environments
+                  </span>
+                  , educational gameplay, and high-performance digital prototypes.
+                </>
+              ) : (
+                <>
+                  Mahasiswa semester 6 Teknik Multimedia Digital di{" "}
+                  <span className="text-sky-600 dark:text-sky-400 font-semibold">
+                    Politeknik Negeri Jakarta
+                  </span>{" "}
+                  dengan pengalaman berbasis proyek dalam{" "}
+                  <span className="text-sky-600 dark:text-sky-400 font-semibold">
+                    Roblox interactive media
+                  </span>
+                  , UI/UX, web prototype, Android app development, testing skenario, dan dokumentasi riset akademik.
+                </>
+              )}
             </p>
+            <div className="w-16 h-1 bg-sky-500 dark:bg-sky-400 mx-auto rounded-full" />
+          </div>
+        </section>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[12px] sm:text-[13px] font-bold rounded-full hover:bg-slate-800 dark:hover:bg-white transition-colors shadow-sm gap-2"
-              >
-                {t.hero.primaryCta} <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-transparent border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-[12px] sm:text-[13px] font-bold rounded-full hover:border-sky-600 hover:text-sky-700 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors gap-2"
-              >
-                {t.hero.secondaryCta} <Download className="w-4 h-4" />
-              </a>
+        {/* ========================================================
+            03. TABLE OF CONTENTS / DIRECTORY MATRIX (Image 2 Layout with Color)
+           ======================================================== */}
+        <section className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-16 md:py-24 border-b border-slate-200 dark:border-slate-800">
+          {/* Presentation Header Bar */}
+          <div className="flex items-center justify-between pb-4 mb-10 border-b border-slate-200 dark:border-slate-800">
+            <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+              CREATIVE PRESENTATION
+            </span>
+            <span className="meta text-slate-500 dark:text-slate-400">
+              TABLE OF CONTENTS
+            </span>
+          </div>
+
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-center">
+            {/* Left: Headline & Subtext */}
+            <div>
+              <h2 className="display text-4xl sm:text-5xl md:text-6xl text-slate-950 dark:text-white leading-[0.88] mb-4">
+                TABLE OF
+                <br />
+                CONTENTS
+              </h2>
+              <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-md">
+                {lang === "en"
+                  ? "Structured directory of selected projects, background narrative, technical proficiencies, education, and direct contact channels."
+                  : "Daftar navigasi terstruktur untuk karya terpilih, latar belakang, keahlian teknis, rekam jejak akademik, dan kanal kontak langsung."}
+              </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 sm:pt-6 pb-2">
-              {t.hero.pills.map((pill, idx) => (
-                <span
+            {/* Right: Tactile Alternating Button Matrix with Color */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { num: "01", label: lang === "en" ? "RECENT PROJECTS" : "KARYA TERPILIH", href: "#projects", solid: true },
+                { num: "02", label: lang === "en" ? "ABOUT ME" : "TENTANG SAYA", href: "#about", solid: false },
+                { num: "03", label: lang === "en" ? "TECHNICAL SKILLS" : "KEAHLIAN TEKNIS", href: "#skills", solid: false },
+                { num: "04", label: lang === "en" ? "EDUCATION & EXP" : "PENDIDIKAN & EXP", href: "#education", solid: true },
+                { num: "05", label: lang === "en" ? "INTERNSHIP ROLES" : "MINAT MAGANG", href: "#internship", solid: true },
+                { num: "06", label: lang === "en" ? "CONTACT DIRECT" : "HUBUNGI SAYA", href: "#contact", solid: false },
+              ].map((item, idx) => (
+                <a
                   key={idx}
-                  className="text-[10px] sm:text-[11px] font-medium text-slate-600 dark:text-slate-300 uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 rounded-full shadow-sm"
+                  href={item.href}
+                  className={`btn ${
+                    item.solid ? "btn-solid" : "btn-outline"
+                  } w-full justify-between py-4 px-5 text-[11px] group`}
                 >
-                  {pill}
-                </span>
+                  <span className="group-hover:text-sky-400 transition-colors">
+                    {item.label}
+                  </span>
+                  <span className="font-mono text-sky-400 font-bold">
+                    [{item.num}]
+                  </span>
+                </a>
               ))}
             </div>
           </div>
+        </section>
 
-          <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md mx-auto z-10 flex flex-col items-center mt-4 lg:mt-0">
-            <div className="relative w-full aspect-[4/5] max-h-[420px] rounded-[1.5rem] overflow-hidden bg-white dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none ring-1 ring-slate-200/50 dark:ring-slate-800">
-              <Image
-                src="/fotodiri2.png"
-                alt="Jan Albireo"
-                fill
-                priority
-                className="object-cover object-[center_20%]"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-black/5 dark:ring-white/5 pointer-events-none"></div>
-            </div>
-            <p className="text-[10px] sm:text-[11px] font-medium text-slate-400 dark:text-slate-500 tracking-widest uppercase mt-4 text-center">
-              {t.hero.portfolioYear}
+        {/* ========================================================
+            04. RECENT PROJECTS (Edison Palmer 2-Column Showcase in FULL COLOR)
+           ======================================================== */}
+        <section
+          id="projects"
+          className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-16 md:py-24 border-b border-slate-200 dark:border-slate-800"
+        >
+          {/* Top Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="meta text-sky-700 dark:text-sky-400 block tracking-[0.2em] font-bold">
+              {t.work.section}
+            </span>
+            <h2 className="display text-4xl sm:text-5xl md:text-6xl text-slate-950 dark:text-white leading-[0.88]">
+              {lang === "en" ? "Recent Projects" : "Karya Terkini"}
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              {t.work.subtitle}
             </p>
           </div>
-        </section>
 
-        {/* PROFILE SNAPSHOT */}
-        <section className="bg-white dark:bg-slate-950 py-16 md:py-20 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
-          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {t.snapshot.map((snap, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-[1rem] bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 shadow-sm hover:border-sky-200 dark:hover:border-sky-800 transition-colors"
-              >
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest block mb-3">
-                  0{idx + 1}
-                </span>
-                <h4 className="text-[15px] font-bold text-slate-950 dark:text-white mb-2">
-                  {snap.title}
-                </h4>
-                <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {snap.description}
-                </p>
-              </div>
-            ))}
+          {/* 2-Column Grid in Full Color (No monochrome / grayscale!) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
+            {projectsData.map((project, idx) => {
+              const projectContent = project.content[lang];
+              const projectTags = project.tags[lang];
+              const displayTags = projectTags.slice(0, 3).join(" · ");
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: (idx % 2) * 0.15,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="h-full"
+                >
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group flex flex-col h-full cursor-pointer"
+                  >
+                    <article className="flex flex-col h-full">
+                      {/* Image Frame Plate - Full Vivid Color */}
+                      <div className="relative aspect-[16/10] w-full overflow-hidden border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-md transition-shadow group-hover:shadow-xl group-hover:border-sky-500/80">
+                        <Image
+                          src={project.image}
+                          alt={projectContent.title}
+                          fill
+                          className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                            [
+                              "trackstudio-tracklabid",
+                              "university-website-redesign-android-app",
+                              "runcard-studio",
+                            ].includes(project.slug)
+                              ? "object-left"
+                              : project.slug === "iot-simulation-arduino-esp32"
+                              ? "object-[15%_center]"
+                              : "object-center"
+                          }`}
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute top-3 right-3 meta border border-sky-300 dark:border-sky-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs px-2.5 py-1 text-[10px] font-bold text-sky-800 dark:text-sky-300 rounded-sm shadow-xs">
+                          {projectContent.status}
+                        </div>
+                      </div>
+
+                      {/* Project Meta Below Image (Edison Palmer style: Title on left, Tags on right) */}
+                      <div className="pt-4 flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-3">
+                        <div>
+                          <h3 className="display-sm text-xl lg:text-2xl text-slate-950 dark:text-white leading-tight group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:underline decoration-1 underline-offset-4 transition-colors">
+                            {projectContent.title}
+                          </h3>
+                          <p className="meta text-slate-500 dark:text-slate-400 text-[10px] mt-1">
+                            {projectContent.category} · {projectContent.period}
+                          </p>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <span className="meta text-slate-500 dark:text-slate-400 text-[10px] block font-medium">
+                            {displayTags}
+                          </span>
+                          <span className="meta text-sky-600 dark:text-sky-400 group-hover:underline text-[10px] font-bold mt-1 inline-flex items-center gap-1">
+                            CASE STUDY <ArrowUpRight className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Overview & Contribution */}
+                      <div className="pt-3 space-y-2 flex-1">
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2">
+                          {projectContent.overview}
+                        </p>
+                        <p className="text-xs text-slate-600 dark:text-slate-400">
+                          <span className="meta text-[10px] text-sky-700 dark:text-sky-400 font-bold mr-1.5">
+                            {t.work.contributionLabel}
+                          </span>
+                          <span className="line-clamp-1">{projectContent.contribution}</span>
+                        </p>
+                      </div>
+                    </article>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
+        {/* ========================================================
+            05. ABOUT SECTION / "INTRO-DUCTION" (Image 2 Split Layout with Full Color Photo)
+           ======================================================== */}
         <section
           id="about"
-          className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 md:py-24 grid md:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start"
+          className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-16 md:py-24 border-b border-slate-200 dark:border-slate-800"
         >
-          <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm mx-auto aspect-[3/4] md:aspect-[4/5] rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-xl shadow-sky-900/5 dark:shadow-none border border-slate-200/50 dark:border-slate-800">
-            <Image
-              src="/fotodiri2.png"
-              alt="Jan Albireo"
-              fill
-              className="object-cover object-[center_20%]"
-              referrerPolicy="no-referrer"
-            />
+          {/* Presentation Header Bar */}
+          <div className="flex items-center justify-between pb-4 mb-10 border-b border-slate-200 dark:border-slate-800">
+            <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+              CREATIVE PRESENTATION
+            </span>
+            <span className="meta text-slate-500 dark:text-slate-400">
+              03 // BIOGRAPHY
+            </span>
           </div>
-          <div className="space-y-6 sm:space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                {t.about.section}
-              </span>
-              <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-950 dark:text-white leading-[1.2] tracking-tight">
-              {t.about.headline}
-            </h3>
-            <div className="h-1 w-12 bg-sky-200 dark:bg-sky-800 rounded-full"></div>
-            <div className="text-[15px] md:text-base text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
-              {t.about.paragraphs &&
-                t.about.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
-            </div>
-            <div className="pt-6 sm:pt-8 border-t border-slate-200 dark:border-slate-800">
-              <p className="text-[12px] text-slate-500 dark:text-slate-500 leading-relaxed italic">
-                {t.about.aiNote}
+
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
+            {/* Left: Giant "INTRO-DUCTION" + Full-Color Framed Photo */}
+            <div className="space-y-6">
+              <h2 className="display text-5xl sm:text-6xl md:text-7xl text-slate-950 dark:text-white leading-[0.84]">
+                INTRO-
+                <br />
+                DUCTION
+              </h2>
+
+              <div className="relative w-full aspect-[4/5] border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-xl shadow-sky-950/5 group">
+                <Image
+                  src="/fotodiri2.png"
+                  alt="Jan Albireo"
+                  fill
+                  className="object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <p className="meta text-sky-700 dark:text-sky-400 font-bold text-center">
+                PRESENTED BY: JAN ALBIREO
               </p>
+            </div>
+
+            {/* Right: "HELLO, I'M JAN ALBIREO!" + Narrative */}
+            <div className="space-y-6 pt-2">
+              <div className="space-y-2">
+                <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+                  ABOUT THE DEVELOPER
+                </span>
+                <h3 className="display-sm text-3xl sm:text-4xl text-slate-950 dark:text-white leading-tight">
+                  HELLO, I&apos;M JAN ALBIREO!
+                </h3>
+              </div>
+
+              <div className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-4 pt-2">
+                {t.about.paragraphs &&
+                  t.about.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+
+              {/* Snapshot pillars in tactile grid */}
+              <div className="pt-6 border-t border-slate-200 dark:border-slate-800">
+                <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-4">
+                  CORE FOCUS AREAS
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {t.snapshot.map((snap, i) => (
+                    <div
+                      key={i}
+                      className="border border-slate-200 dark:border-slate-800 p-4 bg-white/70 dark:bg-slate-900/70 hover:border-sky-500 transition-colors shadow-xs"
+                    >
+                      <span className="meta text-sky-600 dark:text-sky-400 text-[10px] block mb-1 font-bold">
+                        PILLAR 0{i + 1}
+                      </span>
+                      <h4 className="display-sm text-sm text-slate-950 dark:text-white mb-1">
+                        {snap.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        {snap.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+                <p className="meta text-slate-500 dark:text-slate-400 normal-case tracking-normal italic text-xs leading-relaxed">
+                  {t.about.aiNote}
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* INTERNSHIP INTEREST */}
-        <section className="bg-slate-50 dark:bg-slate-900/40 py-16 md:py-24 border-y border-slate-200 dark:border-slate-800 transition-colors duration-300">
-          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid md:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-16 items-start">
+        {/* ========================================================
+            06. INTERNSHIP INTEREST SECTION WITH COLOR
+           ======================================================== */}
+        <section
+          id="internship"
+          className="border-b border-slate-200 dark:border-slate-800 bg-sky-50/40 dark:bg-sky-950/20 py-16 md:py-20"
+        >
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
             <div className="space-y-4">
-              <div className="flex items-center gap-4 mb-2">
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                  {t.internship.section}
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white">
+              <span className="meta text-sky-700 dark:text-sky-400 font-bold block">
+                {t.internship.section} // 2026 OPPORTUNITIES
+              </span>
+              <h2 className="display text-3xl md:text-4xl text-slate-950 dark:text-white leading-tight">
                 {t.internship.title}
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-[14px] sm:text-[15px] md:text-base pt-2 border-t border-slate-200 dark:border-slate-800">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed pt-2 border-t border-slate-200 dark:border-slate-800">
                 {t.internship.description}
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+
+            <div className="flex flex-wrap gap-2.5">
               {t.internship.roles.map((role, idx) => (
                 <span
                   key={idx}
-                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-[12px] sm:text-[13px] rounded-full text-center shadow-sm"
+                  className={`chip ${
+                    idx % 2 === 0
+                      ? "border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-900/40 text-sky-900 dark:text-sky-200 font-bold hover:bg-sky-600 hover:text-white"
+                      : "hover:border-sky-500 hover:text-sky-600"
+                  }`}
                 >
                   {role}
                 </span>
@@ -221,425 +474,260 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* SELECTED WORKS SECTION */}
-        <section
-          id="projects"
-          className="bg-slate-50 dark:bg-slate-900/50 py-20 lg:py-24 border-y border-slate-200 dark:border-slate-800 relative transition-colors duration-300"
-        >
-          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
-            <div className="mb-12 max-w-3xl">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                  {t.work.section}
-                </span>
-                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[100px]"></div>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-950 dark:text-white tracking-tight mb-4">
-                {t.work.title}
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-                {t.work.subtitle}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {projectsData.map((project, idx) => {
-                const projectContent = project.content[lang];
-                const projectTags = project.tags[lang];
-                const displayTags = projectTags.slice(0, 3);
-                const remainingTags = projectTags.length - 3;
-
-                return (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{
-                      duration: 0.8,
-                      delay: (idx % 3) * 0.2,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="h-full"
-                  >
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="group block h-full flex flex-col rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 overflow-hidden cursor-pointer"
-                    >
-                      <article className="flex h-full min-h-[430px] flex-col">
-                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0 border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
-                          <Image
-                            src={project.image}
-                            alt={projectContent.title}
-                            fill
-                            className={`h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105 ${
-                              [
-                                "trackstudio-tracklabid",
-                                "university-website-redesign-android-app",
-                                "runcard-studio",
-                              ].includes(project.slug)
-                                ? "object-left"
-                                : project.slug === "iot-simulation-arduino-esp32"
-                                ? "object-[15%_center]"
-                                : "object-center"
-                            }`}
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
-
-                        <div className="flex flex-1 flex-col p-5">
-                          <div className="mb-3 flex items-center justify-between gap-2">
-                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">
-                              {projectContent.category} ·{" "}
-                              {projectContent.period}
-                            </p>
-                            <span className="shrink-0 inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[9px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest">
-                              {projectContent.status}
-                            </span>
-                          </div>
-
-                          <h3 className="mb-2 text-xl font-bold text-slate-950 dark:text-white leading-tight flex items-start justify-between gap-2">
-                            <span className="line-clamp-2">
-                              {projectContent.title}
-                            </span>
-                          </h3>
-
-                          <div className="mb-4 text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
-                            {projectContent.overview}
-                          </div>
-
-                          <div className="mb-4 space-y-1.5 flex-1">
-                            <p className="text-xs flex gap-1.5">
-                              <span className="font-semibold text-slate-900 dark:text-slate-200 shrink-0">
-                                {t.work.roleLabel}
-                              </span>{" "}
-                              <span className="text-slate-600 dark:text-slate-400 line-clamp-1">
-                                {projectContent.role}
-                              </span>
-                            </p>
-                            <p className="text-xs flex flex-col gap-0.5">
-                              <span className="font-semibold text-slate-900 dark:text-slate-200">
-                                {t.work.contributionLabel}
-                              </span>{" "}
-                              <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                                {projectContent.contribution}
-                              </span>
-                            </p>
-                            {projectContent.interestArea && (
-                              <p className="text-xs flex flex-col gap-0.5">
-                                <span className="font-semibold text-slate-900 dark:text-slate-200">
-                                  {t.work.interestAreaLabel}
-                                </span>{" "}
-                                <span className="text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
-                                  {projectContent.interestArea}
-                                </span>
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="pt-4 flex flex-col gap-3 mt-auto border-t border-slate-100 dark:border-slate-800">
-                            <div className="flex flex-wrap gap-1.5">
-                              {displayTags.map((tag, tIdx) => (
-                                <span
-                                  key={tIdx}
-                                  className="text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                              {remainingTags > 0 && (
-                                <span className="text-[10px] bg-slate-50 dark:bg-slate-900 text-slate-500 px-2 py-1 rounded-md font-bold text-slate-500">
-                                  +{remainingTags} {t.work.moreLabel}
-                                </span>
-                              )}
-                            </div>
-                            <span className="font-medium text-[13px] text-sky-600 dark:text-sky-400 flex items-center group-hover:underline">
-                              {lang === "en"
-                                ? "View case study →"
-                                : "Lihat detail proyek →"}
-                            </span>
-                          </div>
-                        </div>
-                      </article>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* SKILLS & EDUCATION */}
+        {/* ========================================================
+            07. SKILLS & EDUCATION WITH RICH COLORS
+           ======================================================== */}
         <section
           id="skills"
-          className="bg-white dark:bg-slate-950 py-20 lg:py-24 transition-colors duration-300"
+          className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-16 md:py-24 border-b border-slate-200 dark:border-slate-800 grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20"
         >
-          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
-            {/* Left: Skills */}
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                  {t.skills.section}
-                </span>
-                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
-              </div>
-              <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">
-                {t.skills.title}
-              </h2>
+          {/* Left: Skills Categories */}
+          <div>
+            <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-200 dark:border-slate-800">
+              <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+                {t.skills.section}
+              </span>
+              <span className="meta text-slate-500 dark:text-slate-400">
+                TECHNICAL MATRIX
+              </span>
+            </div>
 
-              <div className="space-y-6">
-                {t.skills.categories.map((cat, idx) => (
-                  <div
-                    key={idx}
-                    className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-200 dark:hover:border-sky-700 transition-colors rounded-[1rem] shadow-sm group"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center mb-6 text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
-                      <span className="w-3 h-3 rounded-full bg-sky-400 dark:bg-sky-500"></span>
-                    </div>
-                    <h4 className="font-bold text-slate-950 dark:text-white text-lg mb-4">
-                      {cat.name}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {cat.items.map((s, i) => {
-                        // Distinct style for first category just for variety like original
-                        if (idx === 0) {
-                          return (
-                            <span
-                              key={i}
-                              className="text-[11px] bg-sky-50 dark:bg-sky-900/30 text-sky-800 dark:text-sky-300 border border-sky-100 dark:border-sky-800 px-3 py-1 rounded-full font-medium"
-                            >
-                              {s}
-                            </span>
-                          );
-                        }
-                        return (
-                          <span
-                            key={i}
-                            className="text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-3 py-1 rounded-full font-medium"
-                          >
-                            {s}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
+            <h2 className="display text-3xl sm:text-4xl md:text-5xl text-slate-950 dark:text-white leading-tight pb-4 border-b border-slate-200 dark:border-slate-800 mb-8">
+              {t.skills.title}
+            </h2>
 
-                {/* Compact list */}
-                <div className="pt-6 space-y-4">
-                  <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
-                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
-                      {t.skills.languagesLbl}
-                    </span>
-                    <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px]">
-                      {t.skills.languagesVal}
-                    </span>
+            <div className="space-y-6">
+              {t.skills.categories.map((cat, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs hover:border-sky-500 transition-colors"
+                >
+                  <span className="meta text-sky-600 dark:text-sky-400 font-bold block mb-2">
+                    0{idx + 1} // {cat.name.toUpperCase()}
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {cat.items.map((s, i) => (
+                      <span
+                        key={i}
+                        className={`meta px-3 py-1.5 border text-[11px] rounded-xs transition-colors ${
+                          i % 3 === 0
+                            ? "bg-sky-50 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800 font-bold"
+                            : "border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-sky-500 hover:text-sky-600"
+                        }`}
+                      >
+                        {s}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex border-b border-slate-200 dark:border-slate-800 pb-4 mb-4">
-                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
-                      {t.skills.softSkillsLbl}
-                    </span>
-                    <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed">
-                      {t.skills.softSkillsVal}
-                    </span>
-                  </div>
-                  <div className="flex">
-                    <span className="w-1/3 font-medium text-slate-950 dark:text-white text-[13px] uppercase tracking-widest shrink-0">
-                      {t.skills.relevantInterestsLbl}
-                    </span>
-                    <span className="w-2/3 text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed">
-                      {t.skills.relevantInterestsVal}
-                    </span>
-                  </div>
+                </div>
+              ))}
+
+              {/* Language & Soft Skills Table */}
+              <div className="pt-4 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                  <span className="meta text-sky-700 dark:text-sky-400 font-bold text-[11px] sm:w-1/3 shrink-0">
+                    {t.skills.languagesLbl}
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300 sm:w-2/3 leading-relaxed">
+                    {t.skills.languagesVal}
+                  </span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                  <span className="meta text-sky-700 dark:text-sky-400 font-bold text-[11px] sm:w-1/3 shrink-0">
+                    {t.skills.softSkillsLbl}
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300 sm:w-2/3 leading-relaxed">
+                    {t.skills.softSkillsVal}
+                  </span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                  <span className="meta text-sky-700 dark:text-sky-400 font-bold text-[11px] sm:w-1/3 shrink-0">
+                    {t.skills.relevantInterestsLbl}
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300 sm:w-2/3 leading-relaxed">
+                    {t.skills.relevantInterestsVal}
+                  </span>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right: Education & Recognition */}
-            <div id="education">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
-                  {t.education.section}
-                </span>
-                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
-              </div>
-              <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">
-                {t.education.title}
-              </h2>
+          {/* Right: Education, Certifications & Experience */}
+          <div id="education">
+            <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-200 dark:border-slate-800">
+              <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+                {t.education.section}
+              </span>
+              <span className="meta text-slate-500 dark:text-slate-400">
+                ACADEMIC & CERTIFIED
+              </span>
+            </div>
 
-              <div className="space-y-8 mb-16">
-                {t.education.items.map((ed, i) => (
-                  <div
-                    key={i}
-                    className="relative pl-8 md:pl-10 border-l border-slate-200 dark:border-slate-800 group/timeline"
-                  >
-                    <div className="absolute w-[11px] h-[11px] bg-slate-50 dark:bg-slate-950 border-2 border-sky-400 dark:border-sky-500 rounded-full -left-[6px] top-6 transition-colors group-hover/timeline:bg-sky-100 dark:group-hover/timeline:bg-sky-900/50"></div>
+            <h2 className="display text-3xl sm:text-4xl md:text-5xl text-slate-950 dark:text-white leading-tight pb-4 border-b border-slate-200 dark:border-slate-800 mb-8">
+              {t.education.title}
+            </h2>
 
-                    <article className="rounded-2xl border border-slate-200 bg-white/80 p-6 md:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/80">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-                        <span className="text-xs font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em] shrink-0">
-                          {ed.period}
-                        </span>
-                        {ed.badge && (
-                          <span
-                            className={`inline-flex items-center px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-widest shrink-0 w-fit ${i === 0 ? "bg-sky-50 text-sky-700 border border-sky-100 dark:bg-sky-900/40 dark:text-sky-300 dark:border-sky-800/60" : "bg-slate-100 text-slate-600 border border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700"}`}
-                          >
-                            {ed.badge}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="text-2xl md:text-[28px] font-bold tracking-tight text-slate-950 dark:text-white mb-2 leading-tight">
-                        {ed.school}
-                      </h3>
-                      <h4 className="text-base md:text-lg font-medium text-slate-700 dark:text-slate-300 mb-2">
-                        {ed.degree}
-                      </h4>
-                      <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-6">
-                        {ed.location}
-                      </p>
-
-                      {ed.relevantCourseworkText && (
-                        <div className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border border-slate-100 dark:border-slate-800">
-                          <span className="font-bold text-slate-900 dark:text-slate-200 block mb-1.5">
-                            {ed.relevantCourseworkText}
-                          </span>
-                          {ed.relevantCourseworkValue}
-                        </div>
-                      )}
-                    </article>
+            <div className="space-y-6 mb-12">
+              {t.education.items.map((ed, i) => (
+                <article
+                  key={i}
+                  className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-7 shadow-xs hover:border-sky-500 transition-colors"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span className="meta text-sky-700 dark:text-sky-400 font-bold">{ed.period}</span>
+                    {ed.badge && (
+                      <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2 py-0.5 text-[10px] text-sky-800 dark:text-sky-300 font-bold rounded-xs">
+                        {ed.badge}
+                      </span>
+                    )}
                   </div>
-                ))}
-              </div>
 
-              <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">
-                {t.certification.title}
-              </h2>
-              <div className="space-y-6">
-                {t.certification.items.map((cert, idx) => (
-                  <div
-                    key={idx}
-                    className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 border-l-4 border-l-sky-400 dark:border-l-sky-500 rounded-[1rem] shadow-sm"
-                  >
-                    <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">
-                      {cert.period}
-                    </span>
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white mb-1 leading-snug">
-                      {cert.program}
-                    </h4>
-                    <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">
-                      {cert.organizer}
-                    </p>
-                    <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">
-                      {cert.location}
-                    </p>
-                    <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                  <h3 className="display-sm text-xl sm:text-2xl text-slate-950 dark:text-white mb-1">
+                    {ed.school}
+                  </h3>
+                  <h4 className="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200 mb-1">
+                    {ed.degree}
+                  </h4>
+                  <p className="meta text-slate-500 dark:text-slate-400 normal-case tracking-wider text-xs mb-4">
+                    {ed.location}
+                  </p>
 
-              <h2 className="text-3xl font-bold text-slate-950 dark:text-white mt-16 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">
-                {t.academicExperience.title}
-              </h2>
-              <div className="space-y-6">
-                {t.academicExperience.items.map((exp, idx) => (
-                  <div
-                    key={idx}
-                    className="p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 border-l-4 border-l-slate-400 dark:border-l-slate-500 rounded-[1rem] shadow-sm"
-                  >
-                    <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-widest mb-2 block">
-                      {exp.period}
-                    </span>
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white mb-1 leading-snug">
-                      {exp.title}
-                    </h4>
-                    <p className="text-[13px] font-medium text-slate-800 dark:text-slate-300">
-                      {exp.role}
-                    </p>
-                    <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-4">
-                      {exp.location}
-                    </p>
-                    <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                      {exp.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {exp.bullets.map((bullet, bIdx) => (
-                        <li
-                          key={bIdx}
-                          className="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-[12px] leading-relaxed"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-slate-400 mt-2 shrink-0"></span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+                  {ed.relevantCourseworkText && (
+                    <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-200 dark:border-slate-800 pt-3 mt-3">
+                      <span className="meta text-sky-700 dark:text-sky-400 font-bold block mb-1">
+                        {ed.relevantCourseworkText}
+                      </span>
+                      {ed.relevantCourseworkValue}
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+
+            {/* Certifications */}
+            <h3 className="display-sm text-2xl text-slate-950 dark:text-white pb-3 border-b border-slate-200 dark:border-slate-800 mb-6 mt-10">
+              {t.certification.title}
+            </h3>
+            <div className="space-y-4 mb-12">
+              {t.certification.items.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 border border-slate-200 dark:border-slate-800 border-l-4 border-l-sky-500 bg-white dark:bg-slate-900 shadow-xs"
+                >
+                  <span className="meta text-sky-700 dark:text-sky-400 font-bold block mb-1">
+                    {cert.period}
+                  </span>
+                  <h4 className="display-sm text-base sm:text-lg text-slate-950 dark:text-white mb-1">
+                    {cert.program}
+                  </h4>
+                  <p className="meta text-slate-500 dark:text-slate-400 normal-case tracking-wider text-xs mb-2">
+                    {cert.organizer} · {cert.location}
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {cert.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Academic Experience */}
+            <h3 className="display-sm text-2xl text-slate-950 dark:text-white pb-3 border-b border-slate-200 dark:border-slate-800 mb-6 mt-10">
+              {t.academicExperience.title}
+            </h3>
+            <div className="space-y-4">
+              {t.academicExperience.items.map((exp, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 border border-slate-200 dark:border-slate-800 border-l-4 border-l-slate-400 dark:border-l-slate-600 bg-white dark:bg-slate-900 shadow-xs"
+                >
+                  <span className="meta text-sky-700 dark:text-sky-400 font-bold block mb-1">
+                    {exp.period}
+                  </span>
+                  <h4 className="display-sm text-base sm:text-lg text-slate-950 dark:text-white mb-1">
+                    {exp.title}
+                  </h4>
+                  <p className="meta text-slate-500 dark:text-slate-400 normal-case tracking-wider text-xs mb-2">
+                    {exp.role} · {exp.location}
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                    {exp.description}
+                  </p>
+                  <ul className="space-y-1.5 border-t border-slate-200 dark:border-slate-800 pt-3">
+                    {exp.bullets.map((bullet, bIdx) => (
+                      <li
+                        key={bIdx}
+                        className="text-xs text-slate-600 dark:text-slate-400 flex items-start gap-2"
+                      >
+                        <span className="w-1.5 h-1.5 bg-sky-500 mt-1.5 shrink-0 rounded-full" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* CONTACT */}
+        {/* ========================================================
+            08. CONTACT SECTION
+           ======================================================== */}
         <section
           id="contact"
-          className="relative mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-20 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-start border-t border-slate-200 dark:border-slate-800 overflow-hidden transition-colors duration-300"
+          className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-16 md:py-24 grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start"
         >
-          {/* Subtle contact background gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-50/50 dark:from-cyan-900/10 via-transparent to-transparent pointer-events-none -z-10"></div>
-
-          <div className="space-y-12 relative z-10">
+          <div className="space-y-8">
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-[10px] font-bold text-sky-700 dark:text-sky-400 uppercase tracking-[0.2em]">
+              <div className="flex items-center justify-between pb-3 mb-6 border-b border-slate-200 dark:border-slate-800">
+                <span className="meta text-sky-700 dark:text-sky-400 font-bold">
                   {t.contact.section}
                 </span>
-                <div className="h-px bg-slate-200 dark:bg-slate-800 flex-grow max-w-[50px]"></div>
+                <span className="meta text-slate-500 dark:text-slate-400">
+                  OPEN FOR INQUIRIES
+                </span>
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold text-slate-950 dark:text-white tracking-tight mb-8">
+              <h2 className="display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-slate-950 dark:text-white leading-[0.88] mb-6">
                 {t.contact.title}
               </h2>
-              <p className="text-[15px] md:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-4 max-w-md">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg mb-3">
                 {t.contact.subtitle}
               </p>
-              <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-md">
                 {t.contact.microcopy}
               </p>
             </div>
 
-            <div className="space-y-6 pt-6 border-t border-slate-200/60 dark:border-slate-800/60">
+            <div className="space-y-6 pt-6 border-t border-slate-200 dark:border-slate-800">
               <div>
-                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">
+                <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-1">
                   {t.contact.directEmail}
                 </p>
                 <a
                   href="mailto:janalbireo123@gmail.com"
-                  className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-white hover:text-sky-700 dark:hover:text-sky-400 transition-colors break-all"
+                  className="display-sm text-xl sm:text-2xl text-slate-950 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 hover:underline decoration-1 underline-offset-4 break-all transition-colors"
                 >
                   janalbireo123@gmail.com
                 </a>
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.15em] mb-2">
+                <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-1">
                   {t.contact.location}
                 </p>
-                <p className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-white">
+                <p className="display-sm text-xl sm:text-2xl text-slate-950 dark:text-white">
                   {t.contact.locationValue}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm p-10 md:p-14 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col justify-center relative z-10 shadow-sm">
-            <h3 className="text-2xl font-bold text-slate-950 dark:text-white mb-8">
+          <div className="border border-slate-200 dark:border-slate-800 p-6 sm:p-8 md:p-10 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-center">
+            <h3 className="display-sm text-xl sm:text-2xl text-slate-950 dark:text-white mb-6">
               {t.contact.connectTitle}
             </h3>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <a
                 href="mailto:janalbireo123@gmail.com"
-                className="w-full inline-flex items-center justify-center px-6 py-4 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 text-[13px] font-bold rounded-full hover:bg-slate-800 dark:hover:bg-white hover:shadow-md transition-all shadow-sm"
+                className="btn btn-solid w-full text-center"
               >
                 {t.contact.buttons.email}
               </a>
@@ -647,7 +735,7 @@ export default function PortfolioPage() {
                 href="https://linkedin.com/in/janalbireogd"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full inline-flex items-center justify-center px-6 py-4 bg-white dark:bg-slate-900 text-slate-950 dark:text-white border border-slate-200 dark:border-slate-700 text-[13px] font-bold rounded-full hover:border-sky-300 dark:hover:border-sky-600 hover:text-sky-800 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                className="btn btn-outline w-full text-center"
               >
                 {t.contact.buttons.linkedin}
               </a>
@@ -655,7 +743,7 @@ export default function PortfolioPage() {
                 href="https://github.com/albiruby"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full inline-flex items-center justify-center px-6 py-4 bg-white dark:bg-slate-900 text-slate-950 dark:text-white border border-slate-200 dark:border-slate-700 text-[13px] font-bold rounded-full hover:border-sky-300 dark:hover:border-sky-600 hover:text-sky-800 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+                className="btn btn-outline w-full text-center"
               >
                 {t.contact.buttons.github}
               </a>
@@ -663,9 +751,9 @@ export default function PortfolioPage() {
                 href="https://drive.google.com/file/d/1sBHN8_QaZRGmizCfE9HebSMYU1p-yPzo/view?usp=drive_link"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full mt-4 inline-flex items-center justify-center px-6 py-4 bg-transparent text-slate-950 dark:text-white border-2 border-slate-950 dark:border-white text-[13px] font-bold rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-sky-800 dark:hover:text-sky-400 transition-colors gap-2"
+                className="btn btn-solid w-full text-center mt-2"
               >
-                <Download className="w-4 h-4" /> {t.contact.buttons.download}
+                <Download className="w-4 h-4 text-sky-400" /> {t.contact.buttons.download}
               </a>
             </div>
           </div>

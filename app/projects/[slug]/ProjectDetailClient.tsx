@@ -27,7 +27,7 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
   }, []);
 
   if (!mounted) {
-    return <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950"></div>;
+    return <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950" />;
   }
 
   const c = project.content[lang];
@@ -128,18 +128,22 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
   const renderSection = (title: string, content?: string | string[]) => {
     if (!content) return null;
     return (
-      <div className="mb-12">
-        <h3 className="text-sm font-bold text-slate-950 dark:text-white uppercase tracking-widest mb-4 border-b border-slate-200 dark:border-slate-800 pb-2">
-          {title}
+      <div className="mb-10">
+        <h3 className="display-sm text-base sm:text-lg text-slate-950 dark:text-white uppercase pb-2 border-b border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+          <span>{title}</span>
+          <span className="w-2 h-2 rounded-full bg-sky-500" />
         </h3>
         {Array.isArray(content) ? (
-          <ul className="list-disc leading-relaxed text-[15px] space-y-2 text-slate-700 dark:text-slate-300 pl-5">
+          <ul className="space-y-2.5 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
             {content.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i} className="flex items-start gap-2.5">
+                <span className="w-1.5 h-1.5 bg-sky-500 mt-2 shrink-0 rounded-full" />
+                <span>{item}</span>
+              </li>
             ))}
           </ul>
         ) : (
-          <div className="leading-relaxed text-[15px] text-slate-700 dark:text-slate-300 whitespace-pre-wrap">
+          <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-wrap">
             {content}
           </div>
         )}
@@ -148,61 +152,70 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#fafafa] dark:bg-slate-950 text-slate-600 dark:text-slate-400 font-sans selection:bg-sky-100 selection:text-sky-900 scroll-smooth">
+    <div className="min-h-screen w-full bg-[#fafafa] dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans selection:bg-sky-500 selection:text-white scroll-smooth transition-colors duration-300">
       <Header />
 
-      <main className="pb-24">
-        {/* Back navigation */}
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 lg:py-10">
-          <Link href="/#projects" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-950 dark:hover:text-white transition-colors group">
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+      <main className="pb-20">
+        {/* Top Breadcrumb & Presentation Bar */}
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <Link
+            href="/#projects"
+            className="meta inline-flex items-center gap-2 text-sky-700 dark:text-sky-400 font-bold hover:underline group"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
             {t.back}
           </Link>
+          <span className="meta text-slate-500 dark:text-slate-400 hidden sm:inline">
+            ARCHIVE // {project.slug.toUpperCase()}
+          </span>
         </div>
 
-        {/* Hero title */}
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 mb-8 lg:mb-12">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-950 dark:text-white tracking-tight leading-tight mb-4">
+        {/* Hero Title */}
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 pt-10 pb-8 border-b border-slate-200 dark:border-slate-800">
+          <div className="max-w-4xl space-y-3">
+            <span className="meta text-sky-700 dark:text-sky-400 font-bold block">
+              {c.category} · {c.period}
+            </span>
+            <h1 className="display text-4xl sm:text-5xl md:text-6xl text-slate-950 dark:text-white leading-[0.88]">
               {c.title}
             </h1>
-            <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-serif italic">
+            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal pt-1">
               {c.subtitle}
             </p>
           </div>
         </div>
 
-        {/* Hero image carousel */}
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 mb-16 lg:mb-24">
-          <div 
-            className="w-full aspect-video sm:aspect-[21/9] bg-slate-100 dark:bg-slate-900 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-slate-800 group"
+        {/* Hero Image Carousel - Full Vivid Color */}
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-10 border-b border-slate-200 dark:border-slate-800">
+          <div
+            className="w-full aspect-video sm:aspect-[21/9] bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 overflow-hidden relative group shadow-md"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <div 
+            <div
               className="flex w-full h-full transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
             >
               {gallery.map((img, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="w-full h-full shrink-0 relative cursor-pointer"
                   onClick={() => openLightbox(idx)}
                 >
-                  <Image 
-                    src={img} 
-                    alt={`${c.title} - Image ${idx + 1}`} 
-                    fill 
+                  <Image
+                    src={img}
+                    alt={`${c.title} - Plate ${idx + 1}`}
+                    fill
                     className={`object-cover ${
                       ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(project.slug) && idx === 0
-                      ? "object-left"
-                      : "object-center"
+                        ? "object-left"
+                        : "object-center"
                     }`}
                     referrerPolicy="no-referrer"
                     priority={idx === 0}
                   />
-                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
                     <Maximize className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 drop-shadow-md scale-50 group-hover:scale-100 transition-all duration-300" />
                   </div>
                 </div>
@@ -212,31 +225,24 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
             {/* Navigation Arrows */}
             {gallery.length > 1 && (
               <>
-                <button 
+                <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-sm"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white hover:bg-sky-600 hover:text-white transition-colors opacity-0 group-hover:opacity-100 rounded-sm"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button 
+                <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-white backdrop-blur-sm border border-slate-200/50 dark:border-slate-800/50 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-sm"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white hover:bg-sky-600 hover:text-white transition-colors opacity-0 group-hover:opacity-100 rounded-sm"
                   aria-label="Next image"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
 
-                {/* Dot Indicators */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-2 bg-slate-900/30 dark:bg-slate-900/60 backdrop-blur-md rounded-full">
-                  {gallery.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`transition-all duration-300 rounded-full ${idx === currentImageIndex ? 'w-5 h-2 bg-white' : 'w-2 h-2 bg-white/50 hover:bg-white/80'}`}
-                      aria-label={`Go to image ${idx + 1}`}
-                    />
-                  ))}
+                {/* Counter Tag */}
+                <div className="absolute bottom-4 left-4 meta border border-sky-300 dark:border-sky-800 bg-white/95 dark:bg-slate-900/95 px-3 py-1.5 text-sky-800 dark:text-sky-300 font-bold rounded-sm shadow-xs">
+                  PLATE {currentImageIndex + 1} / {gallery.length}
                 </div>
               </>
             )}
@@ -244,88 +250,105 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
         </div>
 
         {/* Content Layout (Metadata Left, Details Right) */}
-        <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 grid lg:grid-cols-[1fr_2.5fr] gap-12 lg:gap-24">
-          
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 py-12 grid lg:grid-cols-[1fr_2.4fr] gap-12 lg:gap-16">
           {/* Metadata Sidebar */}
           <div>
-            <div className="sticky top-32 space-y-8 p-6 lg:p-0 bg-white/50 lg:bg-transparent dark:bg-slate-900/50 lg:dark:bg-transparent rounded-2xl lg:rounded-none border border-slate-200 lg:border-none dark:border-slate-800">
-              
+            <div className="sticky top-28 space-y-6 border border-slate-200 dark:border-slate-800 p-6 bg-white dark:bg-slate-900 shadow-xs">
+              <span className="meta text-sky-700 dark:text-sky-400 font-bold block border-b border-slate-200 dark:border-slate-800 pb-2">
+                PROJECT METRICS
+              </span>
+
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{t.role}</p>
-                <p className="text-sm font-semibold text-slate-950 dark:text-white">{c.role}</p>
+                <p className="meta text-slate-500 dark:text-slate-400 mb-1">{t.role}</p>
+                <p className="display-sm text-base text-slate-950 dark:text-white">{c.role}</p>
               </div>
-              
+
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{t.category}</p>
-                <p className="text-sm font-semibold text-slate-950 dark:text-white">{c.category}</p>
+                <p className="meta text-slate-500 dark:text-slate-400 mb-1">{t.category}</p>
+                <p className="display-sm text-base text-slate-950 dark:text-white">{c.category}</p>
               </div>
-              
+
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{t.period}</p>
-                <p className="text-sm font-semibold text-slate-950 dark:text-white">{c.period}</p>
+                <p className="meta text-slate-500 dark:text-slate-400 mb-1">{t.period}</p>
+                <p className="display-sm text-base text-slate-950 dark:text-white">{c.period}</p>
               </div>
-              
+
               <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{t.status}</p>
-                <span className="inline-flex items-center px-2 py-0.5 bg-sky-50 dark:bg-sky-900/30 border border-sky-100 dark:border-sky-800/50 rounded-md text-[10px] font-bold text-sky-800 dark:text-sky-300 uppercase tracking-widest mt-1">
+                <p className="meta text-slate-500 dark:text-slate-400 mb-1">{t.status}</p>
+                <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2.5 py-0.5 text-sky-800 dark:text-sky-300 font-bold inline-block mt-1 rounded-xs">
                   {c.status}
                 </span>
               </div>
 
-              {'link' in project && project.link && (
-                <div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Link</p>
-                  <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 hover:bg-sky-200 dark:hover:bg-sky-900/60 text-[14px] font-extrabold rounded-lg shadow-sm transition-all hover:scale-[1.02]">
-                    {project.link.includes('roblox.com') ? 'Play Experience / Visit Link' : 'Visit Link'}
-                    <ArrowUpRight className="w-4 h-4 ml-1.5" />
+              {"link" in project && project.link && (
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+                  <p className="meta text-sky-700 dark:text-sky-400 font-bold mb-2">EXPERIENCE LINK</p>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-solid w-full text-center"
+                  >
+                    <span>
+                      {project.link.includes("roblox.com")
+                        ? "PLAY EXPERIENCE"
+                        : "VISIT PROJECT"}
+                    </span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               )}
 
-              <div>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">{t.tools}</p>
-                <div className="flex flex-wrap gap-2">
+              <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+                <p className="meta text-slate-500 dark:text-slate-400 mb-2">{t.tools}</p>
+                <div className="flex flex-wrap gap-1.5">
                   {tags.map((tag, i) => (
-                    <span key={i} className="text-[11px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-md font-medium border border-slate-200 dark:border-slate-700">
+                    <span
+                      key={i}
+                      className="meta px-2.5 py-1 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] rounded-xs font-semibold"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              
             </div>
           </div>
 
           {/* Main Content Area */}
-          <div className="max-w-3xl">
+          <div>
             {renderSection(t.overview, c.overview)}
             {renderSection(t.context, c.context)}
             {renderSection(t.contribution, c.contribution)}
             {renderSection(t.keyFeatures, c.keyFeatures)}
             {renderSection(t.process, c.process)}
-            
-            {/* Gallery (If Any) */}
+
+            {/* Gallery Grid - Full Color */}
             {project.gallery && project.gallery.length > 0 && (
               <div className="mb-12">
+                <h3 className="display-sm text-base sm:text-lg text-slate-950 dark:text-white uppercase pb-2 border-b border-slate-200 dark:border-slate-800 mb-4 flex items-center justify-between">
+                  <span>GALLERY PLATES</span>
+                  <span className="w-2 h-2 rounded-full bg-sky-500" />
+                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.gallery.map((img, i) => (
-                    <div 
-                      key={i} 
-                      className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 cursor-pointer group"
+                    <div
+                      key={i}
+                      className="relative aspect-video border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden cursor-pointer group shadow-xs hover:border-sky-500 transition-colors"
                       onClick={() => openLightbox(i)}
                     >
-                      <Image 
-                        src={img} 
-                        alt="Project gallery" 
-                        fill 
+                      <Image
+                        src={img}
+                        alt="Project plate"
+                        fill
                         className={`object-cover group-hover:scale-105 transition-transform duration-500 ${
                           ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(project.slug) && i === 0
-                          ? "object-left"
-                          : "object-center"
-                        }`} 
+                            ? "object-left"
+                            : "object-center"
+                        }`}
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors flex items-center justify-center">
                         <Maximize className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 drop-shadow-md scale-50 group-hover:scale-100 transition-all duration-300" />
                       </div>
                     </div>
@@ -333,45 +356,56 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
                 </div>
               </div>
             )}
-            
+
             {renderSection(t.outcome, c.outcome)}
             {renderSection(t.learning, c.learning)}
           </div>
         </div>
       </main>
 
-      {/* Related Projects */}
+      {/* Related Projects - Full Color */}
       {relatedProjects.length > 0 && (
-        <section className="bg-white dark:bg-slate-900 py-16 lg:py-24 border-t border-slate-200 dark:border-slate-800 transition-colors">
-          <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-            <h2 className="text-2xl font-bold text-slate-950 dark:text-white tracking-tight mb-8">
-              {t.related}
-            </h2>
-            
+        <section className="bg-slate-50/60 dark:bg-slate-900/60 py-16 md:py-20 border-t border-slate-200 dark:border-slate-800">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
+            <div className="flex items-center justify-between pb-3 mb-8 border-b border-slate-200 dark:border-slate-800">
+              <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+                {t.related}
+              </span>
+              <span className="meta text-slate-500 dark:text-slate-400">
+                EXPLORE MORE
+              </span>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedProjects.map((rp) => {
                 const rpC = rp.content[lang];
                 return (
-                  <Link href={`/projects/${rp.slug}`} key={rp.id} className="group flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-[#fafafa] dark:bg-slate-950 overflow-hidden hover:border-sky-300 dark:hover:border-sky-700 transition-colors">
-                    <div className="relative aspect-video w-full bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-transparent group-hover:border-slate-100 dark:group-hover:border-slate-800 transition-colors">
+                  <Link
+                    href={`/projects/${rp.slug}`}
+                    key={rp.id}
+                    className="group flex flex-col border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-sky-500 transition-colors shadow-xs"
+                  >
+                    <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-slate-200 dark:border-slate-800">
                       <Image
                         src={rp.image}
                         alt={rpC.title}
                         fill
                         className={`object-cover transition duration-700 ease-out group-hover:scale-105 ${
                           ["trackstudio-tracklabid", "university-website-redesign-android-app", "runcard-studio"].includes(rp.slug)
-                          ? "object-left"
-                          : "object-center"
+                            ? "object-left"
+                            : "object-center"
                         }`}
                         referrerPolicy="no-referrer"
                       />
                     </div>
-                    <div className="p-4 flex flex-col flex-1">
-                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">{rpC.category}</p>
-                      <h4 className="text-[15px] font-bold text-slate-950 dark:text-white line-clamp-2 leading-snug mb-3">
+                    <div className="p-5 flex flex-col flex-1">
+                      <p className="meta text-slate-500 dark:text-slate-400 text-[10px] mb-1">
+                        {rpC.category}
+                      </p>
+                      <h4 className="display-sm text-lg text-slate-950 dark:text-white line-clamp-2 leading-snug mb-3 group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:underline transition-colors">
                         {rpC.title}
                       </h4>
-                      <span className="mt-auto text-[11px] font-bold text-sky-600 dark:text-sky-400 group-hover:underline">
+                      <span className="mt-auto meta text-sky-600 dark:text-sky-400 font-bold inline-flex items-center gap-1 group-hover:underline">
                         {t.viewCase}
                       </span>
                     </div>
@@ -385,19 +419,20 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
 
       <Footer />
 
+      {/* Lightbox Modal */}
       {lightboxOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm">
           {/* Top Controls */}
           <div className="absolute top-0 left-0 w-full p-4 flex items-center justify-between z-[110]">
-            <div className="text-white text-sm font-bold opacity-70 tracking-widest uppercase">
-              {lightboxIndex + 1} / {gallery.length}
+            <div className="meta text-white text-xs opacity-75">
+              PLATE {lightboxIndex + 1} / {gallery.length}
             </div>
             <button
               onClick={closeLightbox}
-              className="p-2 text-white/70 hover:text-white transition-colors"
+              className="p-2 text-white/70 hover:text-white border border-white/20 hover:border-white transition-colors"
               aria-label="Close lightbox"
             >
-              <X className="w-8 h-8" />
+              <X className="w-6 h-6" />
             </button>
           </div>
 
@@ -411,15 +446,15 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
             {({ zoomIn, zoomOut, resetTransform }) => (
               <>
                 {/* Bottom Zoom Controls */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full z-[110]">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 z-[110]">
                   <button onClick={() => zoomOut()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Zoom out">
-                    <ZoomOut className="w-6 h-6" />
+                    <ZoomOut className="w-5 h-5" />
                   </button>
                   <button onClick={() => resetTransform()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Reset zoom">
-                    <RefreshCcw className="w-5 h-5" />
+                    <RefreshCcw className="w-4 h-4" />
                   </button>
                   <button onClick={() => zoomIn()} className="p-2 text-white/80 hover:text-white transition-colors" aria-label="Zoom in">
-                    <ZoomIn className="w-6 h-6" />
+                    <ZoomIn className="w-5 h-5" />
                   </button>
                 </div>
 
@@ -445,17 +480,17 @@ export function ProjectDetailClient({ project, relatedProjects }: { project: Pro
             <>
               <button
                 onClick={prevLightboxImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/50 hover:text-white transition-colors z-[110]"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white border border-white/20 hover:border-white transition-colors z-[110]"
                 aria-label="Previous image"
               >
-                <ChevronLeft className="w-10 h-10" />
+                <ChevronLeft className="w-8 h-8" />
               </button>
               <button
                 onClick={nextLightboxImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/50 hover:text-white transition-colors z-[110]"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white border border-white/20 hover:border-white transition-colors z-[110]"
                 aria-label="Next image"
               >
-                <ChevronRight className="w-10 h-10" />
+                <ChevronRight className="w-8 h-8" />
               </button>
             </>
           )}
