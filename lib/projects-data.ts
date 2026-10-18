@@ -1,5 +1,210 @@
 export const projectsData = [
   {
+    id: 8,
+    slug: "samsara-group-website",
+    link: "https://samsaragroup.vercel.app",
+    image: "/img-samsara-group.png",
+    gallery: [
+      "/img-samsara-group.png",
+      "/samsara1.png",
+      "/samsara2.png",
+      "/samsara3.png",
+    ],
+    tags: {
+      en: ["Next.js", "Sanity CMS", "Tailwind CSS", "Leaflet", "Vercel"],
+      id: ["Next.js", "Sanity CMS", "Tailwind CSS", "Leaflet", "Vercel"],
+    },
+    content: {
+      en: {
+        title: "Samsara Group Website",
+        subtitle: "Company Profile Website for a Hospitality Group",
+        category: "Internship Project",
+        status: "Live Website",
+        period: "2026",
+        role: "Web Developer / CMS Implementation",
+        overview:
+          "A company profile website for Samsara Group, a lifestyle and hospitality group that develops and operates five destination brands across Indonesia: Samsara, Svarga, Acasa, Outpace, and Grove.",
+        context:
+          "The group needed one digital home that presents five distinct brands under a single standard. The site was built as a Next.js application with Sanity CMS so the editorial team can update brands, events, and page content directly from the CMS without redeploying the website.",
+        contribution:
+          "Worked on page structure implementation, multi-brand presentation pages, Sanity CMS integration, interactive location map, responsive layouts, and deployment to Vercel.",
+        keyFeatures: [
+          "Multi-brand company profile (Samsara, Svarga, Acasa, Outpace, Grove)",
+          "Content managed through Sanity CMS without redeploys",
+          "Interactive location map with Leaflet",
+          "Editorial layout with cinematic venue photography",
+          "Responsive implementation for mobile, tablet, and desktop",
+          "Continuous delivery with Vercel",
+        ],
+        process: [
+          "Mapped the content model and page architecture for five distinct brands.",
+          "Implemented the page layouts with Next.js App Router and Tailwind CSS.",
+          "Connected the website to Sanity CMS for live content updates.",
+          "Built the interactive map for brand and venue locations.",
+          "Prepared maintenance and security documentation, then deployed to Vercel.",
+        ],
+        tools: [
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS v4",
+          "Sanity CMS",
+          "Leaflet",
+          "Vercel",
+        ],
+        outcome:
+          "A live production website that presents the group and its five brands, with content fully manageable by the editorial team through the CMS.",
+        learning:
+          "This project strengthened my understanding of content modeling, CMS-driven websites, production deployment workflows, and building a single interface for a multi-brand identity.",
+      },
+      id: {
+        title: "Samsara Group Website",
+        subtitle: "Website Profil Perusahaan Hospitality",
+        category: "Internship Project",
+        status: "Website Live",
+        period: "2026",
+        role: "Web Developer / Implementasi CMS",
+        overview:
+          "Website profil perusahaan untuk Samsara Group, grup lifestyle dan hospitality yang mengembangkan dan mengoperasikan lima brand destinasi di Indonesia: Samsara, Svarga, Acasa, Outpace, dan Grove.",
+        context:
+          "Grup ini membutuhkan satu rumah digital yang menampilkan lima brand berbeda dengan satu standar. Situs dibangun sebagai aplikasi Next.js dengan Sanity CMS agar tim editorial dapat memperbarui brand, event, dan konten halaman langsung dari CMS tanpa deploy ulang.",
+        contribution:
+          "Mengerjakan implementasi struktur halaman, halaman presentasi multi-brand, integrasi Sanity CMS, peta lokasi interaktif, tata letak responsif, dan deployment ke Vercel.",
+        keyFeatures: [
+          "Profil perusahaan multi-brand (Samsara, Svarga, Acasa, Outpace, Grove)",
+          "Konten dikelola melalui Sanity CMS tanpa deploy ulang",
+          "Peta lokasi interaktif dengan Leaflet",
+          "Tata letak editorial dengan fotografi venue sinematik",
+          "Implementasi responsif untuk mobile, tablet, dan desktop",
+          "Continuous delivery melalui Vercel",
+        ],
+        process: [
+          "Memetakan model konten dan arsitektur halaman untuk lima brand.",
+          "Mengimplementasikan tata letak halaman dengan Next.js App Router dan Tailwind CSS.",
+          "Menghubungkan website ke Sanity CMS untuk pembaruan konten secara live.",
+          "Membangun peta interaktif untuk lokasi brand dan venue.",
+          "Menyiapkan dokumentasi pemeliharaan dan keamanan, lalu deploy ke Vercel.",
+        ],
+        tools: [
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS v4",
+          "Sanity CMS",
+          "Leaflet",
+          "Vercel",
+        ],
+        outcome:
+          "Website produksi yang live dan menampilkan grup beserta lima brand-nya, dengan seluruh konten yang dapat dikelola tim editorial melalui CMS.",
+        learning:
+          "Proyek ini memperkuat pemahaman saya tentang content modeling, website berbasis CMS, alur deployment produksi, dan membangun satu antarmuka untuk identitas multi-brand.",
+      },
+    },
+  },
+  {
+    id: 9,
+    slug: "melodi-alam",
+    link: "https://melodialam-website.vercel.app",
+    image: "/img-melodi-alam.png",
+    gallery: [
+      "/img-melodi-alam.png",
+      "/melodi1.png",
+      "/melodi2.png",
+      "/melodi3.png",
+      "/melodi4.png",
+    ],
+    tags: {
+      en: ["Next.js", "Sanity CMS", "Tailwind CSS", "Motion", "Vercel"],
+      id: ["Next.js", "Sanity CMS", "Tailwind CSS", "Motion", "Vercel"],
+    },
+    content: {
+      en: {
+        title: "Melodi Alam",
+        subtitle: "Music Media Platform — Stories & Watch",
+        category: "Internship Project",
+        status: "Live Platform",
+        period: "2026",
+        role: "Web Developer / CMS & Content System",
+        overview:
+          "An Indonesian music media web platform that unifies music journalism, a YouTube video catalog, and a demo submission channel for musicians. Part of the intellectual property ecosystem of PT Infia Pariwara Nusantara.",
+        context:
+          "The platform needed a modern editorial home that combines long-form music writing with watch pages and an open submission path for bands. Content is modeled in Sanity with two separate datasets, keeping public editorial content apart from private musician contact data.",
+        contribution:
+          "Worked on the Next.js page implementation, Sanity content integration, demo submission flow with a curator moderation queue, editorial layouts, motion details, SEO metadata, and deployment.",
+        keyFeatures: [
+          "Editorial Stories system with music journalism categories",
+          "Bicara Melodi interview & live session series",
+          "Video catalog synced from the @melodialam YouTube channel",
+          "Pahlawan Kota local artist series",
+          "Open demo submission with a curator moderation queue",
+          "Separate public and private Sanity datasets for submissions",
+          "Swiss editorial design system with responsive layouts",
+        ],
+        process: [
+          "Structured the content model in Sanity Studio for articles, interviews, videos, playlists, and demo submissions.",
+          "Implemented the page routes and editorial layouts with Next.js App Router.",
+          "Built the demo submission flow and curation queue.",
+          "Added motion details and responsive refinements across sections.",
+          "Prepared SEO metadata and deployed to Vercel with content managed from the hosted Sanity Studio.",
+        ],
+        tools: [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS v4",
+          "Sanity CMS",
+          "Motion",
+          "Vercel",
+        ],
+        outcome:
+          "A live platform with 27 statically generated pages, where editors manage articles, interviews, videos, and submission curation entirely from the Sanity Studio.",
+        learning:
+          "This project deepened my understanding of editorial design systems, content modeling, separating public and private data, and building content workflows editors can run without developers.",
+      },
+      id: {
+        title: "Melodi Alam",
+        subtitle: "Platform Media Musik — Stories & Watch",
+        category: "Internship Project",
+        status: "Platform Live",
+        period: "2026",
+        role: "Web Developer / Sistem Konten & CMS",
+        overview:
+          "Platform web media musik Indonesia yang menyatukan jurnalisme musik, katalog video YouTube, dan kanal pengiriman demo untuk musisi. Bagian dari ekosistem kekayaan intelektual PT Infia Pariwara Nusantara.",
+        context:
+          "Platform ini membutuhkan rumah editorial modern yang menggabungkan tulisan musik panjang dengan halaman watch dan jalur pengiriman karya terbuka untuk band. Konten dimodelkan di Sanity dengan dua dataset terpisah, memisahkan konten editorial publik dari data kontak musisi yang privat.",
+        contribution:
+          "Mengerjakan implementasi halaman Next.js, integrasi konten Sanity, alur pengiriman demo dengan antrean moderasi kurator, tata letak editorial, detail motion, metadata SEO, dan deployment.",
+        keyFeatures: [
+          "Sistem editorial Stories dengan rubrik jurnalisme musik",
+          "Seri wawancara & sesi live Bicara Melodi",
+          "Katalog video yang tersinkron dengan kanal YouTube @melodialam",
+          "Seri musisi lokal Pahlawan Kota",
+          "Pengiriman demo terbuka dengan antrean moderasi kurator",
+          "Dataset Sanity publik dan privat yang terpisah untuk kiriman demo",
+          "Design system editorial Swiss dengan tata letak responsif",
+        ],
+        process: [
+          "Menyusun model konten di Sanity Studio untuk artikel, wawancara, video, playlist, dan kiriman demo.",
+          "Mengimplementasikan rute halaman dan tata letak editorial dengan Next.js App Router.",
+          "Membangun alur pengiriman demo dan antrean kurasi.",
+          "Menambahkan detail motion dan penyempurnaan responsif di seluruh section.",
+          "Menyiapkan metadata SEO dan deploy ke Vercel dengan konten dikelola dari Sanity Studio.",
+        ],
+        tools: [
+          "Next.js 16",
+          "React 19",
+          "TypeScript",
+          "Tailwind CSS v4",
+          "Sanity CMS",
+          "Motion",
+          "Vercel",
+        ],
+        outcome:
+          "Platform live dengan 27 halaman statis, di mana editor mengelola artikel, wawancara, video, dan kurasi kiriman sepenuhnya dari Sanity Studio.",
+        learning:
+          "Proyek ini memperdalam pemahaman saya tentang design system editorial, content modeling, pemisahan data publik dan privat, serta membangun alur kerja konten yang bisa dijalankan editor tanpa developer.",
+      },
+    },
+  },
+  {
     id: 1,
     slug: "seamolec-virtual-room-tour",
     link: "https://www.roblox.com/share?code=6e51d9cf65594b478be3e676dee14fc8&type=ExperienceDetails&stamp=1779795892280",
