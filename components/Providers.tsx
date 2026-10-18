@@ -32,7 +32,6 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
       setTheme("light");
       document.documentElement.classList.remove("dark");
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
