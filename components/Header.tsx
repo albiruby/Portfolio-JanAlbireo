@@ -35,7 +35,7 @@ export function Header() {
             </span>
           </div>
           <span className="meta text-slate-500 dark:text-slate-400 hidden sm:inline">
-            POLITEKNIK NEGERI JAKARTA · 2026
+            POLITEKNIK NEGERI JAKARTA · D4 TEKNIK MULTIMEDIA DIGITAL
           </span>
         </div>
       </div>

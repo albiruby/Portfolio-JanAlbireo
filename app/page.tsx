@@ -42,15 +42,15 @@ export default function PortfolioPage() {
           <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-sky-200/40 dark:bg-sky-900/15 rounded-full blur-[120px] pointer-events-none -z-10" />
 
           {/* Top Presentation Meta (Image 2 style with Color) */}
-          <div className="flex items-center justify-between pb-6 mb-8 border-b border-slate-200 dark:border-slate-800">
-            <span className="meta text-sky-700 dark:text-sky-400 font-bold">
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pb-6 mb-8 border-b border-slate-200 dark:border-slate-800">
+            <span className="meta text-sky-700 dark:text-sky-400 font-bold shrink-0">
               {t.hero.intro}
             </span>
             <span className="meta text-slate-500 dark:text-slate-400 hidden sm:inline">
               2026 DIGITAL MULTIMEDIA ARCHIVE
             </span>
-            <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1 text-sky-700 dark:text-sky-300 font-bold rounded-full inline-flex items-center gap-2 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2.5 py-1 text-sky-700 dark:text-sky-300 font-bold rounded-full inline-flex items-center gap-2 shadow-xs w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
               {t.hero.badge}
             </span>
           </div>
@@ -147,7 +147,7 @@ export default function PortfolioPage() {
         <section className="relative border-b border-slate-200 dark:border-slate-800 bg-gradient-to-b from-sky-50/40 to-transparent dark:from-sky-950/20 dark:to-transparent py-16 md:py-20">
           <div className="mx-auto w-full max-w-4xl px-5 sm:px-8 text-center space-y-6">
             <span className="meta text-sky-700 dark:text-sky-400 block tracking-[0.2em] font-bold">
-              CORE PHILOSOPHY // 06TH SEMESTER
+              CORE PHILOSOPHY // SEMESTER 7
             </span>
             <p className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-900 dark:text-white leading-relaxed sm:leading-snug">
               {lang === "en" ? (
@@ -308,7 +308,7 @@ export default function PortfolioPage() {
                       </div>
 
                       {/* Project Meta Below Image (Edison Palmer style: Title on left, Tags on right) */}
-                      <div className="pt-4 flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <div className="pt-4 flex flex-col gap-2 lg:flex-row lg:items-start lg:justify-between lg:gap-4 border-b border-slate-200 dark:border-slate-800 pb-3">
                         <div>
                           <h3 className="display-sm text-xl lg:text-2xl text-slate-950 dark:text-white leading-tight group-hover:text-sky-600 dark:group-hover:text-sky-400 group-hover:underline decoration-1 underline-offset-4 transition-colors">
                             {projectContent.title}
@@ -317,7 +317,7 @@ export default function PortfolioPage() {
                             {projectContent.category} · {projectContent.period}
                           </p>
                         </div>
-                        <div className="text-right shrink-0">
+                        <div className="text-left lg:text-right lg:shrink-0">
                           <span className="meta text-slate-500 dark:text-slate-400 text-[10px] block font-medium">
                             {displayTags}
                           </span>
@@ -398,7 +398,7 @@ export default function PortfolioPage() {
                 </h3>
               </div>
 
-              <div className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-4 pt-2">
+              <div className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed space-y-4 pt-2 max-w-2xl">
                 {t.about.paragraphs &&
                   t.about.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
               </div>
@@ -447,7 +447,7 @@ export default function PortfolioPage() {
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
             <div className="space-y-4">
               <span className="meta text-sky-700 dark:text-sky-400 font-bold block">
-                {t.internship.section} // 2026 OPPORTUNITIES
+                {t.internship.section}
               </span>
               <h2 className="display text-3xl md:text-4xl text-slate-950 dark:text-white leading-tight">
                 {t.internship.title}
@@ -503,7 +503,7 @@ export default function PortfolioPage() {
                   className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs hover:border-sky-500 transition-colors"
                 >
                   <span className="meta text-sky-600 dark:text-sky-400 font-bold block mb-2">
-                    0{idx + 1} // {cat.name.toUpperCase()}
+                    {`0${idx + 1} // ${cat.name.toUpperCase()}`}
                   </span>
                   <div className="flex flex-wrap gap-2 mt-3">
                     {cat.items.map((s, i) => (

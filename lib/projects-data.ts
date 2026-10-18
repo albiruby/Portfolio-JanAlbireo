@@ -224,8 +224,8 @@ export const projectsData = [
         title: "SEAMOLEC Virtual Room Tour",
         subtitle: "Roblox Studio",
         category: "Lecturer-Supervised Academic Project",
-        status: "In Development",
-        period: "2026 – Present",
+        status: "Completed",
+        period: "2026",
         role: "Interactive Media Developer / Roblox Scripter",
         overview:
           "A Roblox-based 3D virtual room tour designed as an interactive information medium for exploring SEAMOLEC facilities through free navigation, NPC guidance, room interactions, minimap, and teleportation.",
@@ -260,8 +260,8 @@ export const projectsData = [
         title: "SEAMOLEC Virtual Room Tour",
         subtitle: "Roblox Studio",
         category: "Lecturer-Supervised Academic Project",
-        status: "Dalam Pengembangan",
-        period: "2026 – Present",
+        status: "Selesai",
+        period: "2026",
         role: "Interactive Media Developer / Roblox Scripter",
         overview:
           "Virtual room tour 3D berbasis Roblox yang dirancang sebagai media informasi interaktif untuk mengeksplorasi fasilitas SEAMOLEC melalui navigasi bebas, panduan NPC, interaksi ruangan, minimap, dan teleportasi.",

@@ -24,14 +24,14 @@ export function Footer() {
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <span className="meta text-slate-600 dark:text-slate-400">
-              📍 DEPOK, INDONESIA
+              📍 BOGOR · DEPOK · JAKARTA
             </span>
             <span className="meta text-slate-600 dark:text-slate-400">
               🎓 POLITEKNIK NEGERI JAKARTA
             </span>
             <span className="meta border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-2 py-0.5 text-sky-700 dark:text-sky-300 font-bold rounded-sm inline-flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              AVAILABLE 2026
+              OPEN TO PROFESSIONAL COLLABORATION
             </span>
           </div>
         </div>
